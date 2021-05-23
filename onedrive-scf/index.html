@@ -1,0 +1,336 @@
+<!DOCTYPE html><html lang="zh-Hans"><head>
+<meta charset="utf-8">
+<title>利用腾讯云无服务器云函数搭建 OneDrive 网盘 - CWorld's Blog</title>
+<base href="/">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+<link rel="canonical" href="https://blog.cworld.top/onedrive-scf/">
+<link rel="icon" type="image/x-icon" href="/logo.png">
+
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<meta name="description" content="原理是用腾讯云的无服务器云函数配合 API 网关实现，不需要自己的服务器。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="利用腾讯云无服务器云函数搭建 OneDrive 网盘">
+<meta property="og:url" content="https://blog.cworld.top/onedrive-scf/">
+<meta property="og:site_name" content="CWorld's Blog">
+<meta property="og:description" content="原理是用腾讯云的无服务器云函数配合 API 网关实现，不需要自己的服务器。">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/0060ksKkly1gbuhc4an2fj319c0a5gm2.jpg">
+<meta property="article:published_time" content="2020-02-13T08:44:58.576Z">
+<meta property="article:modified_time" content="2021-05-23T13:54:25.394Z">
+<meta property="article:author" content="CWorld">
+<meta property="article:tag" content="网盘">
+<meta property="article:tag" content="美化">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/0060ksKkly1gbuhc4an2fj319c0a5gm2.jpg">
+
+<script type="application/ld+json">[{"@context":"http://schema.org","@type":"WebSite","publisher":{"@type":"Person","name":"CWorld","description":"Stay hungry, Stay foolish. 求知若愚，虚怀若谷。","image":"https://gravatar.loli.net/avatar/85b870f6b1a177981d3e9566e3ad7264?s=400"},"url":"https://blog.cworld.top","image":"https://gravatar.loli.net/avatar/85b870f6b1a177981d3e9566e3ad7264?s=400","description":"Stay hungry, Stay foolish","author":{"@type":"Person","name":"CWorld","description":"Stay hungry, Stay foolish. 求知若愚，虚怀若谷。","image":"https://gravatar.loli.net/avatar/85b870f6b1a177981d3e9566e3ad7264?s=400"},"inLanguage":{"@type":"Language","alternateName":"zh-Hans"}},{"@context":"http://schema.org","@type":"Article","articleSection":"教程","url":"https://blog.cworld.top/onedrive-scf/","headline":"利用腾讯云无服务器云函数搭建 OneDrive 网盘","image":"https://tva1.sinaimg.cn/large/0060ksKkly1gbuhc4an2fj319c0a5gm2.jpg","datePublished":"2020-02-13T08:44:58.576Z","dateModified":"2021-05-23T13:54:25.394Z","keywords":"网盘,美化","description":"原理是用腾讯云的无服务器云函数配合 API 网关实现，不需要自己的服务器。","publisher":{"@type":"Organization","name":"CWorld's Blog","logo":{"@type":"ImageObject","url":"https://gravatar.loli.net/avatar/85b870f6b1a177981d3e9566e3ad7264?s=400"}},"author":{"@type":"Person","name":"CWorld","description":"Stay hungry, Stay foolish. 求知若愚，虚怀若谷。","image":"https://gravatar.loli.net/avatar/85b870f6b1a177981d3e9566e3ad7264?s=400"},"inLanguage":{"@type":"Language","alternateName":"zh-Hans"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.cworld.top/onedrive-scf/"},"thumbnailUrl":"https://tva1.sinaimg.cn/large/0060ksKkly1gbuhc4an2fj319c0a5gm2.jpg"}]</script>
+
+
+<link rel="alternate" type="application/atom+xml" title="CWorld's Blog" href="/atom.xml">
+
+<link href="//cdn.jsdelivr.net/gh/fiteen/fiteen.github.io@v0.1.0/font.css" rel="stylesheet">
+<style>.φbf,
+img.φbw.φj {
+    transition: .3s;
+    -webkit-transition: .3s;
+    -ms-transition: .3s;
+    -moz-transition: .3s
+}
+
+img.φbw.φj:active {
+    transform: scale(.9)
+}
+
+@font-face {
+    font-family: iconfont;
+    src: url(iconfont.eot?t=1581948047227);
+    src: url(iconfont.eot?t=1581948047227#iefix) format('embedded-opentype'), url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAARIAAsAAAAACLQAAAP7AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDMgqERIN+ATYCJAMUCwwABCAFhG0HWBuaB8geg207eYRRJN1p5HM2Hv5/v2/7XHlfpc0k0ThZEGukyZglQiOSoLMIiUonE4oms079R3lVZbIQstLMQjyOFsz2QJnL5uDZszhMzk/4JZTq/8Whaqb4fEu2yxxTE8qFwqEJFKC9MTR7XqCWaiWsiHcYu7iMywS61qXCztc2C8FJoc0KxCOlvBecYjqlpDi0hSZnYxHPwV47PeU9APDM/f74B5nhRFIzbeHVOzX9UP4DexONG/4boMNGAL8/C5htZBwAhXica3sE92MHcF0pYucEyD9rS9IP7LXza/Ob6P8BEK1I0dX/4VGEJBMNrbAPTlC88AMzyRR+OpMJfprJJH5F62SIrtO76OEVgP9AtdHnoCyLTr/TKWN7wcStVD7PKgTPeMe2WT16m03EcRKWlf6hweARL7j2+SaDcZ550OLtZj+I/msj2L28mOM+34LZPzGLPeYZw+xc6+juDSux1VZzm4vZxkrnsWZ2kLNw820mm8FqtHahj2g/ztWdthWcfZi04ozfJbaWtQo32JLO2vJuc4LrEsnqk8GtK9fs2RXQt79o59k4VnzFWm4cIjzBxp9j+ce4/8Ke90JnoWGfwWLjwd1T66H7GlaH1Xd310MxRjnwvLrunvrHfbwNpbkCJ0Hu+lJyWlxWo74UUt6JWDFLeMeI8P/pbIzLNs3b9gEezBOJRQCrw+rr7e2hYhguzxmZ0hz5ILJZbIgfeLVivizZbyv281D+Ip1tN2zF0KeFxs9r+1uef+/02xX15f7n+D+9krz8GidK6Fo9NqzxWarU+7xbcxn3ILFi+ODjpUdZRtvRZ9wDZ34GprRLYioTyqMrlD2zqCHVLvg53m/jlbJmPaiNo92UT3kswApuwMUA5He8KwDkt7wpf8Pv+DjqzJVuz+KvTq4FfNJfXOz6VuygXbwtUZv/7vk1a4os1PS1iJUmT7RXRxGdJLV08cZdU6/6USxqRwjtGJ+BpGUNsrYNZMEeQNVzCI22Y+jaV7e9Z4aGi9LBnpkAwthhSIbeQDb2EFmwL6Fa+gSNceDQdRq+B/ZshdKlika9DOon+sYTSpLSyQwj4+IVj0Dy0ZpeOip0cWJEDyiDRAY/PZmsQzpE97FkYIw8k2FkhIymtEQtuA5pNBShpykVIhm+gmH0hQKBLO9OfJLSgotzaEgvBtKP0Gc8ghKJoiOzmzNcUl8/AiI3mkYvuqSqxCqG0AYo+ydk4EuvgayT6WpVncvwAWPIZWIwZHiaDI2iRaiFFkSjxygEff44FYTE4FO0iOgVEqB6sroy/vgK7TXugS7tsBopcpSo0RhdJ0lqtI5Js7IZjVKH3Mj95MRPICn9eByNR44kRWl69WoAAA==') format('woff2'), url(iconfont.woff?t=1581948047227) format('woff'), url(iconfont.ttf?t=1581948047227) format('truetype'), url(iconfont.svg?t=1581948047227#iconfont) format('svg')
+}
+
+.fa,
+.icon-coolapk:before,
+.iconfont {
+    font-family: iconfont !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+.icon-account:before {
+    content: "\e609" !important
+}
+
+.fa-clipboard:before {
+    content: "\e6d2" !important
+}
+
+.icon-eye:before {
+    content: "\e722" !important
+}
+
+.icon-coolapk:before {
+    content: "\e501" !important
+}
+
+@font-face {
+    font-family: 'IM Fell DW Pica SC';
+    src: url(//lib.baomitu.com/fonts/im-fell-dw-pica-sc/im-fell-dw-pica-sc-regular.eot);
+    src: local('IM Fell DW Pica SC'), local('IMFell DW Pica SC-Normal'), url(//lib.baomitu.com/fonts/im-fell-dw-pica-sc/im-fell-dw-pica-sc-regular.eot?#iefix) format('embedded-opentype'), url(//lib.baomitu.com/fonts/im-fell-dw-pica-sc/im-fell-dw-pica-sc-regular.woff2) format('woff2'), url(//lib.baomitu.com/fonts/im-fell-dw-pica-sc/im-fell-dw-pica-sc-regular.woff) format('woff'), url(//lib.baomitu.com/fonts/im-fell-dw-pica-sc/im-fell-dw-pica-sc-regular.ttf) format('truetype'), url('//lib.baomitu.com/fonts/im-fell-dw-pica-sc/im-fell-dw-pica-sc-regular.svg#IMFell DW Pica SC') format('svg')
+}
+
+@font-face {
+    font-family: Lobster;
+    src: url(//lib.baomitu.com/fonts/lobster/lobster-regular.eot);
+    src: local('Lobster'), local('Lobster-Normal'), url(//lib.baomitu.com/fonts/lobster/lobster-regular.eot?#iefix) format('embedded-opentype'), url(//lib.baomitu.com/fonts/lobster/lobster-regular.woff2) format('woff2'), url(//lib.baomitu.com/fonts/lobster/lobster-regular.woff) format('woff'), url(//lib.baomitu.com/fonts/lobster/lobster-regular.ttf) format('truetype'), url(//lib.baomitu.com/fonts/lobster/lobster-regular.svg#Lobster) format('svg')
+}
+
+.φbd.φm {
+    font-weight: 700
+}
+
+* {
+    outline: 0
+}
+
+.φcj {
+    border-radius: 50%
+}
+
+.φfw img {
+    border-radius: 8px
+}
+
+@media (max-width:675px) {
+    .φfw img {
+        border-radius: 4px
+    }
+}
+
+.valine * {
+    font-family: 'Josefin Sans', 'PingFang SC' !important
+}
+
+.valine .vlist .vcard .vcomment-body .vhead .vname,
+.valine a {
+    color: #659eb9 !important
+}
+
+.valine .vlist .vcard .vcomment-body {
+    padding: 1em .5em 1em !important
+}
+
+.valine .vlist .vcard .vcomment-body .vat {
+    opacity: 0;
+    margin-top: -.5em;
+    padding: .5em 1em .2em 1em !important;
+    border-radius: 4px
+}
+
+.valine .vlist .vcard .vcomment-body:hover .vhead a.vat {
+    background: 0 0 !important;
+    opacity: 1
+}
+
+.valine .vlist .vcard .vcomment-body .vhead a.vat:hover {
+    background-color: #659eb921 !important
+}
+
+.valine .vinputs-area .auth-section .post-action button {
+    border: none !important;
+    background: #659eb9 !important
+}
+
+.highlight {
+    position: relative
+}
+
+.btn-copy {
+    border-radius: 3px;
+    border-width: 0;
+    font-size: 13px;
+    line-height: 12px;
+    padding: 4px 6px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    background: #659eb90f;
+    color: #659eb9de;
+    opacity: 0;
+    outline: 0;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-appearance: none;
+    transition: .3s
+}
+
+.btn-copy span {
+    margin-left: 5px
+}
+
+.highlight:hover .btn-copy {
+    opacity: 1
+}</style>
+<link href="//cdn.jsdelivr.net/gh/ikeq/hexo-theme-inside@2.7.0-beta.2/source/styles.c3f8d35f4c49a6d852da.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/theme.be7b2c110561281a17c7.css" is="theme">
+
+
+<script src="/config.09da1a28f6c1e4f8e06e.js"></script>
+
+
+<script async="" src="//www.googletagmanager.com/gtag/js?id=UA-158629060-1"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','UA-158629060-1');</script>
+<meta name="referrer" content="no-referrer">
+
+<meta name="generator" content="Hexo 4.2.1"><meta name="theme-color" content="#006fff"><script type="application/json" is="state">{&q;api/b25lZHJpdmUtc2Nm.json&q;:{&q;title&q;:&q;利用腾讯云无服务器云函数搭建 OneDrive 网盘&q;,&q;date&q;:&q;2020-02-13T08:44:58.576Z&q;,&q;date_formatted&q;:{&q;ll&q;:&q;2020年2月13日&q;,&q;L&q;:&q;2020/02/13&q;,&q;MM-DD&q;:&q;02-13&q;},&q;thumbnail&q;:&q;https://tva1.sinaimg.cn/large/0060ksKkly1gbuhc4an2fj319c0a5gm2.jpg&q;,&q;color&q;:&q;#006fff&q;,&q;link&q;:&q;onedrive-scf&q;,&q;comments&q;:true,&q;tags&q;:[&q;网盘&q;,&q;美化&q;],&q;categories&q;:[&q;教程&q;],&q;updated&q;:&q;2021-05-23T13:54:25.394Z&q;,&q;content&q;:&q;&l;p&g;原理是用腾讯云的无服务器云函数配合 API 网关实现，不需要自己的服务器。&l;/p&g;\n&l;a id=\&q;more\&q;&g;&l;/a&g;\n&l;p&g;零成本搭建，实测运行机器的配置，8核16G内存（可以运行 System 命令链接 Shell 看），因此此方法搭建自己的大型网站完全够用。&l;/p&g;\n&l;p&g;腾讯云无服务器云函数（Serverless Cloud Function，SCF）是腾讯云为企业和开发者们提供的无服务器执行环境，帮助您在无需购买和管理服务器的情况下运行代码。您只需使用平台支持的语言编写核心代码并设置代码运行的条件，即可在腾讯云基础设施上弹性、安全地运行代码。SCF 是实时文件处理和数据处理等场景下理想的计算平台。&l;/p&g;\n&l;h2 id=\&q;准备\&q;&g;准备&l;a title=\&q;#准备\&q; href=\&q;#准备\&q;&g;&l;/a&g;&l;/h2&g;\n&l;ul&g;\n&l;li&g;\n&l;p&g;OneDrive SCF 源码&l;/p&g;\n&l;p&g;这里给出仓库地址：&l;/p&g;\n&l;p&g;最初版本 &l;a href=\&q;https://github.com/Tai7sy/OneDrive_SCF\&q; target=\&q;_blank\&q;&g;OneDrive_SCF&l;/a&g;&l;/p&g;\n&l;p&g;第二版本 &l;a href=\&q;https://github.com/qkqpttgf/OneDrive_SCF\&q; target=\&q;_blank\&q;&g;OneDrive_SCF&l;/a&g;&l;/p&g;\n&l;p&g;三合一版本 &l;a href=\&q;https://github.com/qkqpttgf/OneManager-php\&q; target=\&q;_blank\&q;&g;OneManager-php&l;/a&g;&l;/p&g;\n&l;/li&g;\n&l;li&g;\n&l;p&g;一个 OneDrive 账号&l;/p&g;\n&l;p&g;如果你想拥有一个不限量空间，可以尝试在网上找子账号，或者自己申请 &l;a href=\&q;https://baijiahao.baidu.com/s?id=1655579024801979058\&q; target=\&q;_blank\&q;&g;Office 365 E5 管理&l;/a&g;&l;/p&g;\n&l;/li&g;\n&l;li&g;\n&l;p&g;一个腾讯云账号&l;/p&g;\n&l;/li&g;\n&l;/ul&g;\n&l;h2 id=\&q;提要\&q;&g;提要&l;a title=\&q;#提要\&q; href=\&q;#提要\&q;&g;&l;/a&g;&l;/h2&g;\n&l;ul&g;\n&l;li&g;\n&l;p&g;腾讯云的 API 网关还可以关联上自己的域名，从而脱离本身的随机域名。&l;/p&g;\n&l;/li&g;\n&l;li&g;\n&l;p&g;如果你是 Office 365 E5 管理员并准备 90 天续期，或许这个可以帮助你长期保持活跃状态。&l;/p&g;\n&l;/li&g;\n&l;/ul&g;\n&l;h2 id=\&q;注意事项\&q;&g;注意事项&l;a title=\&q;#注意事项\&q; href=\&q;#注意事项\&q;&g;&l;/a&g;&l;/h2&g;\n&l;p&g;API 网关从 2019 年 12 月 4 日开始收费。请注意不要超过额度，这意味着最好不要将网站随意告诉他人，以免恶意刷流量。当然腾讯云的免费额度对于个人来说完全够用，超出后收费也非常亲民。所以最好是在腾讯云上充值一块钱，以免意外超额。&l;/p&g;\n&l;p&g;仅调用云函数会收费，因此查看文件的文件本身和下载仅消耗微软的免费服务，因此不会有任何费用产生。&l;/p&g;\n&l;p&g;&l;a href=\&q;https://cloud.tencent.com/document/product/583/12282\&q; target=\&q;_blank\&q;&g;腾讯云免费额度&l;/a&g;&l;/p&g;\n&l;p&g;&l;a href=\&q;https://cloud.tencent.com/document/product/583/12284\&q; target=\&q;_blank\&q;&g;GBs 单位与费用计算&l;/a&g;&l;/p&g;\n&l;p&g;&l;a href=\&q;https://cloud.tencent.com/document/product/583/12281\&q; target=\&q;_blank\&q;&g;超出免费额度收费标准&l;/a&g;&l;/p&g;\n&l;p&g;如果上述内容有些生涩难懂，可以配合 &l;a href=\&q;https://cloud.tencent.com/document/product/583/12285\&q; target=\&q;_blank\&q;&g;腾讯云函数计费示例&l;/a&g; 一同查看。&l;/p&g;\n&l;h2 id=\&q;搭建教程\&q;&g;搭建教程&l;a title=\&q;#搭建教程\&q; href=\&q;#搭建教程\&q;&g;&l;/a&g;&l;/h2&g;\n&l;p&g;开发者也很贴心地制作了视频。&l;a href=\&q;https://service-pgxgvop2-1258064400.ap-hongkong.apigateway.myqcloud.com/test/abcdef/%E6%97%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%87%BD%E6%95%B0SCF%E6%90%AD%E5%BB%BAOneDrive.mp4?preview\&q; target=\&q;_blank\&q;&g;点击查看&l;/a&g; 可以与此教程互相对照。&l;/p&g;\n&l;ol&g;\n&l;li&g;\n&l;p&g;打开进入腾讯云 SCF。&l;/p&g;\n&l;p&g;&l;img src=\&q;https://tvax2.sinaimg.cn/large/0060ksKkly1gbuiu6ay46j30i2081q37.jpg\&q; alt=\&q;腾讯云 SCF\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;/li&g;\n&l;li&g;\n&l;p&g;函数服务-新建函数-空白函数&l;/p&g;\n&l;blockquote&g;\n&l;p&g;后面如果想绑定自定义域名，只能绑定备案域名，所以刚开始新建函数的时候，我们最好选择香港地区，即从下图中的广州改为香港。&l;br&g;\n&l;img src=\&q;https://tvax2.sinaimg.cn/large/0060ksKkly1gbuivuzqnqj30hl0a6t8v.jpg\&q; alt=\&q;新建函数\&q;&g;&l;/p&g;\n&l;/blockquote&g;\n&l;p&g;模板选择空白。填写函数名称，注意以后会以这个名称将作网址且难以更改。运行环境选 PHP7.2。&l;br&g;\n&l;img src=\&q;https://tvax2.sinaimg.cn/large/0060ksKkly1gbukixrkfdj30g70cgdfx.jpg\&q; alt=\&q;模板选择\&q;&g;&l;/p&g;\n&l;/li&g;\n&l;li&g;\n&l;p&g;函数配置&l;/p&g;\n&l;p&g;可以修改一下描述，提交方式选择本地上传。&l;/p&g;\n&l;/li&g;\n&l;li&g;\n&l;p&g;下载函数源码并上传&l;/p&g;\n&l;p&g;下载源码：&l;a href=\&q;https://sword.studio/go/aHR0cHM6Ly9naXRodWIuY29tL1RhaTdzeS9PbmVEcml2ZV9TQ0YvYXJjaGl2ZS9tYXN0ZXIuemlw\&q; target=\&q;_blank\&q;&g;点击下载&l;/a&g;&l;/p&g;\n&l;p&g;&l;img src=\&q;https://tvax4.sinaimg.cn/large/0060ksKkly1gbukrik5xxj30i80d4dhn.jpg\&q; alt=\&q;选择\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;blockquote&g;\n&l;p&g;博主在上传的时候因为是手机操作，所以先使用了压缩包的形式，结果提示错误。所以这里可能只能选择文件夹上传。&l;/p&g;\n&l;/blockquote&g;\n&l;/li&g;\n&l;li&g;\n&l;p&g;添加触发方式&l;/p&g;\n&l;p&g;修改触发方式，开启集成响应。&l;/p&g;\n&l;p&g;&l;img src=\&q;https://tva3.sinaimg.cn/large/0060ksKkly1gbukx28f6fj30uz0l5n1l.jpg\&q; alt=\&q;2020-2-13 10-46-33\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;/li&g;\n&l;li&g;\n&l;p&g;进入网站，添加 API 密钥&l;/p&g;\n&l;p&g;&l;img src=\&q;https://tvax1.sinaimg.cn/large/0060ksKkly1gbul0sz311j30sc0cxq5b.jpg\&q; alt=\&q;2020-2-13 10-49-26\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;p&g;选择中文，开始新建&l;/p&g;\n&l;p&g;&l;img src=\&q;https://tvax2.sinaimg.cn/large/0060ksKkly1gbul29qzlgj30jo0ci0ty.jpg\&q; alt=\&q;2020-2-13 10-49-39\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;p&g;接下来的窗口选择继续，然后新建密钥。&l;/p&g;\n&l;p&g;回到函数配置，点击右上角的编辑，将获取的密钥粘贴入环境变量中。&l;/p&g;\n&l;p&g;&l;img src=\&q;https://tva3.sinaimg.cn/large/0060ksKkly1gbul5zj6c3j313t0oagp4.jpg\&q; alt=\&q;2020-2-13 10-55-18\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;p&g;&l;img src=\&q;https://tva1.sinaimg.cn/large/0060ksKkly1gbul8tl7f4j30om0he405.jpg\&q; alt=\&q;2020-2-13 10-56-53\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;/li&g;\n&l;li&g;\n&l;p&g;完成配置&l;/p&g;\n&l;p&g;回到之前自己建的网站，如果没有错就可以继续下一步。选择 MS 默认。&l;/p&g;\n&l;p&g;接下来会自动跳转到 OneDrive ，选择登录并继续，即可看到配置成功的界面。&l;/p&g;\n&l;p&g;&l;img src=\&q;https://tva3.sinaimg.cn/large/0060ksKkly1gbuli0z99vj31410o7790.jpg\&q; alt=\&q;2020-2-13 11-6-41\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;p&g;回到函数配置，点击右上角的编辑，环境变量中继续添加：key 为 admin ，value 为你要设置的密码。&l;/p&g;\n&l;p&g;&l;img src=\&q;https://tva1.sinaimg.cn/large/0060ksKkly1gbuliziisyj30lb0cc0tn.jpg\&q; alt=\&q;2020-2-13 11-7-54\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;p&g;回到网址，刷新后左上角就可以登录进入后台了。点击更新并在下方进行相应配置。这样就基本完工了！&l;/p&g;\n&l;/li&g;\n&l;/ol&g;\n&l;h2 id=\&q;定义域名\&q;&g;定义域名&l;a title=\&q;#定义域名\&q; href=\&q;#定义域名\&q;&g;&l;/a&g;&l;/h2&g;\n&l;p&g;回到 API 网关，选择自定义域名，新建&l;/p&g;\n&l;p&g;为了得到最简链接，自定义路径设为 &l;code&g;/&l;/code&g; &l;code&g;发布&l;/code&g;&l;/p&g;\n&l;p&g;&l;img src=\&q;https://tvax4.sinaimg.cn/large/0060ksKkly1gbums87xr6j30q30hkjrv.jpg\&q; alt=\&q;2020-2-13 11-51-2\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;blockquote&g;\n&l;p&g;如果需要 https，点击“点此前往”，然后点击申请免费证书。注意证书和域名自定义都需要添加解析。&l;br&g;\n&l;img src=\&q;https://tva4.sinaimg.cn/large/0060ksKkly1gbun91d7xwj31an03kjre.jpg\&q; alt=\&q;2020-2-13 12-7-30\&q;&g;&l;/p&g;\n&l;/blockquote&g;\n&l;p&g;添加蓝色提示框内的网站为CNAME解析。&l;/p&g;\n&l;p&g;访问链接即更换为：https://&l;code&g;你自己设置的域名&l;/code&g;/&l;code&g;函数名&l;/code&g;&l;/p&g;\n&l;h2 id=\&q;进阶域名\&q;&g;进阶域名&l;a title=\&q;#进阶域名\&q; href=\&q;#进阶域名\&q;&g;&l;/a&g;&l;/h2&g;\n&l;p&g;最近腾讯改进出了更完美的方案，可以将上述的“/&l;code&g;函数名&l;/code&g;”也去掉了。&l;/p&g;\n&l;p&g;作者发的视频链接：&l;a href=\&q;https://service-pgxgvop2-1258064400.ap-hongkong.apigateway.myqcloud.com/test/abcdef/%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E5%8F%8A%E5%85%B6%E5%AE%83%E8%AE%BE%E7%BD%AE.mp4?preview\&q; target=\&q;_blank\&q;&g;使用自定义域名及其它设置&l;/a&g;&l;/p&g;\n&l;p&g;找到下图，点击服务名链接。&l;/p&g;\n&l;p&g;&l;img src=\&q;https://tvax1.sinaimg.cn/large/0060ksKkly1gc2pstaum5j30al07qgll.jpg\&q; alt=\&q;image\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;p&g;选择管理API，点击右侧的编辑。&l;/p&g;\n&l;p&g;&l;img src=\&q;https://tva3.sinaimg.cn/large/0060ksKkly1gc2q19mjq8j318c09udgh.jpg\&q; alt=\&q;image\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;p&g;将路径改为“/”，点击下一步直到完成即可。然后根据提示点击发布。&l;/p&g;\n&l;p&g;&l;img src=\&q;https://tva3.sinaimg.cn/large/0060ksKkly1gc2raxninpj30dz0adaal.jpg\&q; alt=\&q;image\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;p&g;&l;img src=\&q;https://tvax2.sinaimg.cn/large/0060ksKkly1gc2rdybj76j30l40d10sr.jpg\&q; alt=\&q;image\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;p&g;（看起来很像git代码托管平台的步骤）&l;/p&g;\n&l;p&g;&l;img src=\&q;https://tva3.sinaimg.cn/large/0060ksKkly1gc2resp4goj30hx0claab.jpg\&q; alt=\&q;image\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;p&g;这时访问链接也终于更换为：https://&l;code&g;你自己设置的域名&l;/code&g;&l;/p&g;\n&l;h2 id=\&q;进阶美化\&q;&g;进阶美化&l;a title=\&q;#进阶美化\&q; href=\&q;#进阶美化\&q;&g;&l;/a&g;&l;/h2&g;\n&l;p&g;截图：&l;/p&g;\n&l;p&g;&l;img src=\&q;https://tva1.sinaimg.cn/large/0060ksKkly1gbum1csl5aj30or0gzgna.jpg\&q; alt=\&q;2020-2-13 11-23-49\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;p&g;&l;img src=\&q;https://tvax4.sinaimg.cn/large/0060ksKkly1gbum1w8ap7j30g50afaad.jpg\&q; alt=\&q;2020-2-13 11-24-34\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;p&g;&l;img src=\&q;https://tvax2.sinaimg.cn/large/0060ksKkly1gbum28xu35j30ok0ddabj.jpg\&q; alt=\&q;2020-2-13 11-25-11\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;p&g;以下美化仅适用于 classic 主题。&l;/p&g;\n&l;blockquote&g;\n&l;p&g;&l;strong&g;日志&l;/strong&g;&l;br&g;\n设置界面失效。还未修复。&l;/p&g;\n&l;/blockquote&g;\n&l;p&g;腾讯云的函数界面中找到函数代码，下方窗口中选择 theme 文件夹的 classic.php 。找到&l;code&g;&a;lt;/head&a;gt;&l;/code&g;前的&l;code&g;&a;lt;/style&a;gt;&l;/code&g;，在这行前面追加以下代码。然后点击保存即可。&l;/p&g;\n&l;p&g;&l;img src=\&q;https://tvax4.sinaimg.cn/large/0060ksKkly1gbulr9zy8uj30ei0c0aan.jpg\&q; alt=\&q;2020-2-13 11-15-49\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;p&g;代码：&l;/p&g;\n&l;figure class=\&q;highlight\&q;&g;&l;table&g;&l;tr&g;&l;td class=\&q;gutter\&q;&g;&l;pre&g;&l;span class=\&q;line\&q;&g;1&l;/span&g;&l;br&g;&l;/pre&g;&l;/td&g;&l;td class=\&q;code\&q;&g;&l;pre&g;&l;span class=\&q;line\&q;&g;body&a;#123;background:url(//tvax1.sinaimg.cn/large/0060ksKkly1gbs5b1as5ej31z4140wj0.jpg) !important;color:#000;font-family:Google Sans !important;&a;#125;font&a;#123;margin:39.5%;color:#989898;text-align:center;&a;#125;a.login,body&a;gt;div&a;gt;li.operate&a;#123;transition:.3s;…input#upload_submit&a;#123;transition:.3s;border:none;border-radius:4px;background:#0000000d;padding:8px 11px;outline:none !important;&a;#125;input#upload_submit:hover&a;#123;background:#0088ff2e;color:#08f;&a;#125;form[method=\&q;post\&q;] table&a;#123;background:#ffffffb5;border-radius:4px;border:none;padding:10px;border-spacing:10px;margin-bottom:10px;&a;#125;form[method=\&q;post\&q;] td&a;#123;border:none;&a;#125;form[method=\&q;post\&q;] input,form[method=\&q;post\&q;] select&a;#123;transition:.3s;border:none;border-radius:4px;background:#0000000d;padding:8px 11px;outline:none !important;&a;#125;form[method=\&q;post\&q;] input[value=\&q;设置\&q;]&a;#123;background:#0088ff2e;color:#08f;&a;#125;&l;/span&g;&l;br&g;&l;/pre&g;&l;/td&g;&l;/tr&g;&l;/table&g;&l;/figure&g;\n&q;,&q;prev&q;:{&q;title&q;:&q;那些好用的前端 CDN 推荐&q;,&q;link&q;:&q;free-cdn&q;},&q;next&q;:{&q;title&q;:&q;iChrome CSS 美化&q;,&q;link&q;:&q;ichrome-css&q;},&q;plink&q;:&q;https://blog.cworld.top/onedrive-scf/&q;,&q;toc&q;:[{&q;id&q;:&q;准备&q;,&q;title&q;:&q;准备&q;,&q;index&q;:&q;1&q;},{&q;id&q;:&q;提要&q;,&q;title&q;:&q;提要&q;,&q;index&q;:&q;2&q;},{&q;id&q;:&q;注意事项&q;,&q;title&q;:&q;注意事项&q;,&q;index&q;:&q;3&q;},{&q;id&q;:&q;搭建教程&q;,&q;title&q;:&q;搭建教程&q;,&q;index&q;:&q;4&q;},{&q;id&q;:&q;定义域名&q;,&q;title&q;:&q;定义域名&q;,&q;index&q;:&q;5&q;},{&q;id&q;:&q;进阶域名&q;,&q;title&q;:&q;进阶域名&q;,&q;index&q;:&q;6&q;},{&q;id&q;:&q;进阶美化&q;,&q;title&q;:&q;进阶美化&q;,&q;index&q;:&q;7&q;}],&q;reward&q;:true,&q;copyright&q;:{&q;author&q;:&q;CWorld&q;,&q;link&q;:&q;&l;a href=\&q;https://blog.cworld.top/onedrive-scf/\&q; title=\&q;利用腾讯云无服务器云函数搭建 OneDrive 网盘\&q;&g;https://blog.cworld.top/onedrive-scf/&l;/a&g;&q;,&q;license&q;:&q;Attribution-NonCommercial-NoDerivatives 4.0 International&l;br&g;(&l;a href=\&q;https://creativecommons.org/licenses/by-nc-sa/4.0/\&q; rel=\&q;external nofollow noopener\&q; target=\&q;_blank\&q;&g;CC BY-NC-ND 4.0&l;/a&g;)&q;,&q;published&q;:&q;2020年2月13日&q;,&q;updated&q;:&q;2021年5月23日&q;}}}</script></head>
+<body lang="zh-Hans">
+<is-a class="φbm φv" ng-version="9.1.11"><is-l class="φeb φy"><div class="φel"><section class="φem"><header class="φec φba"><!----><is-c class="φed"><img draggable="false" class="φbw φj" src="https://gravatar.loli.net/avatar/85b870f6b1a177981d3e9566e3ad7264?s=400" alt="" title="" width="160" height="160"></is-c><!----><a href="" class="φef φbf φl">CWorld</a><p class="φee">Stay hungry, Stay foolish. 求知若愚，虚怀若谷。</p></header><div class="φeq φba"><a routerlink="/archives" class="φer φl" href="/archives"><span class="φbc">16</span><span>归档</span></a><a class="φer φl" href="/categories/%E6%95%99%E7%A8%8B"><span class="φbc">5</span><span>分类</span></a><!----><a routerlink="/tags" class="φer φl" href="/tags"><span class="φbc">17</span><span>标签</span></a><!----></div><!----><nav class="φen"><a class="φeo φc φw φbd φl φr" href="/">🏠 Home</a><!----><!----><!----><a class="φeo φc φw φbd φl φr" href="/search">🔍 Search</a><!----><!----><!----><a class="φeo φc φw φbd φl φr" href="/playlist">🎵 Music</a><!----><!----><!----><a class="φeo φc φw φbd φl φr" href="/link">🔗 Link</a><!----><!----><!----><a class="φeo φc φw φbd φl φr" href="/about">👨‍💼 About</a><!----><!----><!----><!----></nav><!----><div issnippet="" class="φbl"><is-palette2></is-palette2>
+</div><!----><!----><!----></section><footer class="φeg φeh"><div class="φej"><a target="_blank" rel="external nofollow noopener" class="φek φbk φl icon-email" href="mailto:903517499@qq.com">email</a><a target="_blank" rel="external nofollow noopener" class="φek φbk φl icon-feed" href="/atom.xml">feed</a><a target="_blank" rel="external nofollow noopener" class="φek φbk φl icon-github" href="https://github.com/cworld1">github</a><a target="_blank" rel="external nofollow noopener" class="φek φbk φl icon-telegram" href="https://t.me/cworld0">telegram</a><a target="_blank" rel="external nofollow noopener" class="φek φbk φl icon-qq" href="https://wpa.qq.com/msgrd?v=3&amp;uin=903517499&amp;site=qq&amp;menu=yes">qq</a><a target="_blank" rel="external nofollow noopener" class="φek φbk φl icon-coolapk" href="https://www.coolapk.com/u/1384771">coolapk</a><!----></div><!----><p class="φbi φg">© 2020 ❤️ <a href="">CWorld</a></p><!----><p class="φbi φg"><span class="φei">由 <a href="https://hexo.io" target="_blank" rel="external nofollow noopener">Hexo</a> 强力驱动</span><!----><span class="φei">主题 - <a href="https://github.com/ikeq/hexo-theme-inside" target="_blank" rel="external nofollow noopener">Inside</a></span><!----></p><!----><p class="φbi φg"><div><a href="http://www.beian.miit.gov.cn/" rel="external nofollow">渝ICP备20001649号</a></div><span id="busuanzi_container_site_pv" style="display:inline;">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span></p><!----></footer></div></is-l><div class="φbo"><div class="φbn"><div class="φbs φq"><main class="φbr φb"><router-outlet></router-outlet><is-s class="φfx φba"><header class="φgh φgp" style="background-image:url(https://tva1.sinaimg.cn/large/0060ksKkly1gbuhc4an2fj319c0a5gm2.jpg);background-color:#006fff;"><div class="φgo"><!----><p class="φgj φo"><span class="φgk φgn">2020年2月13日</span><!----><a class="φgk φgm φl" href="/categories/%E6%95%99%E7%A8%8B">教程</a><!----></p><hr class="φgq"><!----><h1 class="φgr">利用腾讯云无服务器云函数搭建 OneDrive 网盘</h1><!----></div></header><article itemscope="" itemtype="http://schema.org/Article" class="φga" data-title="利用腾讯云无服务器云函数搭建 OneDrive 网盘"><div itemprop="articleBody" issnippet="" iszoomable="" class="φbi φy φg"><p>原理是用腾讯云的无服务器云函数配合 API 网关实现，不需要自己的服务器。</p>
+<a id="more"></a>
+<p>零成本搭建，实测运行机器的配置，8核16G内存（可以运行 System 命令链接 Shell 看），因此此方法搭建自己的大型网站完全够用。</p>
+<p>腾讯云无服务器云函数（Serverless Cloud Function，SCF）是腾讯云为企业和开发者们提供的无服务器执行环境，帮助您在无需购买和管理服务器的情况下运行代码。您只需使用平台支持的语言编写核心代码并设置代码运行的条件，即可在腾讯云基础设施上弹性、安全地运行代码。SCF 是实时文件处理和数据处理等场景下理想的计算平台。</p>
+<h2 id="准备">准备<a title="#准备" href="#准备"></a></h2>
+<ul>
+<li>
+<p>OneDrive SCF 源码</p>
+<p>这里给出仓库地址：</p>
+<p>最初版本 <a href="https://github.com/Tai7sy/OneDrive_SCF" target="_blank">OneDrive_SCF</a></p>
+<p>第二版本 <a href="https://github.com/qkqpttgf/OneDrive_SCF" target="_blank">OneDrive_SCF</a></p>
+<p>三合一版本 <a href="https://github.com/qkqpttgf/OneManager-php" target="_blank">OneManager-php</a></p>
+</li>
+<li>
+<p>一个 OneDrive 账号</p>
+<p>如果你想拥有一个不限量空间，可以尝试在网上找子账号，或者自己申请 <a href="https://baijiahao.baidu.com/s?id=1655579024801979058" target="_blank">Office 365 E5 管理</a></p>
+</li>
+<li>
+<p>一个腾讯云账号</p>
+</li>
+</ul>
+<h2 id="提要">提要<a title="#提要" href="#提要"></a></h2>
+<ul>
+<li>
+<p>腾讯云的 API 网关还可以关联上自己的域名，从而脱离本身的随机域名。</p>
+</li>
+<li>
+<p>如果你是 Office 365 E5 管理员并准备 90 天续期，或许这个可以帮助你长期保持活跃状态。</p>
+</li>
+</ul>
+<h2 id="注意事项">注意事项<a title="#注意事项" href="#注意事项"></a></h2>
+<p>API 网关从 2019 年 12 月 4 日开始收费。请注意不要超过额度，这意味着最好不要将网站随意告诉他人，以免恶意刷流量。当然腾讯云的免费额度对于个人来说完全够用，超出后收费也非常亲民。所以最好是在腾讯云上充值一块钱，以免意外超额。</p>
+<p>仅调用云函数会收费，因此查看文件的文件本身和下载仅消耗微软的免费服务，因此不会有任何费用产生。</p>
+<p><a href="https://cloud.tencent.com/document/product/583/12282" target="_blank">腾讯云免费额度</a></p>
+<p><a href="https://cloud.tencent.com/document/product/583/12284" target="_blank">GBs 单位与费用计算</a></p>
+<p><a href="https://cloud.tencent.com/document/product/583/12281" target="_blank">超出免费额度收费标准</a></p>
+<p>如果上述内容有些生涩难懂，可以配合 <a href="https://cloud.tencent.com/document/product/583/12285" target="_blank">腾讯云函数计费示例</a> 一同查看。</p>
+<h2 id="搭建教程">搭建教程<a title="#搭建教程" href="#搭建教程"></a></h2>
+<p>开发者也很贴心地制作了视频。<a href="https://service-pgxgvop2-1258064400.ap-hongkong.apigateway.myqcloud.com/test/abcdef/%E6%97%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%87%BD%E6%95%B0SCF%E6%90%AD%E5%BB%BAOneDrive.mp4?preview" target="_blank">点击查看</a> 可以与此教程互相对照。</p>
+<ol>
+<li>
+<p>打开进入腾讯云 SCF。</p>
+<p><img src="https://tvax2.sinaimg.cn/large/0060ksKkly1gbuiu6ay46j30i2081q37.jpg" alt="腾讯云 SCF" class="φcx"></p>
+</li>
+<li>
+<p>函数服务-新建函数-空白函数</p>
+<blockquote>
+<p>后面如果想绑定自定义域名，只能绑定备案域名，所以刚开始新建函数的时候，我们最好选择香港地区，即从下图中的广州改为香港。<br>
+<img src="https://tvax2.sinaimg.cn/large/0060ksKkly1gbuivuzqnqj30hl0a6t8v.jpg" alt="新建函数"></p>
+</blockquote>
+<p>模板选择空白。填写函数名称，注意以后会以这个名称将作网址且难以更改。运行环境选 PHP7.2。<br>
+<img src="https://tvax2.sinaimg.cn/large/0060ksKkly1gbukixrkfdj30g70cgdfx.jpg" alt="模板选择"></p>
+</li>
+<li>
+<p>函数配置</p>
+<p>可以修改一下描述，提交方式选择本地上传。</p>
+</li>
+<li>
+<p>下载函数源码并上传</p>
+<p>下载源码：<a href="https://sword.studio/go/aHR0cHM6Ly9naXRodWIuY29tL1RhaTdzeS9PbmVEcml2ZV9TQ0YvYXJjaGl2ZS9tYXN0ZXIuemlw" target="_blank">点击下载</a></p>
+<p><img src="https://tvax4.sinaimg.cn/large/0060ksKkly1gbukrik5xxj30i80d4dhn.jpg" alt="选择" class="φcx"></p>
+<blockquote>
+<p>博主在上传的时候因为是手机操作，所以先使用了压缩包的形式，结果提示错误。所以这里可能只能选择文件夹上传。</p>
+</blockquote>
+</li>
+<li>
+<p>添加触发方式</p>
+<p>修改触发方式，开启集成响应。</p>
+<p><img src="https://tva3.sinaimg.cn/large/0060ksKkly1gbukx28f6fj30uz0l5n1l.jpg" alt="2020-2-13 10-46-33" class="φcx"></p>
+</li>
+<li>
+<p>进入网站，添加 API 密钥</p>
+<p><img src="https://tvax1.sinaimg.cn/large/0060ksKkly1gbul0sz311j30sc0cxq5b.jpg" alt="2020-2-13 10-49-26" class="φcx"></p>
+<p>选择中文，开始新建</p>
+<p><img src="https://tvax2.sinaimg.cn/large/0060ksKkly1gbul29qzlgj30jo0ci0ty.jpg" alt="2020-2-13 10-49-39" class="φcx"></p>
+<p>接下来的窗口选择继续，然后新建密钥。</p>
+<p>回到函数配置，点击右上角的编辑，将获取的密钥粘贴入环境变量中。</p>
+<p><img src="https://tva3.sinaimg.cn/large/0060ksKkly1gbul5zj6c3j313t0oagp4.jpg" alt="2020-2-13 10-55-18" class="φcx"></p>
+<p><img src="https://tva1.sinaimg.cn/large/0060ksKkly1gbul8tl7f4j30om0he405.jpg" alt="2020-2-13 10-56-53" class="φcx"></p>
+</li>
+<li>
+<p>完成配置</p>
+<p>回到之前自己建的网站，如果没有错就可以继续下一步。选择 MS 默认。</p>
+<p>接下来会自动跳转到 OneDrive ，选择登录并继续，即可看到配置成功的界面。</p>
+<p><img src="https://tva3.sinaimg.cn/large/0060ksKkly1gbuli0z99vj31410o7790.jpg" alt="2020-2-13 11-6-41" class="φcx"></p>
+<p>回到函数配置，点击右上角的编辑，环境变量中继续添加：key 为 admin ，value 为你要设置的密码。</p>
+<p><img src="https://tva1.sinaimg.cn/large/0060ksKkly1gbuliziisyj30lb0cc0tn.jpg" alt="2020-2-13 11-7-54" class="φcx"></p>
+<p>回到网址，刷新后左上角就可以登录进入后台了。点击更新并在下方进行相应配置。这样就基本完工了！</p>
+</li>
+</ol>
+<h2 id="定义域名">定义域名<a title="#定义域名" href="#定义域名"></a></h2>
+<p>回到 API 网关，选择自定义域名，新建</p>
+<p>为了得到最简链接，自定义路径设为 <code>/</code> <code>发布</code></p>
+<p><img src="https://tvax4.sinaimg.cn/large/0060ksKkly1gbums87xr6j30q30hkjrv.jpg" alt="2020-2-13 11-51-2" class="φcx"></p>
+<blockquote>
+<p>如果需要 https，点击“点此前往”，然后点击申请免费证书。注意证书和域名自定义都需要添加解析。<br>
+<img src="https://tva4.sinaimg.cn/large/0060ksKkly1gbun91d7xwj31an03kjre.jpg" alt="2020-2-13 12-7-30"></p>
+</blockquote>
+<p>添加蓝色提示框内的网站为CNAME解析。</p>
+<p>访问链接即更换为：https://<code>你自己设置的域名</code>/<code>函数名</code></p>
+<h2 id="进阶域名">进阶域名<a title="#进阶域名" href="#进阶域名"></a></h2>
+<p>最近腾讯改进出了更完美的方案，可以将上述的“/<code>函数名</code>”也去掉了。</p>
+<p>作者发的视频链接：<a href="https://service-pgxgvop2-1258064400.ap-hongkong.apigateway.myqcloud.com/test/abcdef/%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E5%8F%8A%E5%85%B6%E5%AE%83%E8%AE%BE%E7%BD%AE.mp4?preview" target="_blank">使用自定义域名及其它设置</a></p>
+<p>找到下图，点击服务名链接。</p>
+<p><img src="https://tvax1.sinaimg.cn/large/0060ksKkly1gc2pstaum5j30al07qgll.jpg" alt="image" class="φcx"></p>
+<p>选择管理API，点击右侧的编辑。</p>
+<p><img src="https://tva3.sinaimg.cn/large/0060ksKkly1gc2q19mjq8j318c09udgh.jpg" alt="image" class="φcx"></p>
+<p>将路径改为“/”，点击下一步直到完成即可。然后根据提示点击发布。</p>
+<p><img src="https://tva3.sinaimg.cn/large/0060ksKkly1gc2raxninpj30dz0adaal.jpg" alt="image" class="φcx"></p>
+<p><img src="https://tvax2.sinaimg.cn/large/0060ksKkly1gc2rdybj76j30l40d10sr.jpg" alt="image" class="φcx"></p>
+<p>（看起来很像git代码托管平台的步骤）</p>
+<p><img src="https://tva3.sinaimg.cn/large/0060ksKkly1gc2resp4goj30hx0claab.jpg" alt="image" class="φcx"></p>
+<p>这时访问链接也终于更换为：https://<code>你自己设置的域名</code></p>
+<h2 id="进阶美化">进阶美化<a title="#进阶美化" href="#进阶美化"></a></h2>
+<p>截图：</p>
+<p><img src="https://tva1.sinaimg.cn/large/0060ksKkly1gbum1csl5aj30or0gzgna.jpg" alt="2020-2-13 11-23-49" class="φcx"></p>
+<p><img src="https://tvax4.sinaimg.cn/large/0060ksKkly1gbum1w8ap7j30g50afaad.jpg" alt="2020-2-13 11-24-34" class="φcx"></p>
+<p><img src="https://tvax2.sinaimg.cn/large/0060ksKkly1gbum28xu35j30ok0ddabj.jpg" alt="2020-2-13 11-25-11" class="φcx"></p>
+<p>以下美化仅适用于 classic 主题。</p>
+<blockquote>
+<p><strong>日志</strong><br>
+设置界面失效。还未修复。</p>
+</blockquote>
+<p>腾讯云的函数界面中找到函数代码，下方窗口中选择 theme 文件夹的 classic.php 。找到<code>&lt;/head&gt;</code>前的<code>&lt;/style&gt;</code>，在这行前面追加以下代码。然后点击保存即可。</p>
+<p><img src="https://tvax4.sinaimg.cn/large/0060ksKkly1gbulr9zy8uj30ei0c0aan.jpg" alt="2020-2-13 11-15-49" class="φcx"></p>
+<p>代码：</p>
+<figure class="highlight"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">body{background:url(//tvax1.sinaimg.cn/large/0060ksKkly1gbs5b1as5ej31z4140wj0.jpg) !important;color:#000;font-family:Google Sans !important;}font{margin:39.5%;color:#989898;text-align:center;}a.login,body&gt;div&gt;li.operate{transition:.3s;…input#upload_submit{transition:.3s;border:none;border-radius:4px;background:#0000000d;padding:8px 11px;outline:none !important;}input#upload_submit:hover{background:#0088ff2e;color:#08f;}form[method="post"] table{background:#ffffffb5;border-radius:4px;border:none;padding:10px;border-spacing:10px;margin-bottom:10px;}form[method="post"] td{border:none;}form[method="post"] input,form[method="post"] select{transition:.3s;border:none;border-radius:4px;background:#0000000d;padding:8px 11px;outline:none !important;}form[method="post"] input[value="设置"]{background:#0088ff2e;color:#08f;}</span><br></pre></td></tr></tbody></table></figure>
+</div><is-f class="φcc φk φn"><!----><ul class="φcg"><li class="φce"><strong class="φcf">本文作者<span>:</span></strong><p class="φcd">CWorld</p></li><li class="φce"><strong class="φcf">本文链接<span>:</span></strong><p class="φcd"><a href="https://blog.cworld.top/onedrive-scf/" title="利用腾讯云无服务器云函数搭建 OneDrive 网盘">https://blog.cworld.top/onedrive-scf/</a></p></li><li class="φce"><strong class="φcf">版权声明<span>:</span></strong><p class="φcd">Attribution-NonCommercial-NoDerivatives 4.0 International<br>(<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noopener" target="_blank">CC BY-NC-ND 4.0</a>)</p></li><li class="φce"><strong class="φcf">发表日期<span>:</span></strong><p class="φcd">2020年2月13日</p></li><li class="φce"><strong class="φcf">更新日期<span>:</span></strong><p class="φcd">2021年5月23日</p></li><!----></ul><!----></is-f><!----><is-k class="φdt"><p class="φdy">不妨用打赏💰再伤我一次</p><div class="φdv φy"><div class="φdx"><!----></div><div class="φea"><a class="φdz φbk icon-wechat" style="color:;"></a><a class="φdz" style="color:;">QQ</a><a class="φdz" style="color:;">酷安</a><!----></div></div></is-k><!----><div class="φy"><div issnippet="" class="φbl"><p id="hitokoto" style="text-align: center;">:D 获取中...</p>
+
+</div><div issnippet="" class="φbl">
+
+</div><!----></div><!----></article><footer class="φgb φy"><div class="φgg"><is-m class="φet"><a class="φeu φn φp" href="/tags/%E7%BD%91%E7%9B%98">网盘</a></is-m><is-m class="φet"><a class="φeu φn φp" href="/tags/%E7%BE%8E%E5%8C%96">美化</a></is-m><!----></div><!----><div class="φgc"><a class="φgd φgf φl" href="/free-cdn">那些好用的前端 CDN 推荐</a><!----><a class="φgd φge φl" href="/ichrome-css">iChrome CSS 美化</a><!----></div><!----></footer><is-e class="φbz φy"><div issnippet="" class="φbl"><div class="vcomment valine" id="vcomment"></div>
+
+  
+</div><!----><!----><!----><!----></is-e><!----><!----><!----></is-s><!----></main><!----></div></div></div><is-g class="φch"><div class="φcq"><span class="φbk icon-up"></span><span class="φbk icon-down"></span><!----><span class="φbk icon-toc"></span><!----><span class="φbk icon-search"></span><!----></div><div class="φcj φck"><svg class="φcp"><defs><filter id="dp"><feGaussianBlur in="SourceGraphic" stdDeviation="2"></feGaussianBlur></filter></defs><circle filter="url(#dp)" fill="rgba(0,0,0,.3)" cx="50%" cy="52%" r="44%"></circle><circle cx="50%" cy="50%" r="44%" class="φcl φe"></circle><circle cx="50%" cy="50%" r="48%" class="φco φf" stroke-dasharray="0% 314.15926%"></circle><!----><g class="φcm"><circle r=".2rem" cx="0" cy="-.8rem"></circle><circle r=".2rem"></circle><circle r=".2rem" cx="0" cy=".8rem"></circle></g><!----></svg></div></is-g><is-n class="φev φba"><div class="φex φey φs"><a class="φfa φl"><span class="φfb φbc">1 </span><!----><span class="φfc">准备</span></a><!----></div><div class="φex φey φs"><a class="φfa φl"><span class="φfb φbc">2 </span><!----><span class="φfc">提要</span></a><!----></div><div class="φex φey φs"><a class="φfa φl"><span class="φfb φbc">3 </span><!----><span class="φfc">注意事项</span></a><!----></div><div class="φex φey φs"><a class="φfa φl"><span class="φfb φbc">4 </span><!----><span class="φfc">搭建教程</span></a><!----></div><div class="φex φey φs"><a class="φfa φl"><span class="φfb φbc">5 </span><!----><span class="φfc">定义域名</span></a><!----></div><div class="φex φey φs"><a class="φfa φl"><span class="φfb φbc">6 </span><!----><span class="φfc">进阶域名</span></a><!----></div><div class="φex φey φs"><a class="φfa φl"><span class="φfb φbc">7 </span><!----><span class="φfc">进阶美化</span></a><!----></div><!----></is-n><!----><!----></is-a>
+<script src="//lib.baomitu.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/cworld1/source@master/files/valine.js"></script>
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.jsdelivr.net/gh/cworld1/source@master/files/themes.min.js"></script>
+
+<script src="//cdn.jsdelivr.net/gh/ikeq/hexo-theme-inside@2.7.0-beta.2/source/runtime.0d15793f6e46723148c6.js"></script>
+<script src="//cdn.jsdelivr.net/gh/ikeq/hexo-theme-inside@2.7.0-beta.2/source/polyfills.6661dd3f63d336032841.js"></script>
+<script src="//cdn.jsdelivr.net/gh/ikeq/hexo-theme-inside@2.7.0-beta.2/source/main.7652f74988a605a4b23c.js"></script>
+
+
+</body></html>

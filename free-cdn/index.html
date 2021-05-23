@@ -1,0 +1,325 @@
+<!DOCTYPE html><html lang="zh-Hans"><head>
+<meta charset="utf-8">
+<title>那些好用的前端 CDN 推荐 - CWorld's Blog</title>
+<base href="/">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+<link rel="canonical" href="https://blog.cworld.top/free-cdn/">
+<link rel="icon" type="image/x-icon" href="/logo.png">
+
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<meta name="description" content="最近总感觉自己的网站速度不行，又不想重新搭建（Hexo 的宗旨就是打造响应速度超快的轻量级博客嘛），所以这篇文章也就由此应运而生了。 一个功能丰富的博客总是要引用一些优秀的项目代码。因此为了加快响应速度，不妨从CDN入手。  Ps. 以下内容的 Ping 均选取平均值，且仅供参考。本文默认以 Ping 延迟排名，各地区和不同运营商网速各有差异，请在使用前自行测试考鉴。  JSDelivr CDN">
+<meta property="og:type" content="website">
+<meta property="og:title" content="那些好用的前端 CDN 推荐">
+<meta property="og:url" content="https://blog.cworld.top/free-cdn/">
+<meta property="og:site_name" content="CWorld's Blog">
+<meta property="og:description" content="最近总感觉自己的网站速度不行，又不想重新搭建（Hexo 的宗旨就是打造响应速度超快的轻量级博客嘛），所以这篇文章也就由此应运而生了。 一个功能丰富的博客总是要引用一些优秀的项目代码。因此为了加快响应速度，不妨从CDN入手。  Ps. 以下内容的 Ping 均选取平均值，且仅供参考。本文默认以 Ping 延迟排名，各地区和不同运营商网速各有差异，请在使用前自行测试考鉴。  JSDelivr CDN">
+<meta property="og:image" content="https://tvax2.sinaimg.cn/large/0060ksKkly1gcfx2vhmd1j318g0jz788.jpg">
+<meta property="article:published_time" content="2020-03-01T21:11:00.576Z">
+<meta property="article:modified_time" content="2021-05-23T13:54:25.394Z">
+<meta property="article:author" content="CWorld">
+<meta property="article:tag" content="CDN">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tvax2.sinaimg.cn/large/0060ksKkly1gcfx2vhmd1j318g0jz788.jpg">
+
+<script type="application/ld+json">[{"@context":"http://schema.org","@type":"WebSite","publisher":{"@type":"Person","name":"CWorld","description":"Stay hungry, Stay foolish. 求知若愚，虚怀若谷。","image":"https://gravatar.loli.net/avatar/85b870f6b1a177981d3e9566e3ad7264?s=400"},"url":"https://blog.cworld.top","image":"https://gravatar.loli.net/avatar/85b870f6b1a177981d3e9566e3ad7264?s=400","description":"Stay hungry, Stay foolish","author":{"@type":"Person","name":"CWorld","description":"Stay hungry, Stay foolish. 求知若愚，虚怀若谷。","image":"https://gravatar.loli.net/avatar/85b870f6b1a177981d3e9566e3ad7264?s=400"},"inLanguage":{"@type":"Language","alternateName":"zh-Hans"}},{"@context":"http://schema.org","@type":"Article","articleSection":"资源","url":"https://blog.cworld.top/free-cdn/","headline":"那些好用的前端 CDN 推荐","image":"https://tvax2.sinaimg.cn/large/0060ksKkly1gcfx2vhmd1j318g0jz788.jpg","datePublished":"2020-03-01T21:11:00.576Z","dateModified":"2021-05-23T13:54:25.394Z","keywords":"CDN,前端","description":"Stay hungry, Stay foolish","publisher":{"@type":"Organization","name":"CWorld's Blog","logo":{"@type":"ImageObject","url":"https://gravatar.loli.net/avatar/85b870f6b1a177981d3e9566e3ad7264?s=400"}},"author":{"@type":"Person","name":"CWorld","description":"Stay hungry, Stay foolish. 求知若愚，虚怀若谷。","image":"https://gravatar.loli.net/avatar/85b870f6b1a177981d3e9566e3ad7264?s=400"},"inLanguage":{"@type":"Language","alternateName":"zh-Hans"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.cworld.top/free-cdn/"},"thumbnailUrl":"https://tvax2.sinaimg.cn/large/0060ksKkly1gcfx2vhmd1j318g0jz788.jpg"}]</script>
+
+
+<link rel="alternate" type="application/atom+xml" title="CWorld's Blog" href="/atom.xml">
+
+<link href="//cdn.jsdelivr.net/gh/fiteen/fiteen.github.io@v0.1.0/font.css" rel="stylesheet">
+<style>.φbf,
+img.φbw.φj {
+    transition: .3s;
+    -webkit-transition: .3s;
+    -ms-transition: .3s;
+    -moz-transition: .3s
+}
+
+img.φbw.φj:active {
+    transform: scale(.9)
+}
+
+@font-face {
+    font-family: iconfont;
+    src: url(iconfont.eot?t=1581948047227);
+    src: url(iconfont.eot?t=1581948047227#iefix) format('embedded-opentype'), url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAARIAAsAAAAACLQAAAP7AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDMgqERIN+ATYCJAMUCwwABCAFhG0HWBuaB8geg207eYRRJN1p5HM2Hv5/v2/7XHlfpc0k0ThZEGukyZglQiOSoLMIiUonE4oms079R3lVZbIQstLMQjyOFsz2QJnL5uDZszhMzk/4JZTq/8Whaqb4fEu2yxxTE8qFwqEJFKC9MTR7XqCWaiWsiHcYu7iMywS61qXCztc2C8FJoc0KxCOlvBecYjqlpDi0hSZnYxHPwV47PeU9APDM/f74B5nhRFIzbeHVOzX9UP4DexONG/4boMNGAL8/C5htZBwAhXica3sE92MHcF0pYucEyD9rS9IP7LXza/Ob6P8BEK1I0dX/4VGEJBMNrbAPTlC88AMzyRR+OpMJfprJJH5F62SIrtO76OEVgP9AtdHnoCyLTr/TKWN7wcStVD7PKgTPeMe2WT16m03EcRKWlf6hweARL7j2+SaDcZ550OLtZj+I/msj2L28mOM+34LZPzGLPeYZw+xc6+juDSux1VZzm4vZxkrnsWZ2kLNw820mm8FqtHahj2g/ztWdthWcfZi04ozfJbaWtQo32JLO2vJuc4LrEsnqk8GtK9fs2RXQt79o59k4VnzFWm4cIjzBxp9j+ce4/8Ke90JnoWGfwWLjwd1T66H7GlaH1Xd310MxRjnwvLrunvrHfbwNpbkCJ0Hu+lJyWlxWo74UUt6JWDFLeMeI8P/pbIzLNs3b9gEezBOJRQCrw+rr7e2hYhguzxmZ0hz5ILJZbIgfeLVivizZbyv281D+Ip1tN2zF0KeFxs9r+1uef+/02xX15f7n+D+9krz8GidK6Fo9NqzxWarU+7xbcxn3ILFi+ODjpUdZRtvRZ9wDZ34GprRLYioTyqMrlD2zqCHVLvg53m/jlbJmPaiNo92UT3kswApuwMUA5He8KwDkt7wpf8Pv+DjqzJVuz+KvTq4FfNJfXOz6VuygXbwtUZv/7vk1a4os1PS1iJUmT7RXRxGdJLV08cZdU6/6USxqRwjtGJ+BpGUNsrYNZMEeQNVzCI22Y+jaV7e9Z4aGi9LBnpkAwthhSIbeQDb2EFmwL6Fa+gSNceDQdRq+B/ZshdKlika9DOon+sYTSpLSyQwj4+IVj0Dy0ZpeOip0cWJEDyiDRAY/PZmsQzpE97FkYIw8k2FkhIymtEQtuA5pNBShpykVIhm+gmH0hQKBLO9OfJLSgotzaEgvBtKP0Gc8ghKJoiOzmzNcUl8/AiI3mkYvuqSqxCqG0AYo+ydk4EuvgayT6WpVncvwAWPIZWIwZHiaDI2iRaiFFkSjxygEff44FYTE4FO0iOgVEqB6sroy/vgK7TXugS7tsBopcpSo0RhdJ0lqtI5Js7IZjVKH3Mj95MRPICn9eByNR44kRWl69WoAAA==') format('woff2'), url(iconfont.woff?t=1581948047227) format('woff'), url(iconfont.ttf?t=1581948047227) format('truetype'), url(iconfont.svg?t=1581948047227#iconfont) format('svg')
+}
+
+.fa,
+.icon-coolapk:before,
+.iconfont {
+    font-family: iconfont !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+.icon-account:before {
+    content: "\e609" !important
+}
+
+.fa-clipboard:before {
+    content: "\e6d2" !important
+}
+
+.icon-eye:before {
+    content: "\e722" !important
+}
+
+.icon-coolapk:before {
+    content: "\e501" !important
+}
+
+@font-face {
+    font-family: 'IM Fell DW Pica SC';
+    src: url(//lib.baomitu.com/fonts/im-fell-dw-pica-sc/im-fell-dw-pica-sc-regular.eot);
+    src: local('IM Fell DW Pica SC'), local('IMFell DW Pica SC-Normal'), url(//lib.baomitu.com/fonts/im-fell-dw-pica-sc/im-fell-dw-pica-sc-regular.eot?#iefix) format('embedded-opentype'), url(//lib.baomitu.com/fonts/im-fell-dw-pica-sc/im-fell-dw-pica-sc-regular.woff2) format('woff2'), url(//lib.baomitu.com/fonts/im-fell-dw-pica-sc/im-fell-dw-pica-sc-regular.woff) format('woff'), url(//lib.baomitu.com/fonts/im-fell-dw-pica-sc/im-fell-dw-pica-sc-regular.ttf) format('truetype'), url('//lib.baomitu.com/fonts/im-fell-dw-pica-sc/im-fell-dw-pica-sc-regular.svg#IMFell DW Pica SC') format('svg')
+}
+
+@font-face {
+    font-family: Lobster;
+    src: url(//lib.baomitu.com/fonts/lobster/lobster-regular.eot);
+    src: local('Lobster'), local('Lobster-Normal'), url(//lib.baomitu.com/fonts/lobster/lobster-regular.eot?#iefix) format('embedded-opentype'), url(//lib.baomitu.com/fonts/lobster/lobster-regular.woff2) format('woff2'), url(//lib.baomitu.com/fonts/lobster/lobster-regular.woff) format('woff'), url(//lib.baomitu.com/fonts/lobster/lobster-regular.ttf) format('truetype'), url(//lib.baomitu.com/fonts/lobster/lobster-regular.svg#Lobster) format('svg')
+}
+
+.φbd.φm {
+    font-weight: 700
+}
+
+* {
+    outline: 0
+}
+
+.φcj {
+    border-radius: 50%
+}
+
+.φfw img {
+    border-radius: 8px
+}
+
+@media (max-width:675px) {
+    .φfw img {
+        border-radius: 4px
+    }
+}
+
+.valine * {
+    font-family: 'Josefin Sans', 'PingFang SC' !important
+}
+
+.valine .vlist .vcard .vcomment-body .vhead .vname,
+.valine a {
+    color: #659eb9 !important
+}
+
+.valine .vlist .vcard .vcomment-body {
+    padding: 1em .5em 1em !important
+}
+
+.valine .vlist .vcard .vcomment-body .vat {
+    opacity: 0;
+    margin-top: -.5em;
+    padding: .5em 1em .2em 1em !important;
+    border-radius: 4px
+}
+
+.valine .vlist .vcard .vcomment-body:hover .vhead a.vat {
+    background: 0 0 !important;
+    opacity: 1
+}
+
+.valine .vlist .vcard .vcomment-body .vhead a.vat:hover {
+    background-color: #659eb921 !important
+}
+
+.valine .vinputs-area .auth-section .post-action button {
+    border: none !important;
+    background: #659eb9 !important
+}
+
+.highlight {
+    position: relative
+}
+
+.btn-copy {
+    border-radius: 3px;
+    border-width: 0;
+    font-size: 13px;
+    line-height: 12px;
+    padding: 4px 6px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    background: #659eb90f;
+    color: #659eb9de;
+    opacity: 0;
+    outline: 0;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-appearance: none;
+    transition: .3s
+}
+
+.btn-copy span {
+    margin-left: 5px
+}
+
+.highlight:hover .btn-copy {
+    opacity: 1
+}</style>
+<link href="//cdn.jsdelivr.net/gh/ikeq/hexo-theme-inside@2.7.0-beta.2/source/styles.c3f8d35f4c49a6d852da.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/theme.be7b2c110561281a17c7.css" is="theme">
+
+
+<script src="/config.09da1a28f6c1e4f8e06e.js"></script>
+
+
+<script async="" src="//www.googletagmanager.com/gtag/js?id=UA-158629060-1"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','UA-158629060-1');</script>
+<meta name="referrer" content="no-referrer">
+
+<meta name="generator" content="Hexo 4.2.1"><meta name="theme-color" content="#fff"><script type="application/json" is="state">{&q;api/ZnJlZS1jZG4.json&q;:{&q;title&q;:&q;那些好用的前端 CDN 推荐&q;,&q;date&q;:&q;2020-03-01T21:11:00.576Z&q;,&q;date_formatted&q;:{&q;ll&q;:&q;2020年3月1日&q;,&q;L&q;:&q;2020/03/01&q;,&q;MM-DD&q;:&q;03-01&q;},&q;thumbnail&q;:&q;https://tvax2.sinaimg.cn/large/0060ksKkly1gcfx2vhmd1j318g0jz788.jpg&q;,&q;color&q;:&q;#fff&q;,&q;link&q;:&q;free-cdn&q;,&q;comments&q;:true,&q;tags&q;:[&q;CDN&q;,&q;前端&q;],&q;categories&q;:[&q;资源&q;],&q;updated&q;:&q;2021-05-23T13:54:25.394Z&q;,&q;content&q;:&q;&l;p&g;最近总感觉自己的网站速度不行，又不想重新搭建（Hexo 的宗旨就是打造响应速度超快的轻量级博客嘛），所以这篇文章也就由此应运而生了。&l;/p&g;\n&l;p&g;一个功能丰富的博客总是要引用一些优秀的项目代码。因此为了加快响应速度，不妨从CDN入手。&l;/p&g;\n&l;blockquote&g;\n&l;p&g;Ps. 以下内容的 Ping 均选取平均值，且仅供参考。本文默认以 Ping 延迟排名，各地区和不同运营商网速各有差异，请在使用前自行测试考鉴。&l;/p&g;\n&l;/blockquote&g;\n&l;h2 id=\&q;jsdelivr-cdn\&q;&g;JSDelivr CDN&l;a title=\&q;#jsdelivr-cdn\&q; href=\&q;#jsdelivr-cdn\&q;&g;&l;/a&g;&l;/h2&g;\n&l;p&g;主要支持 npm ，Github 和 WordPress 的加速。也就是说，你可以把任意你自己的代码存放在 Github 上并用它来加速。重要的是，作为一家国外的 CDN 服务平台，在中国 QUANTIL 公司的赞助下，在大陆也能享受延迟极低的快速。&l;/p&g;\n&l;p&g;地址：&l;a href=\&q;http://www.jsdelivr.com/\&q; target=\&q;_blank\&q;&g;JSDelivr&l;/a&g;&l;br&g;\n赞助：Cloudflare，Fastly，StackPath，QUANTIL 和其他服务商&l;br&g;\nPing：11ms&l;br&g;\n推荐：★★★★★&l;/p&g;\n&l;h2 id=\&q;bootstrap-中文网开源项目-cdn-服务\&q;&g;Bootstrap 中文网开源项目 CDN 服务&l;a title=\&q;#bootstrap-中文网开源项目-cdn-服务\&q; href=\&q;#bootstrap-中文网开源项目-cdn-服务\&q;&g;&l;/a&g;&l;/h2&g;\n&l;p&g;致力于为 Bootstrap、jQuery、Angular 一样优秀的开源项目提供稳定、快速的免费 CDN 服务。BootCDN 所收录的开源项目主要同步于 cdnjs 仓库。自2013年10月31日上线以来已经为近万家网站提供了稳定、可靠的 CDN 服务。&l;br&g;\n根据官网来看，已经支持了 3450+ 开源项目，确实是非常全的。&l;/p&g;\n&l;p&g;地址：&l;a href=\&q;http://www.bootcdn.cn/\&q; target=\&q;_blank\&q;&g;BootCDN&l;/a&g;&l;br&g;\n赞助：猫云&l;br&g;\nPing：11ms&l;br&g;\n推荐：★★★★★&l;/p&g;\n&l;h2 id=\&q;七牛云静态文件-cdn-服务\&q;&g;七牛云静态文件 CDN 服务&l;a title=\&q;#七牛云静态文件-cdn-服务\&q; href=\&q;#七牛云静态文件-cdn-服务\&q;&g;&l;/a&g;&l;/h2&g;\n&l;p&g;七牛云的目标是提供这样一个仓库，让它尽可能全面收录优秀的开源库，并免费为之提供 CDN 加速服务，使之有更好的访问速度和稳定的环境。同时，我们也提供开源库源接入的入口，让所有人都可以提交开源库，包括 JS、CSS、image 和 swf 等静态文件。&l;br&g;\nPs.点击搜索，才能发现那些隐藏的项目。&l;/p&g;\n&l;p&g;地址：&l;a href=\&q;https://www.staticfile.org/\&q; target=\&q;_blank\&q;&g;七牛云&l;/a&g;&l;br&g;\n赞助：掘金社区&l;br&g;\nPing：15ms&l;br&g;\n推荐：★★★★★&l;/p&g;\n&l;h2 id=\&q;字节跳动静态资源公共库\&q;&g;字节跳动静态资源公共库&l;a title=\&q;#字节跳动静态资源公共库\&q; href=\&q;#字节跳动静态资源公共库\&q;&g;&l;/a&g;&l;/h2&g;\n&l;p&g;字节跳动也是一家非常具有生命力的公司，旗下的抖音和今日头条等产品也可以说是家喻户晓。更有趣的是，CDN 支持项目还非常广泛，可以与 CDNJS 对齐。&l;/p&g;\n&l;p&g;地址：&l;a href=\&q;http://cdn.bytedance.com/\&q; target=\&q;_blank\&q;&g;字节跳动&l;/a&g;&l;br&g;\n赞助：无&l;br&g;\nPing：25ms&l;br&g;\n推荐：★★★★★&l;/p&g;\n&l;h2 id=\&q;又拍云-js-库加速服务\&q;&g;又拍云 JS 库加速服务&l;a title=\&q;#又拍云-js-库加速服务\&q; href=\&q;#又拍云-js-库加速服务\&q;&g;&l;/a&g;&l;/h2&g;\n&l;p&g;托管常用的 JavaScript 库。又一个不怎么更新速度却非常快的 CDN 。&l;br&g;\nPs.现在只提供 JQUERY、MOOTOOLS、MODERNIZR、DOJO、EMBER.JS 五种了。另，官网没加小绿锁🔒。&l;/p&g;\n&l;p&g;地址：&l;a href=\&q;http://jscdn.upai.com/\&q; target=\&q;_blank\&q;&g;常用JavaScript库CDN服务&l;/a&g;&l;br&g;\n赞助：SegmentFault&l;br&g;\nPing：21ms&l;br&g;\n推荐：★★★⚝⚝&l;/p&g;\n&l;h2 id=\&q;腾讯微信前端通用库-cdn\&q;&g;腾讯微信前端通用库 CDN&l;a title=\&q;#腾讯微信前端通用库-cdn\&q; href=\&q;#腾讯微信前端通用库-cdn\&q;&g;&l;/a&g;&l;/h2&g;\n&l;p&g;太少了点…说实话不知道这样的站点还留着干嘛。&l;br&g;\n还有，有点时间没更新了。&l;/p&g;\n&l;p&g;地址：&l;a href=\&q;https://qydev.weixin.qq.com/cdn/cdnjs.html\&q; target=\&q;_blank\&q;&g;前端库CDN服务&l;/a&g;&l;br&g;\n赞助：MIG CDN&l;br&g;\nPing：34ms&l;br&g;\n推荐：★⚝⚝⚝⚝&l;/p&g;\n&l;h2 id=\&q;75cdn（360-前端静态资源库）\&q;&g;75CDN（360 前端静态资源库）&l;a title=\&q;#75cdn（360-前端静态资源库）\&q; href=\&q;#75cdn（360-前端静态资源库）\&q;&g;&l;/a&g;&l;/h2&g;\n&l;p&g;来自一个叫做 &l;a href=\&q;https://www.baomitu.com/\&q; target=\&q;_blank\&q;&g;爆米兔&l;/a&g; H5 服务。虽然没有明称是 360 团队的，不过这个 CDN 服务却似乎又暴露了什么。这个 CDN 服务又是叫做 &l;a href=\&q;https://github.com/75team/\&q; target=\&q;_blank\&q;&g;奇舞团&l;/a&g; 的团队负责，而这个团队却是在为 360 做事，以至于 CDN 官网已直接用 “360前端静态资源库” 暴露了身份。&l;br&g;\n之前有报道过 360 CDN 已停止支持，不过现在来看支持的还是非常多的。这里更想推荐的是，75CDN 支持 Google 字体库的加速，而且效果非常不错。&l;/p&g;\n&l;p&g;地址：&l;a href=\&q;https://cdn.baomitu.com/\&q; target=\&q;_blank\&q;&g;75CDN&l;/a&g;&l;br&g;\n赞助：360&l;br&g;\nPing：36ms&l;br&g;\n推荐：★★★★★&l;/p&g;\n&l;h2 id=\&q;腾讯网静态资源公共库\&q;&g;腾讯网静态资源公共库&l;a title=\&q;#腾讯网静态资源公共库\&q; href=\&q;#腾讯网静态资源公共库\&q;&g;&l;/a&g;&l;/h2&g;\n&l;p&g;还是太少了点…一样，有点时间没更新了。&l;br&g;\nPs.手动改网址，似乎还能获取到最新版的，但 Vue 都没有，也算是半残废吧。另，官网没加小绿锁🔒。&l;/p&g;\n&l;p&g;地址：&l;a href=\&q;https://libs.qq.com/\&q; target=\&q;_blank\&q;&g;前端库CDN服务&l;/a&g;&l;br&g;\n赞助：MIG CDN&l;br&g;\nPing：37ms&l;br&g;\n推荐：★★⚝⚝⚝&l;/p&g;\n&l;h2 id=\&q;新浪云计算cdn公共库\&q;&g;新浪云计算CDN公共库&l;a title=\&q;#新浪云计算cdn公共库\&q; href=\&q;#新浪云计算cdn公共库\&q;&g;&l;/a&g;&l;/h2&g;\n&l;p&g;新浪云计算是新浪研发中心下属的部门，主要负责新浪在云计算领域的战略规划，技术研发和平台运营工作。主要产品包括 应用云平台Sina App Engine（简称SAE）。&l;/p&g;\n&l;p&g;SAE的CDN节点覆盖全国各大城市的多路（电信、联通、移动、教育）骨干网络，使开发者能够方便的使用高质量的CDN服务。&l;/p&g;\n&l;p&g;地址：&l;a href=\&q;http://lib.sinaapp.com/\&q; target=\&q;_blank\&q;&g;SAE&l;/a&g;&l;br&g;\n赞助：无&l;br&g;\nPing：48ms&l;br&g;\n推荐：★★⚝⚝⚝&l;/p&g;\n&l;h2 id=\&q;中科大-google-fonts-加速服务\&q;&g;中科大 Google Fonts 加速服务&l;a title=\&q;#中科大-google-fonts-加速服务\&q; href=\&q;#中科大-google-fonts-加速服务\&q;&g;&l;/a&g;&l;/h2&g;\n&l;p&g;针对 Google Fonts 很不错。&l;br&g;\nPs.现在 Google Fonts 在国内有服务器了，而且可以直接访问。&l;br&g;\n但 Google 能用的只有 &l;code&g;fonts.googleapis.com&l;/code&g;、&l;code&g;fonts.gstatic.com&l;/code&g; 这两个域名。而 &l;code&g;ajax.googleapis.com&l;/code&g; 和 &l;code&g;themes.googleusercontent.com&l;/code&g; 暂时还是没法直接访问，所以还是得依赖中科大。&l;/p&g;\n&l;p&g;地址：&l;a href=\&q;https://lug.ustc.edu.cn/wiki/lug/services/googlefonts\&q; target=\&q;_blank\&q; rel=\&q;noopener\&q;&g;https://lug.ustc.edu.cn/wiki/lug/services/googlefonts&l;/a&g;&l;br&g;\n赞助：无&l;br&g;\nPing：74ms&l;br&g;\n推荐：★★★★⚝&l;/p&g;\n&l;h2 id=\&q;公益项目-loli.net\&q;&g;公益项目 &l;a href=\&q;http://loli.net\&q; target=\&q;_blank\&q; rel=\&q;noopener\&q;&g;loli.net&l;/a&g;&l;a title=\&q;#公益项目-loli.net\&q; href=\&q;#公益项目-loli.net\&q;&g;&l;/a&g;&l;/h2&g;\n&l;p&g;网站提供常用前端公共库 CDN 服务。&l;br&g;\n这里很多东西都有，Google Fonts、Google 公共库、Gravatar 和 前端库！&l;br&g;\n唯一麻烦的是，不但取名为英文，而且还没有一个人性化的界面，所以你可能需要善用浏览器的搜索功能了。速度其实还是挺不错的。&l;br&g;\nPs.改名为…萝莉？？？库？&l;/p&g;\n&l;p&g;地址：&l;a href=\&q;https://cdnjs.loli.net/\&q; target=\&q;_blank\&q;&g;loli.net&l;/a&g;&l;br&g;\n赞助：公益&l;br&g;\nPing：84ms&l;br&g;\n推荐：★★★★⚝&l;/p&g;\n&l;h2 id=\&q;微软-ajax-cdn-服务\&q;&g;微软 Ajax CDN 服务&l;a title=\&q;#微软-ajax-cdn-服务\&q; href=\&q;#微软-ajax-cdn-服务\&q;&g;&l;/a&g;&l;/h2&g;\n&l;p&g;估计也用不上，没什么有用的东西。好在速度还可以，应该比较稳定。&l;/p&g;\n&l;p&g;地址：&l;a href=\&q;https://docs.microsoft.com/zh-cn/aspnet/ajax/cdn/overview\&q; target=\&q;_blank\&q;&g;AspnetCDN&l;/a&g;&l;br&g;\n赞助：无&l;br&g;\nPing：92ms&l;br&g;\n推荐：★★★⚝⚝&l;/p&g;\n&l;h2 id=\&q;cdnjs.com\&q;&g;&l;a href=\&q;http://CDNJS.COM\&q; target=\&q;_blank\&q; rel=\&q;noopener\&q;&g;CDNJS.COM&l;/a&g;&l;a title=\&q;#cdnjs.com\&q; href=\&q;#cdnjs.com\&q;&g;&l;/a&g;&l;/h2&g;\n&l;p&g;CDNJS提供非常完整的 JavaScript 库，无论是热门或是冷门的一应俱全。若你觉得它们缺少哪些好用的函式库，也可以自行提交到网站里，通过审核后就 CDNJS 就会为你分流 js文件！这项服务是结合 CloudFlare、Pingdom 与 S3Stat的，稳定性与速度自然不在话下。&l;br&g;\nCDNJS提供的 JavaScript Libraries 全部列在网站首页，使用者可以直接搜索。这些JS库都有标示版本编号、标签以及原维护网站链结。&l;br&g;\n然而根据测试，看了下是 CF 提供的，所以大陆就速度也就一般般了。&l;/p&g;\n&l;p&g;地址：&l;a href=\&q;https://cdnjs.com/\&q; target=\&q;_blank\&q;&g;CDNJS.COM&l;/a&g;&l;br&g;\n赞助：Cloudflare&l;br&g;\nPing：288ms&l;br&g;\n推荐：★★★⚝⚝&l;/p&g;\n&l;h2 id=\&q;unpkg\&q;&g;UNPKG&l;a title=\&q;#unpkg\&q; href=\&q;#unpkg\&q;&g;&l;/a&g;&l;/h2&g;\n&l;p&g;这个网站估计玩过npm的都知道。只是不知道用来作 CDN 能否可行。国外的玩意速度都这样子。&l;/p&g;\n&l;p&g;地址：&l;a href=\&q;https://unpkg.com/\&q; target=\&q;_blank\&q;&g;UNPKG&l;/a&g;&l;br&g;\n赞助：CloudFlare&l;br&g;\nPing：283ms&l;br&g;\n推荐：★★⚝⚝⚝&l;/p&g;\n&l;h2 id=\&q;cdnjs.net\&q;&g;&l;a href=\&q;http://CDNJS.NET\&q; target=\&q;_blank\&q; rel=\&q;noopener\&q;&g;CDNJS.NET&l;/a&g;&l;a title=\&q;#cdnjs.net\&q; href=\&q;#cdnjs.net\&q;&g;&l;/a&g;&l;/h2&g;\n&l;p&g;还是很全的，感觉跟 &l;a href=\&q;http://CDNJS.COM\&q; target=\&q;_blank\&q; rel=\&q;noopener\&q;&g;CDNJS.COM&l;/a&g; 有什么莫名的关系，网上都说这是个盗版。但不管怎么说是速度却败下阵来，而且有一些虽还算和谐的广告。&l;/p&g;\n&l;p&g;地址：&l;a href=\&q;https://cdnjs.net/\&q; target=\&q;_blank\&q;&g;CDNJS.NET&l;/a&g;&l;br&g;\n赞助：无&l;br&g;\nPing：302ms&l;br&g;\n推荐：★★⚝⚝⚝&l;/p&g;\n&l;h2 id=\&q;google-hosted-libraries\&q;&g;Google Hosted Libraries&l;a title=\&q;#google-hosted-libraries\&q; href=\&q;#google-hosted-libraries\&q;&g;&l;/a&g;&l;/h2&g;\n&l;p&g;来自谷歌的托管库，大天朝看看就行。没法用，除非你的服务器是在非天朝（港澳台还是可以的）。&l;br&g;\nPs.前文有大陆使用方法。&l;/p&g;\n&l;p&g;地址：&l;a href=\&q;https://developers.google.com/speed/libraries\&q; target=\&q;_blank\&q;&g;Google Hosted Libraries&l;/a&g;&l;br&g;\n赞助：无&l;br&g;\nPing：+∞&l;br&g;\n推荐：★⚝⚝⚝⚝&l;/p&g;\n&q;,&q;prev&q;:{&q;title&q;:&q;钉钉一键点赞（最高 21 亿）&q;,&q;link&q;:&q;dingtalk-like&q;},&q;next&q;:{&q;title&q;:&q;利用腾讯云无服务器云函数搭建 OneDrive 网盘&q;,&q;link&q;:&q;onedrive-scf&q;},&q;plink&q;:&q;https://blog.cworld.top/free-cdn/&q;,&q;toc&q;:[{&q;id&q;:&q;jsdelivr-cdn&q;,&q;title&q;:&q;JSDelivr CDN&q;,&q;index&q;:&q;1&q;},{&q;id&q;:&q;bootstrap-中文网开源项目-cdn-服务&q;,&q;title&q;:&q;Bootstrap 中文网开源项目 CDN 服务&q;,&q;index&q;:&q;2&q;},{&q;id&q;:&q;七牛云静态文件-cdn-服务&q;,&q;title&q;:&q;七牛云静态文件 CDN 服务&q;,&q;index&q;:&q;3&q;},{&q;id&q;:&q;字节跳动静态资源公共库&q;,&q;title&q;:&q;字节跳动静态资源公共库&q;,&q;index&q;:&q;4&q;},{&q;id&q;:&q;又拍云-js-库加速服务&q;,&q;title&q;:&q;又拍云 JS 库加速服务&q;,&q;index&q;:&q;5&q;},{&q;id&q;:&q;腾讯微信前端通用库-cdn&q;,&q;title&q;:&q;腾讯微信前端通用库 CDN&q;,&q;index&q;:&q;6&q;},{&q;id&q;:&q;75cdn（360-前端静态资源库）&q;,&q;title&q;:&q;75CDN（360 前端静态资源库）&q;,&q;index&q;:&q;7&q;},{&q;id&q;:&q;腾讯网静态资源公共库&q;,&q;title&q;:&q;腾讯网静态资源公共库&q;,&q;index&q;:&q;8&q;},{&q;id&q;:&q;新浪云计算cdn公共库&q;,&q;title&q;:&q;新浪云计算CDN公共库&q;,&q;index&q;:&q;9&q;},{&q;id&q;:&q;中科大-google-fonts-加速服务&q;,&q;title&q;:&q;中科大 Google Fonts 加速服务&q;,&q;index&q;:&q;10&q;},{&q;id&q;:&q;公益项目-loli.net&q;,&q;title&q;:&q;公益项目 loli.net&q;,&q;index&q;:&q;11&q;},{&q;id&q;:&q;微软-ajax-cdn-服务&q;,&q;title&q;:&q;微软 Ajax CDN 服务&q;,&q;index&q;:&q;12&q;},{&q;id&q;:&q;cdnjs.com&q;,&q;title&q;:&q;CDNJS.COM&q;,&q;index&q;:&q;13&q;},{&q;id&q;:&q;unpkg&q;,&q;title&q;:&q;UNPKG&q;,&q;index&q;:&q;14&q;},{&q;id&q;:&q;cdnjs.net&q;,&q;title&q;:&q;CDNJS.NET&q;,&q;index&q;:&q;15&q;},{&q;id&q;:&q;google-hosted-libraries&q;,&q;title&q;:&q;Google Hosted Libraries&q;,&q;index&q;:&q;16&q;}],&q;reward&q;:true,&q;copyright&q;:{&q;author&q;:&q;CWorld&q;,&q;link&q;:&q;&l;a href=\&q;https://blog.cworld.top/free-cdn/\&q; title=\&q;那些好用的前端 CDN 推荐\&q;&g;https://blog.cworld.top/free-cdn/&l;/a&g;&q;,&q;license&q;:&q;Attribution-NonCommercial-NoDerivatives 4.0 International&l;br&g;(&l;a href=\&q;https://creativecommons.org/licenses/by-nc-sa/4.0/\&q; rel=\&q;external nofollow noopener\&q; target=\&q;_blank\&q;&g;CC BY-NC-ND 4.0&l;/a&g;)&q;,&q;published&q;:&q;2020年3月1日&q;,&q;updated&q;:&q;2021年5月23日&q;}}}</script></head>
+<body lang="zh-Hans">
+<is-a class="φbm φv" ng-version="9.1.11"><is-l class="φeb φy"><div class="φel"><section class="φem"><header class="φec φba"><!----><is-c class="φed"><img draggable="false" class="φbw φj" src="https://gravatar.loli.net/avatar/85b870f6b1a177981d3e9566e3ad7264?s=400" alt="" title="" width="160" height="160"></is-c><!----><a href="" class="φef φbf φl">CWorld</a><p class="φee">Stay hungry, Stay foolish. 求知若愚，虚怀若谷。</p></header><div class="φeq φba"><a routerlink="/archives" class="φer φl" href="/archives"><span class="φbc">16</span><span>归档</span></a><a class="φer φl" href="/categories/%E6%95%99%E7%A8%8B"><span class="φbc">5</span><span>分类</span></a><!----><a routerlink="/tags" class="φer φl" href="/tags"><span class="φbc">17</span><span>标签</span></a><!----></div><!----><nav class="φen"><a class="φeo φc φw φbd φl φr" href="/">🏠 Home</a><!----><!----><!----><a class="φeo φc φw φbd φl φr" href="/search">🔍 Search</a><!----><!----><!----><a class="φeo φc φw φbd φl φr" href="/playlist">🎵 Music</a><!----><!----><!----><a class="φeo φc φw φbd φl φr" href="/link">🔗 Link</a><!----><!----><!----><a class="φeo φc φw φbd φl φr" href="/about">👨‍💼 About</a><!----><!----><!----><!----></nav><!----><div issnippet="" class="φbl"><is-palette2></is-palette2>
+</div><!----><!----><!----></section><footer class="φeg φeh"><div class="φej"><a target="_blank" rel="external nofollow noopener" class="φek φbk φl icon-email" href="mailto:903517499@qq.com">email</a><a target="_blank" rel="external nofollow noopener" class="φek φbk φl icon-feed" href="/atom.xml">feed</a><a target="_blank" rel="external nofollow noopener" class="φek φbk φl icon-github" href="https://github.com/cworld1">github</a><a target="_blank" rel="external nofollow noopener" class="φek φbk φl icon-telegram" href="https://t.me/cworld0">telegram</a><a target="_blank" rel="external nofollow noopener" class="φek φbk φl icon-qq" href="https://wpa.qq.com/msgrd?v=3&amp;uin=903517499&amp;site=qq&amp;menu=yes">qq</a><a target="_blank" rel="external nofollow noopener" class="φek φbk φl icon-coolapk" href="https://www.coolapk.com/u/1384771">coolapk</a><!----></div><!----><p class="φbi φg">© 2020 ❤️ <a href="">CWorld</a></p><!----><p class="φbi φg"><span class="φei">由 <a href="https://hexo.io" target="_blank" rel="external nofollow noopener">Hexo</a> 强力驱动</span><!----><span class="φei">主题 - <a href="https://github.com/ikeq/hexo-theme-inside" target="_blank" rel="external nofollow noopener">Inside</a></span><!----></p><!----><p class="φbi φg"><div><a href="http://www.beian.miit.gov.cn/" rel="external nofollow">渝ICP备20001649号</a></div><span id="busuanzi_container_site_pv" style="display:inline;">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span></p><!----></footer></div></is-l><div class="φbo"><div class="φbn"><div class="φbs φq"><main class="φbr φb"><router-outlet></router-outlet><is-s class="φfx φba"><header class="φgh φgp" style="background-image:url(https://tvax2.sinaimg.cn/large/0060ksKkly1gcfx2vhmd1j318g0jz788.jpg);background-color:#fff;"><div class="φgo"><!----><p class="φgj φo"><span class="φgk φgn">2020年3月1日</span><!----><a class="φgk φgm φl" href="/categories/%E8%B5%84%E6%BA%90">资源</a><!----></p><hr class="φgq"><!----><h1 class="φgr">那些好用的前端 CDN 推荐</h1><!----></div></header><article itemscope="" itemtype="http://schema.org/Article" class="φga" data-title="那些好用的前端 CDN 推荐"><div itemprop="articleBody" issnippet="" iszoomable="" class="φbi φy φg"><p>最近总感觉自己的网站速度不行，又不想重新搭建（Hexo 的宗旨就是打造响应速度超快的轻量级博客嘛），所以这篇文章也就由此应运而生了。</p>
+<p>一个功能丰富的博客总是要引用一些优秀的项目代码。因此为了加快响应速度，不妨从CDN入手。</p>
+<blockquote>
+<p>Ps. 以下内容的 Ping 均选取平均值，且仅供参考。本文默认以 Ping 延迟排名，各地区和不同运营商网速各有差异，请在使用前自行测试考鉴。</p>
+</blockquote>
+<h2 id="jsdelivr-cdn">JSDelivr CDN<a title="#jsdelivr-cdn" href="#jsdelivr-cdn"></a></h2>
+<p>主要支持 npm ，Github 和 WordPress 的加速。也就是说，你可以把任意你自己的代码存放在 Github 上并用它来加速。重要的是，作为一家国外的 CDN 服务平台，在中国 QUANTIL 公司的赞助下，在大陆也能享受延迟极低的快速。</p>
+<p>地址：<a href="http://www.jsdelivr.com/" target="_blank">JSDelivr</a><br>
+赞助：Cloudflare，Fastly，StackPath，QUANTIL 和其他服务商<br>
+Ping：11ms<br>
+推荐：★★★★★</p>
+<h2 id="bootstrap-中文网开源项目-cdn-服务">Bootstrap 中文网开源项目 CDN 服务<a title="#bootstrap-中文网开源项目-cdn-服务" href="#bootstrap-中文网开源项目-cdn-服务"></a></h2>
+<p>致力于为 Bootstrap、jQuery、Angular 一样优秀的开源项目提供稳定、快速的免费 CDN 服务。BootCDN 所收录的开源项目主要同步于 cdnjs 仓库。自2013年10月31日上线以来已经为近万家网站提供了稳定、可靠的 CDN 服务。<br>
+根据官网来看，已经支持了 3450+ 开源项目，确实是非常全的。</p>
+<p>地址：<a href="http://www.bootcdn.cn/" target="_blank">BootCDN</a><br>
+赞助：猫云<br>
+Ping：11ms<br>
+推荐：★★★★★</p>
+<h2 id="七牛云静态文件-cdn-服务">七牛云静态文件 CDN 服务<a title="#七牛云静态文件-cdn-服务" href="#七牛云静态文件-cdn-服务"></a></h2>
+<p>七牛云的目标是提供这样一个仓库，让它尽可能全面收录优秀的开源库，并免费为之提供 CDN 加速服务，使之有更好的访问速度和稳定的环境。同时，我们也提供开源库源接入的入口，让所有人都可以提交开源库，包括 JS、CSS、image 和 swf 等静态文件。<br>
+Ps.点击搜索，才能发现那些隐藏的项目。</p>
+<p>地址：<a href="https://www.staticfile.org/" target="_blank">七牛云</a><br>
+赞助：掘金社区<br>
+Ping：15ms<br>
+推荐：★★★★★</p>
+<h2 id="字节跳动静态资源公共库">字节跳动静态资源公共库<a title="#字节跳动静态资源公共库" href="#字节跳动静态资源公共库"></a></h2>
+<p>字节跳动也是一家非常具有生命力的公司，旗下的抖音和今日头条等产品也可以说是家喻户晓。更有趣的是，CDN 支持项目还非常广泛，可以与 CDNJS 对齐。</p>
+<p>地址：<a href="http://cdn.bytedance.com/" target="_blank">字节跳动</a><br>
+赞助：无<br>
+Ping：25ms<br>
+推荐：★★★★★</p>
+<h2 id="又拍云-js-库加速服务">又拍云 JS 库加速服务<a title="#又拍云-js-库加速服务" href="#又拍云-js-库加速服务"></a></h2>
+<p>托管常用的 JavaScript 库。又一个不怎么更新速度却非常快的 CDN 。<br>
+Ps.现在只提供 JQUERY、MOOTOOLS、MODERNIZR、DOJO、EMBER.JS 五种了。另，官网没加小绿锁🔒。</p>
+<p>地址：<a href="http://jscdn.upai.com/" target="_blank">常用JavaScript库CDN服务</a><br>
+赞助：SegmentFault<br>
+Ping：21ms<br>
+推荐：★★★⚝⚝</p>
+<h2 id="腾讯微信前端通用库-cdn">腾讯微信前端通用库 CDN<a title="#腾讯微信前端通用库-cdn" href="#腾讯微信前端通用库-cdn"></a></h2>
+<p>太少了点…说实话不知道这样的站点还留着干嘛。<br>
+还有，有点时间没更新了。</p>
+<p>地址：<a href="https://qydev.weixin.qq.com/cdn/cdnjs.html" target="_blank">前端库CDN服务</a><br>
+赞助：MIG CDN<br>
+Ping：34ms<br>
+推荐：★⚝⚝⚝⚝</p>
+<h2 id="75cdn（360-前端静态资源库）">75CDN（360 前端静态资源库）<a title="#75cdn（360-前端静态资源库）" href="#75cdn（360-前端静态资源库）"></a></h2>
+<p>来自一个叫做 <a href="https://www.baomitu.com/" target="_blank">爆米兔</a> H5 服务。虽然没有明称是 360 团队的，不过这个 CDN 服务却似乎又暴露了什么。这个 CDN 服务又是叫做 <a href="https://github.com/75team/" target="_blank">奇舞团</a> 的团队负责，而这个团队却是在为 360 做事，以至于 CDN 官网已直接用 “360前端静态资源库” 暴露了身份。<br>
+之前有报道过 360 CDN 已停止支持，不过现在来看支持的还是非常多的。这里更想推荐的是，75CDN 支持 Google 字体库的加速，而且效果非常不错。</p>
+<p>地址：<a href="https://cdn.baomitu.com/" target="_blank">75CDN</a><br>
+赞助：360<br>
+Ping：36ms<br>
+推荐：★★★★★</p>
+<h2 id="腾讯网静态资源公共库">腾讯网静态资源公共库<a title="#腾讯网静态资源公共库" href="#腾讯网静态资源公共库"></a></h2>
+<p>还是太少了点…一样，有点时间没更新了。<br>
+Ps.手动改网址，似乎还能获取到最新版的，但 Vue 都没有，也算是半残废吧。另，官网没加小绿锁🔒。</p>
+<p>地址：<a href="https://libs.qq.com/" target="_blank">前端库CDN服务</a><br>
+赞助：MIG CDN<br>
+Ping：37ms<br>
+推荐：★★⚝⚝⚝</p>
+<h2 id="新浪云计算cdn公共库">新浪云计算CDN公共库<a title="#新浪云计算cdn公共库" href="#新浪云计算cdn公共库"></a></h2>
+<p>新浪云计算是新浪研发中心下属的部门，主要负责新浪在云计算领域的战略规划，技术研发和平台运营工作。主要产品包括 应用云平台Sina App Engine（简称SAE）。</p>
+<p>SAE的CDN节点覆盖全国各大城市的多路（电信、联通、移动、教育）骨干网络，使开发者能够方便的使用高质量的CDN服务。</p>
+<p>地址：<a href="http://lib.sinaapp.com/" target="_blank">SAE</a><br>
+赞助：无<br>
+Ping：48ms<br>
+推荐：★★⚝⚝⚝</p>
+<h2 id="中科大-google-fonts-加速服务">中科大 Google Fonts 加速服务<a title="#中科大-google-fonts-加速服务" href="#中科大-google-fonts-加速服务"></a></h2>
+<p>针对 Google Fonts 很不错。<br>
+Ps.现在 Google Fonts 在国内有服务器了，而且可以直接访问。<br>
+但 Google 能用的只有 <code>fonts.googleapis.com</code>、<code>fonts.gstatic.com</code> 这两个域名。而 <code>ajax.googleapis.com</code> 和 <code>themes.googleusercontent.com</code> 暂时还是没法直接访问，所以还是得依赖中科大。</p>
+<p>地址：<a href="https://lug.ustc.edu.cn/wiki/lug/services/googlefonts" target="_blank" rel="noopener">https://lug.ustc.edu.cn/wiki/lug/services/googlefonts</a><br>
+赞助：无<br>
+Ping：74ms<br>
+推荐：★★★★⚝</p>
+<h2 id="公益项目-loli.net">公益项目 <a href="http://loli.net" target="_blank" rel="noopener">loli.net</a><a title="#公益项目-loli.net" href="#公益项目-loli.net"></a></h2>
+<p>网站提供常用前端公共库 CDN 服务。<br>
+这里很多东西都有，Google Fonts、Google 公共库、Gravatar 和 前端库！<br>
+唯一麻烦的是，不但取名为英文，而且还没有一个人性化的界面，所以你可能需要善用浏览器的搜索功能了。速度其实还是挺不错的。<br>
+Ps.改名为…萝莉？？？库？</p>
+<p>地址：<a href="https://cdnjs.loli.net/" target="_blank">loli.net</a><br>
+赞助：公益<br>
+Ping：84ms<br>
+推荐：★★★★⚝</p>
+<h2 id="微软-ajax-cdn-服务">微软 Ajax CDN 服务<a title="#微软-ajax-cdn-服务" href="#微软-ajax-cdn-服务"></a></h2>
+<p>估计也用不上，没什么有用的东西。好在速度还可以，应该比较稳定。</p>
+<p>地址：<a href="https://docs.microsoft.com/zh-cn/aspnet/ajax/cdn/overview" target="_blank">AspnetCDN</a><br>
+赞助：无<br>
+Ping：92ms<br>
+推荐：★★★⚝⚝</p>
+<h2 id="cdnjs.com"><a href="http://CDNJS.COM" target="_blank" rel="noopener">CDNJS.COM</a><a title="#cdnjs.com" href="#cdnjs.com"></a></h2>
+<p>CDNJS提供非常完整的 JavaScript 库，无论是热门或是冷门的一应俱全。若你觉得它们缺少哪些好用的函式库，也可以自行提交到网站里，通过审核后就 CDNJS 就会为你分流 js文件！这项服务是结合 CloudFlare、Pingdom 与 S3Stat的，稳定性与速度自然不在话下。<br>
+CDNJS提供的 JavaScript Libraries 全部列在网站首页，使用者可以直接搜索。这些JS库都有标示版本编号、标签以及原维护网站链结。<br>
+然而根据测试，看了下是 CF 提供的，所以大陆就速度也就一般般了。</p>
+<p>地址：<a href="https://cdnjs.com/" target="_blank">CDNJS.COM</a><br>
+赞助：Cloudflare<br>
+Ping：288ms<br>
+推荐：★★★⚝⚝</p>
+<h2 id="unpkg">UNPKG<a title="#unpkg" href="#unpkg"></a></h2>
+<p>这个网站估计玩过npm的都知道。只是不知道用来作 CDN 能否可行。国外的玩意速度都这样子。</p>
+<p>地址：<a href="https://unpkg.com/" target="_blank">UNPKG</a><br>
+赞助：CloudFlare<br>
+Ping：283ms<br>
+推荐：★★⚝⚝⚝</p>
+<h2 id="cdnjs.net"><a href="http://CDNJS.NET" target="_blank" rel="noopener">CDNJS.NET</a><a title="#cdnjs.net" href="#cdnjs.net"></a></h2>
+<p>还是很全的，感觉跟 <a href="http://CDNJS.COM" target="_blank" rel="noopener">CDNJS.COM</a> 有什么莫名的关系，网上都说这是个盗版。但不管怎么说是速度却败下阵来，而且有一些虽还算和谐的广告。</p>
+<p>地址：<a href="https://cdnjs.net/" target="_blank">CDNJS.NET</a><br>
+赞助：无<br>
+Ping：302ms<br>
+推荐：★★⚝⚝⚝</p>
+<h2 id="google-hosted-libraries">Google Hosted Libraries<a title="#google-hosted-libraries" href="#google-hosted-libraries"></a></h2>
+<p>来自谷歌的托管库，大天朝看看就行。没法用，除非你的服务器是在非天朝（港澳台还是可以的）。<br>
+Ps.前文有大陆使用方法。</p>
+<p>地址：<a href="https://developers.google.com/speed/libraries" target="_blank">Google Hosted Libraries</a><br>
+赞助：无<br>
+Ping：+∞<br>
+推荐：★⚝⚝⚝⚝</p>
+</div><is-f class="φcc φk φn"><!----><ul class="φcg"><li class="φce"><strong class="φcf">本文作者<span>:</span></strong><p class="φcd">CWorld</p></li><li class="φce"><strong class="φcf">本文链接<span>:</span></strong><p class="φcd"><a href="https://blog.cworld.top/free-cdn/" title="那些好用的前端 CDN 推荐">https://blog.cworld.top/free-cdn/</a></p></li><li class="φce"><strong class="φcf">版权声明<span>:</span></strong><p class="φcd">Attribution-NonCommercial-NoDerivatives 4.0 International<br>(<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noopener" target="_blank">CC BY-NC-ND 4.0</a>)</p></li><li class="φce"><strong class="φcf">发表日期<span>:</span></strong><p class="φcd">2020年3月1日</p></li><li class="φce"><strong class="φcf">更新日期<span>:</span></strong><p class="φcd">2021年5月23日</p></li><!----></ul><!----></is-f><!----><is-k class="φdt"><p class="φdy">不妨用打赏💰再伤我一次</p><div class="φdv φy"><div class="φdx"><!----></div><div class="φea"><a class="φdz φbk icon-wechat" style="color:;"></a><a class="φdz" style="color:;">QQ</a><a class="φdz" style="color:;">酷安</a><!----></div></div></is-k><!----><div class="φy"><div issnippet="" class="φbl"><p id="hitokoto" style="text-align: center;">:D 获取中...</p>
+
+</div><div issnippet="" class="φbl">
+
+</div><!----></div><!----></article><footer class="φgb φy"><div class="φgg"><is-m class="φet"><a class="φeu φn φp" href="/tags/CDN">CDN</a></is-m><is-m class="φet"><a class="φeu φn φp" href="/tags/%E5%89%8D%E7%AB%AF">前端</a></is-m><!----></div><!----><div class="φgc"><a class="φgd φgf φl" href="/dingtalk-like">钉钉一键点赞（最高 21 亿）</a><!----><a class="φgd φge φl" href="/onedrive-scf">利用腾讯云无服务器云函数搭建 OneDrive 网盘</a><!----></div><!----></footer><is-e class="φbz φy"><div issnippet="" class="φbl"><div class="vcomment valine" id="vcomment"></div>
+
+  
+</div><!----><!----><!----><!----></is-e><!----><!----><!----></is-s><!----></main><!----></div></div></div><is-g class="φch"><div class="φcq"><span class="φbk icon-up"></span><span class="φbk icon-down"></span><!----><span class="φbk icon-toc"></span><!----><span class="φbk icon-search"></span><!----></div><div class="φcj φck"><svg class="φcp"><defs><filter id="dp"><feGaussianBlur in="SourceGraphic" stdDeviation="2"></feGaussianBlur></filter></defs><circle filter="url(#dp)" fill="rgba(0,0,0,.3)" cx="50%" cy="52%" r="44%"></circle><circle cx="50%" cy="50%" r="44%" class="φcl φe"></circle><circle cx="50%" cy="50%" r="48%" class="φco φf" stroke-dasharray="0% 314.15926%"></circle><!----><g class="φcm"><circle r=".2rem" cx="0" cy="-.8rem"></circle><circle r=".2rem"></circle><circle r=".2rem" cx="0" cy=".8rem"></circle></g><!----></svg></div></is-g><is-n class="φev φba"><div class="φex φey φs"><a class="φfa φl"><span class="φfb φbc">1 </span><!----><span class="φfc">JSDelivr CDN</span></a><!----></div><div class="φex φey φs"><a class="φfa φl"><span class="φfb φbc">2 </span><!----><span class="φfc">Bootstrap 中文网开源项目 CDN 服务</span></a><!----></div><div class="φex φey φs"><a class="φfa φl"><span class="φfb φbc">3 </span><!----><span class="φfc">七牛云静态文件 CDN 服务</span></a><!----></div><div class="φex φey φs"><a class="φfa φl"><span class="φfb φbc">4 </span><!----><span class="φfc">字节跳动静态资源公共库</span></a><!----></div><div class="φex φey φs"><a class="φfa φl"><span class="φfb φbc">5 </span><!----><span class="φfc">又拍云 JS 库加速服务</span></a><!----></div><div class="φex φey φs"><a class="φfa φl"><span class="φfb φbc">6 </span><!----><span class="φfc">腾讯微信前端通用库 CDN</span></a><!----></div><div class="φex φey φs"><a class="φfa φl"><span class="φfb φbc">7 </span><!----><span class="φfc">75CDN（360 前端静态资源库）</span></a><!----></div><div class="φex φey φs"><a class="φfa φl"><span class="φfb φbc">8 </span><!----><span class="φfc">腾讯网静态资源公共库</span></a><!----></div><div class="φex φey φs"><a class="φfa φl"><span class="φfb φbc">9 </span><!----><span class="φfc">新浪云计算CDN公共库</span></a><!----></div><div class="φex φey φs"><a class="φfa φl"><span class="φfb φbc">10 </span><!----><span class="φfc">中科大 Google Fonts 加速服务</span></a><!----></div><div class="φex φey φs"><a class="φfa φl"><span class="φfb φbc">11 </span><!----><span class="φfc">公益项目 loli.net</span></a><!----></div><div class="φex φey φs"><a class="φfa φl"><span class="φfb φbc">12 </span><!----><span class="φfc">微软 Ajax CDN 服务</span></a><!----></div><div class="φex φey φs"><a class="φfa φl"><span class="φfb φbc">13 </span><!----><span class="φfc">CDNJS.COM</span></a><!----></div><div class="φex φey φs"><a class="φfa φl"><span class="φfb φbc">14 </span><!----><span class="φfc">UNPKG</span></a><!----></div><div class="φex φey φs"><a class="φfa φl"><span class="φfb φbc">15 </span><!----><span class="φfc">CDNJS.NET</span></a><!----></div><div class="φex φey φs"><a class="φfa φl"><span class="φfb φbc">16 </span><!----><span class="φfc">Google Hosted Libraries</span></a><!----></div><!----></is-n><!----><!----></is-a>
+<script src="//lib.baomitu.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/cworld1/source@master/files/valine.js"></script>
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.jsdelivr.net/gh/cworld1/source@master/files/themes.min.js"></script>
+
+<script src="//cdn.jsdelivr.net/gh/ikeq/hexo-theme-inside@2.7.0-beta.2/source/runtime.0d15793f6e46723148c6.js"></script>
+<script src="//cdn.jsdelivr.net/gh/ikeq/hexo-theme-inside@2.7.0-beta.2/source/polyfills.6661dd3f63d336032841.js"></script>
+<script src="//cdn.jsdelivr.net/gh/ikeq/hexo-theme-inside@2.7.0-beta.2/source/main.7652f74988a605a4b23c.js"></script>
+
+
+</body></html>

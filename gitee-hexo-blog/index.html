@@ -1,0 +1,320 @@
+<!DOCTYPE html><html lang="zh-Hans"><head>
+<meta charset="utf-8">
+<title>使用 Gitee 和 Hexo 框架搭建个人博客教程 - CWorld's Blog</title>
+<base href="/">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+<link rel="canonical" href="https://blog.cworld.top/gitee-hexo-blog/">
+<link rel="icon" type="image/x-icon" href="/logo.png">
+
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<meta name="description" content="前言 搭建效果 看一下我花了一点时间的搭建效果 我的博客:查看链接>> 为何使用 Gitee 搭建个人博客 免费，不用自己花钱买空间域名，代码托管平台，不用太担心后台挂了，目前国内访问GitHub速度慢，还可能被墙，所以 Gitee 来构建个人博客。 Gitee 类似国内版的 GitHub ，访问速度有保证。 什么是 Hexo 官网:查看链接>> Hexo 是一个快速、简洁">
+<meta property="og:type" content="website">
+<meta property="og:title" content="使用 Gitee 和 Hexo 框架搭建个人博客教程">
+<meta property="og:url" content="https://blog.cworld.top/gitee-hexo-blog/">
+<meta property="og:site_name" content="CWorld's Blog">
+<meta property="og:description" content="前言 搭建效果 看一下我花了一点时间的搭建效果 我的博客:查看链接>> 为何使用 Gitee 搭建个人博客 免费，不用自己花钱买空间域名，代码托管平台，不用太担心后台挂了，目前国内访问GitHub速度慢，还可能被墙，所以 Gitee 来构建个人博客。 Gitee 类似国内版的 GitHub ，访问速度有保证。 什么是 Hexo 官网:查看链接>> Hexo 是一个快速、简洁">
+<meta property="og:image" content="http://image.coolapk.com/feed/2018/1229/22/685100_1546094801_479@1600x719.jpg">
+<meta property="article:published_time" content="2019-06-22T21:11:00.000Z">
+<meta property="article:modified_time" content="2021-05-23T13:54:25.394Z">
+<meta property="article:author" content="CWorld">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="Gitee">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://image.coolapk.com/feed/2018/1229/22/685100_1546094801_479@1600x719.jpg">
+
+<script type="application/ld+json">[{"@context":"http://schema.org","@type":"WebSite","publisher":{"@type":"Person","name":"CWorld","description":"Stay hungry, Stay foolish. 求知若愚，虚怀若谷。","image":"https://gravatar.loli.net/avatar/85b870f6b1a177981d3e9566e3ad7264?s=400"},"url":"https://blog.cworld.top","image":"https://gravatar.loli.net/avatar/85b870f6b1a177981d3e9566e3ad7264?s=400","description":"Stay hungry, Stay foolish","author":{"@type":"Person","name":"CWorld","description":"Stay hungry, Stay foolish. 求知若愚，虚怀若谷。","image":"https://gravatar.loli.net/avatar/85b870f6b1a177981d3e9566e3ad7264?s=400"},"inLanguage":{"@type":"Language","alternateName":"zh-Hans"}},{"@context":"http://schema.org","@type":"Article","articleSection":"教程","url":"https://blog.cworld.top/gitee-hexo-blog/","headline":"使用 Gitee 和 Hexo 框架搭建个人博客教程","image":"http://image.coolapk.com/feed/2018/1229/22/685100_1546094801_479@1600x719.jpg","datePublished":"2019-06-22T21:11:00.000Z","dateModified":"2021-05-23T13:54:25.394Z","keywords":"Hexo,Gitee","description":"Stay hungry, Stay foolish","publisher":{"@type":"Organization","name":"CWorld's Blog","logo":{"@type":"ImageObject","url":"https://gravatar.loli.net/avatar/85b870f6b1a177981d3e9566e3ad7264?s=400"}},"author":{"@type":"Person","name":"CWorld","description":"Stay hungry, Stay foolish. 求知若愚，虚怀若谷。","image":"https://gravatar.loli.net/avatar/85b870f6b1a177981d3e9566e3ad7264?s=400"},"inLanguage":{"@type":"Language","alternateName":"zh-Hans"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.cworld.top/gitee-hexo-blog/"},"thumbnailUrl":"http://image.coolapk.com/feed/2018/1229/22/685100_1546094801_479@1600x719.jpg"}]</script>
+
+
+<link rel="alternate" type="application/atom+xml" title="CWorld's Blog" href="/atom.xml">
+
+<link href="//cdn.jsdelivr.net/gh/fiteen/fiteen.github.io@v0.1.0/font.css" rel="stylesheet">
+<style>.φbf,
+img.φbw.φj {
+    transition: .3s;
+    -webkit-transition: .3s;
+    -ms-transition: .3s;
+    -moz-transition: .3s
+}
+
+img.φbw.φj:active {
+    transform: scale(.9)
+}
+
+@font-face {
+    font-family: iconfont;
+    src: url(iconfont.eot?t=1581948047227);
+    src: url(iconfont.eot?t=1581948047227#iefix) format('embedded-opentype'), url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAARIAAsAAAAACLQAAAP7AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDMgqERIN+ATYCJAMUCwwABCAFhG0HWBuaB8geg207eYRRJN1p5HM2Hv5/v2/7XHlfpc0k0ThZEGukyZglQiOSoLMIiUonE4oms079R3lVZbIQstLMQjyOFsz2QJnL5uDZszhMzk/4JZTq/8Whaqb4fEu2yxxTE8qFwqEJFKC9MTR7XqCWaiWsiHcYu7iMywS61qXCztc2C8FJoc0KxCOlvBecYjqlpDi0hSZnYxHPwV47PeU9APDM/f74B5nhRFIzbeHVOzX9UP4DexONG/4boMNGAL8/C5htZBwAhXica3sE92MHcF0pYucEyD9rS9IP7LXza/Ob6P8BEK1I0dX/4VGEJBMNrbAPTlC88AMzyRR+OpMJfprJJH5F62SIrtO76OEVgP9AtdHnoCyLTr/TKWN7wcStVD7PKgTPeMe2WT16m03EcRKWlf6hweARL7j2+SaDcZ550OLtZj+I/msj2L28mOM+34LZPzGLPeYZw+xc6+juDSux1VZzm4vZxkrnsWZ2kLNw820mm8FqtHahj2g/ztWdthWcfZi04ozfJbaWtQo32JLO2vJuc4LrEsnqk8GtK9fs2RXQt79o59k4VnzFWm4cIjzBxp9j+ce4/8Ke90JnoWGfwWLjwd1T66H7GlaH1Xd310MxRjnwvLrunvrHfbwNpbkCJ0Hu+lJyWlxWo74UUt6JWDFLeMeI8P/pbIzLNs3b9gEezBOJRQCrw+rr7e2hYhguzxmZ0hz5ILJZbIgfeLVivizZbyv281D+Ip1tN2zF0KeFxs9r+1uef+/02xX15f7n+D+9krz8GidK6Fo9NqzxWarU+7xbcxn3ILFi+ODjpUdZRtvRZ9wDZ34GprRLYioTyqMrlD2zqCHVLvg53m/jlbJmPaiNo92UT3kswApuwMUA5He8KwDkt7wpf8Pv+DjqzJVuz+KvTq4FfNJfXOz6VuygXbwtUZv/7vk1a4os1PS1iJUmT7RXRxGdJLV08cZdU6/6USxqRwjtGJ+BpGUNsrYNZMEeQNVzCI22Y+jaV7e9Z4aGi9LBnpkAwthhSIbeQDb2EFmwL6Fa+gSNceDQdRq+B/ZshdKlika9DOon+sYTSpLSyQwj4+IVj0Dy0ZpeOip0cWJEDyiDRAY/PZmsQzpE97FkYIw8k2FkhIymtEQtuA5pNBShpykVIhm+gmH0hQKBLO9OfJLSgotzaEgvBtKP0Gc8ghKJoiOzmzNcUl8/AiI3mkYvuqSqxCqG0AYo+ydk4EuvgayT6WpVncvwAWPIZWIwZHiaDI2iRaiFFkSjxygEff44FYTE4FO0iOgVEqB6sroy/vgK7TXugS7tsBopcpSo0RhdJ0lqtI5Js7IZjVKH3Mj95MRPICn9eByNR44kRWl69WoAAA==') format('woff2'), url(iconfont.woff?t=1581948047227) format('woff'), url(iconfont.ttf?t=1581948047227) format('truetype'), url(iconfont.svg?t=1581948047227#iconfont) format('svg')
+}
+
+.fa,
+.icon-coolapk:before,
+.iconfont {
+    font-family: iconfont !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+.icon-account:before {
+    content: "\e609" !important
+}
+
+.fa-clipboard:before {
+    content: "\e6d2" !important
+}
+
+.icon-eye:before {
+    content: "\e722" !important
+}
+
+.icon-coolapk:before {
+    content: "\e501" !important
+}
+
+@font-face {
+    font-family: 'IM Fell DW Pica SC';
+    src: url(//lib.baomitu.com/fonts/im-fell-dw-pica-sc/im-fell-dw-pica-sc-regular.eot);
+    src: local('IM Fell DW Pica SC'), local('IMFell DW Pica SC-Normal'), url(//lib.baomitu.com/fonts/im-fell-dw-pica-sc/im-fell-dw-pica-sc-regular.eot?#iefix) format('embedded-opentype'), url(//lib.baomitu.com/fonts/im-fell-dw-pica-sc/im-fell-dw-pica-sc-regular.woff2) format('woff2'), url(//lib.baomitu.com/fonts/im-fell-dw-pica-sc/im-fell-dw-pica-sc-regular.woff) format('woff'), url(//lib.baomitu.com/fonts/im-fell-dw-pica-sc/im-fell-dw-pica-sc-regular.ttf) format('truetype'), url('//lib.baomitu.com/fonts/im-fell-dw-pica-sc/im-fell-dw-pica-sc-regular.svg#IMFell DW Pica SC') format('svg')
+}
+
+@font-face {
+    font-family: Lobster;
+    src: url(//lib.baomitu.com/fonts/lobster/lobster-regular.eot);
+    src: local('Lobster'), local('Lobster-Normal'), url(//lib.baomitu.com/fonts/lobster/lobster-regular.eot?#iefix) format('embedded-opentype'), url(//lib.baomitu.com/fonts/lobster/lobster-regular.woff2) format('woff2'), url(//lib.baomitu.com/fonts/lobster/lobster-regular.woff) format('woff'), url(//lib.baomitu.com/fonts/lobster/lobster-regular.ttf) format('truetype'), url(//lib.baomitu.com/fonts/lobster/lobster-regular.svg#Lobster) format('svg')
+}
+
+.φbd.φm {
+    font-weight: 700
+}
+
+* {
+    outline: 0
+}
+
+.φcj {
+    border-radius: 50%
+}
+
+.φfw img {
+    border-radius: 8px
+}
+
+@media (max-width:675px) {
+    .φfw img {
+        border-radius: 4px
+    }
+}
+
+.valine * {
+    font-family: 'Josefin Sans', 'PingFang SC' !important
+}
+
+.valine .vlist .vcard .vcomment-body .vhead .vname,
+.valine a {
+    color: #659eb9 !important
+}
+
+.valine .vlist .vcard .vcomment-body {
+    padding: 1em .5em 1em !important
+}
+
+.valine .vlist .vcard .vcomment-body .vat {
+    opacity: 0;
+    margin-top: -.5em;
+    padding: .5em 1em .2em 1em !important;
+    border-radius: 4px
+}
+
+.valine .vlist .vcard .vcomment-body:hover .vhead a.vat {
+    background: 0 0 !important;
+    opacity: 1
+}
+
+.valine .vlist .vcard .vcomment-body .vhead a.vat:hover {
+    background-color: #659eb921 !important
+}
+
+.valine .vinputs-area .auth-section .post-action button {
+    border: none !important;
+    background: #659eb9 !important
+}
+
+.highlight {
+    position: relative
+}
+
+.btn-copy {
+    border-radius: 3px;
+    border-width: 0;
+    font-size: 13px;
+    line-height: 12px;
+    padding: 4px 6px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    background: #659eb90f;
+    color: #659eb9de;
+    opacity: 0;
+    outline: 0;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-appearance: none;
+    transition: .3s
+}
+
+.btn-copy span {
+    margin-left: 5px
+}
+
+.highlight:hover .btn-copy {
+    opacity: 1
+}</style>
+<link href="//cdn.jsdelivr.net/gh/ikeq/hexo-theme-inside@2.7.0-beta.2/source/styles.c3f8d35f4c49a6d852da.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/theme.be7b2c110561281a17c7.css" is="theme">
+
+
+<script src="/config.09da1a28f6c1e4f8e06e.js"></script>
+
+
+<script async="" src="//www.googletagmanager.com/gtag/js?id=UA-158629060-1"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','UA-158629060-1');</script>
+<meta name="referrer" content="no-referrer">
+
+<meta name="generator" content="Hexo 4.2.1"><meta name="theme-color" content="#4781a6"><script type="application/json" is="state">{&q;api/Z2l0ZWUtaGV4by1ibG9n.json&q;:{&q;title&q;:&q;使用 Gitee 和 Hexo 框架搭建个人博客教程&q;,&q;date&q;:&q;2019-06-22T21:11:00.000Z&q;,&q;date_formatted&q;:{&q;ll&q;:&q;2019年6月22日&q;,&q;L&q;:&q;2019/06/22&q;,&q;MM-DD&q;:&q;06-22&q;},&q;thumbnail&q;:&q;http://image.coolapk.com/feed/2018/1229/22/685100_1546094801_479@1600x719.jpg&q;,&q;color&q;:&q;#4781a6&q;,&q;link&q;:&q;gitee-hexo-blog&q;,&q;comments&q;:true,&q;tags&q;:[&q;Gitee&q;,&q;Hexo&q;],&q;categories&q;:[&q;教程&q;],&q;updated&q;:&q;2021-05-23T13:54:25.394Z&q;,&q;content&q;:&q;&l;h2 id=\&q;前言\&q;&g;前言&l;a title=\&q;#前言\&q; href=\&q;#前言\&q;&g;&l;/a&g;&l;/h2&g;\n&l;h3 id=\&q;搭建效果\&q;&g;搭建效果&l;a title=\&q;#搭建效果\&q; href=\&q;#搭建效果\&q;&g;&l;/a&g;&l;/h3&g;\n&l;p&g;看一下我花了一点时间的搭建效果&l;/p&g;\n&l;p&g;我的博客:&l;a href=\&q;http://zenggit.gitee.io/hexo\&q; target=\&q;_blank\&q;&g;查看链接&a;gt;&a;gt;&l;/a&g;&l;/p&g;\n&l;h3 id=\&q;为何使用-gitee-搭建个人博客\&q;&g;为何使用 Gitee 搭建个人博客&l;a title=\&q;#为何使用-gitee-搭建个人博客\&q; href=\&q;#为何使用-gitee-搭建个人博客\&q;&g;&l;/a&g;&l;/h3&g;\n&l;p&g;免费，不用自己花钱买空间域名，代码托管平台，不用太担心后台挂了，目前国内访问GitHub速度慢，还可能被墙，所以 Gitee 来构建个人博客。 Gitee 类似国内版的 GitHub ，访问速度有保证。&l;/p&g;\n&l;h3 id=\&q;什么是-hexo\&q;&g;什么是 Hexo&l;a title=\&q;#什么是-hexo\&q; href=\&q;#什么是-hexo\&q;&g;&l;/a&g;&l;/h3&g;\n&l;p&g;官网:查看链接&a;gt;&a;gt;&l;br&g;\nHexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown （或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。&l;/p&g;\n&l;h2 id=\&q;搭建准备工作\&q;&g;搭建准备工作&l;a title=\&q;#搭建准备工作\&q; href=\&q;#搭建准备工作\&q;&g;&l;/a&g;&l;/h2&g;\n&l;ul&g;\n&l;li&g;安装 Node.js (本地编译生成静态网页) &l;a href=\&q;https://m.runoob.com/nodejs/nodejs-install-setup.html\&q; target=\&q;_blank\&q;&g;查看链接&a;gt;&a;gt;&l;/a&g;&l;/li&g;\n&l;li&g;安装 Git (用来将本地数据提交到Gitee服务端) &l;a href=\&q;https://m.runoob.com/git/git-install-setup.html\&q; target=\&q;_blank\&q;&g;查看链接&a;gt;&a;gt;&l;/a&g;&l;/li&g;\n&l;li&g;注册一个 &l;a href=\&q;Gitee:https://gitee.com/\&q;&g;查看链接&a;gt;&a;gt;&l;/a&g;&l;/li&g;\n&l;/ul&g;\n&l;h2 id=\&q;开启搭建\&q;&g;开启搭建&l;a title=\&q;#开启搭建\&q; href=\&q;#开启搭建\&q;&g;&l;/a&g;&l;/h2&g;\n&l;h3 id=\&q;注册登入-gitee-新建一个仓库\&q;&g;注册登入 Gitee 新建一个仓库&l;a title=\&q;#注册登入-gitee-新建一个仓库\&q; href=\&q;#注册登入-gitee-新建一个仓库\&q;&g;&l;/a&g;&l;/h3&g;\n&l;p&g;&l;img src=\&q;http://image.coolapk.com/feed/2018/1229/22/685100_1546094803_7241@1366x768.jpg.m.jpg\&q; alt=\&q;新建仓库\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;h3 id=\&q;开启-gitee-pages-服务以后就可以用这个地址作为你的博客地址\&q;&g;开启 Gitee Pages 服务以后就可以用这个地址作为你的博客地址&l;a title=\&q;#开启-gitee-pages-服务以后就可以用这个地址作为你的博客地址\&q; href=\&q;#开启-gitee-pages-服务以后就可以用这个地址作为你的博客地址\&q;&g;&l;/a&g;&l;/h3&g;\n&l;p&g;&l;img src=\&q;http://image.coolapk.com/feed/2018/1229/22/685100_1546094806_5471@1092x612.jpg.m.jpg\&q; alt=\&q;启用pages服务\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;p&g;&l;img src=\&q;http://image.coolapk.com/feed/2018/1229/22/685100_1546094808_6552@635x345.jpg.m.jpg\&q; alt=\&q;启用\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;p&g;&l;img src=\&q;http://image.coolapk.com/feed/2018/1229/22/685100_1546094810_7866@656x371.jpg.m.jpg\&q; alt=\&q;你的博客地址\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;h2 id=\&q;note.js(npm)-执行本地安装-hexo-框架\&q;&g;Note.js(npm) 执行本地安装 Hexo 框架&l;a title=\&q;#note.js(npm)-执行本地安装-hexo-框架\&q; href=\&q;#note.js(npm)-执行本地安装-hexo-框架\&q;&g;&l;/a&g;&l;/h2&g;\n&l;p&g;打开 Note.js 命令窗口&l;/p&g;\n&l;p&g;&l;img src=\&q;http://image.coolapk.com/feed/2018/1229/22/685100_1546094812_9106@249x223.jpg.m.jpg\&q; alt=\&q;打开命令窗口\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;p&g;输入一键安装命令：&l;/p&g;\n&l;figure class=\&q;highlight cmd\&q;&g;&l;table&g;&l;tr&g;&l;td class=\&q;gutter\&q;&g;&l;pre&g;&l;span class=\&q;line\&q;&g;1&l;/span&g;&l;br&g;&l;/pre&g;&l;/td&g;&l;td class=\&q;code\&q;&g;&l;pre&g;&l;span class=\&q;line\&q;&g;npm install -g hexo-cli&l;/span&g;&l;br&g;&l;/pre&g;&l;/td&g;&l;/tr&g;&l;/table&g;&l;/figure&g;\n&l;p&g;&l;img src=\&q;http://image.coolapk.com/feed/2018/1229/22/685100_1546094815_0487@654x512.jpg.m.jpg\&q; alt=\&q;一键安装\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;p&g;大概等待2～3分钟后就安装好了，确定是否安装可使用命令:&l;/p&g;\n&l;figure class=\&q;highlight plain\&q;&g;&l;table&g;&l;tr&g;&l;td class=\&q;gutter\&q;&g;&l;pre&g;&l;span class=\&q;line\&q;&g;1&l;/span&g;&l;br&g;&l;/pre&g;&l;/td&g;&l;td class=\&q;code\&q;&g;&l;pre&g;&l;span class=\&q;line\&q;&g;hexo v 查看版本信息&l;/span&g;&l;br&g;&l;/pre&g;&l;/td&g;&l;/tr&g;&l;/table&g;&l;/figure&g;\n&l;p&g;&l;img src=\&q;http://image.coolapk.com/feed/2018/1229/22/685100_1546094817_2239@649x512.gif\&q; alt=\&q;查看hexo版本信息\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;h3 id=\&q;初始化-hexo\&q;&g;初始化 Hexo&l;a title=\&q;#初始化-hexo\&q; href=\&q;#初始化-hexo\&q;&g;&l;/a&g;&l;/h3&g;\n&l;p&g;选择本地 hexo 数据目录：&l;/p&g;\n&l;figure class=\&q;highlight cmd\&q;&g;&l;table&g;&l;tr&g;&l;td class=\&q;gutter\&q;&g;&l;pre&g;&l;span class=\&q;line\&q;&g;1&l;/span&g;&l;br&g;&l;/pre&g;&l;/td&g;&l;td class=\&q;code\&q;&g;&l;pre&g;&l;span class=\&q;line\&q;&g;hexo init \&q;E:\\文档\\My Hexo\&q;&l;/span&g;&l;br&g;&l;/pre&g;&l;/td&g;&l;/tr&g;&l;/table&g;&l;/figure&g;\n&l;p&g;(我是自己定义的位置，可自己修改)&l;/p&g;\n&l;p&g;&l;img src=\&q;http://image.coolapk.com/feed/2018/1229/22/685100_1546094820_4058@643x475.gif\&q; alt=\&q;选择数据目录位置\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;p&g;开始初始化 hexo ，依次执行下命令:&l;/p&g;\n&l;figure class=\&q;highlight cmd\&q;&g;&l;table&g;&l;tr&g;&l;td class=\&q;gutter\&q;&g;&l;pre&g;&l;span class=\&q;line\&q;&g;1&l;/span&g;&l;br&g;&l;span class=\&q;line\&q;&g;2&l;/span&g;&l;br&g;&l;/pre&g;&l;/td&g;&l;td class=\&q;code\&q;&g;&l;pre&g;&l;span class=\&q;line\&q;&g;进入数据目录:&l;span class=\&q;built_in\&q;&g;cd&l;/span&g; \&q;E:\\文档\\My Hexo\&q;&l;/span&g;&l;br&g;&l;span class=\&q;line\&q;&g;初始化:npm install&l;/span&g;&l;br&g;&l;/pre&g;&l;/td&g;&l;/tr&g;&l;/table&g;&l;/figure&g;\n&l;p&g;&l;img src=\&q;http://image.coolapk.com/feed/2018/1229/22/685100_1546094823_1651@643x475.gif\&q; alt=\&q;初始化hexo\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;p&g;初始化成功后，在数据目录下会有以下文件夹，记住你的数据目录路径，以后要用得到的！&l;/p&g;\n&l;p&g;&l;img src=\&q;http://image.coolapk.com/feed/2018/1229/22/685100_1546094825_6677@732x591.jpg.m.jpg\&q; alt=\&q;数据目录\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;h3 id=\&q;本地部署预览\&q;&g;本地部署预览&l;a title=\&q;#本地部署预览\&q; href=\&q;#本地部署预览\&q;&g;&l;/a&g;&l;/h3&g;\n&l;p&g;先查看搭建 hexo 本地博客是否成功，在自己上一步安装数据目录下 Git Bash 使用命令:&l;/p&g;\n&l;figure class=\&q;highlight cmd\&q;&g;&l;table&g;&l;tr&g;&l;td class=\&q;gutter\&q;&g;&l;pre&g;&l;span class=\&q;line\&q;&g;1&l;/span&g;&l;br&g;&l;/pre&g;&l;/td&g;&l;td class=\&q;code\&q;&g;&l;pre&g;&l;span class=\&q;line\&q;&g;hexo s 来启动本地服务，再次 Ctrl+C 停止本地服务&l;/span&g;&l;br&g;&l;/pre&g;&l;/td&g;&l;/tr&g;&l;/table&g;&l;/figure&g;\n&l;p&g;&l;img src=\&q;http://image.coolapk.com/feed/2018/1229/22/685100_1546094828_2499@746x596.gif\&q; alt=\&q;启动本地服务\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;p&g;浏览器进入 localhost:4000 预览本地博客&l;br&g;\n&l;a href=\&q;localhost:4000\&q;&g;4000链接&l;/a&g;&l;/p&g;\n&l;p&g;&l;img src=\&q;http://image.coolapk.com/feed/2018/1229/22/685100_1546094832_2654@1336x676.gif\&q; alt=\&q;浏览本地博客\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;p&g;完成以上算是成功一半了，接下来配置Git同步服务端&l;/p&g;\n&l;h2 id=\&q;git-配置同步-gitee-服务端\&q;&g;Git 配置同步 Gitee 服务端&l;a title=\&q;#git-配置同步-gitee-服务端\&q; href=\&q;#git-配置同步-gitee-服务端\&q;&g;&l;/a&g;&l;/h2&g;\n&l;h3 id=\&q;配置-git-全局信息\&q;&g;配置 Git 全局信息&l;a title=\&q;#配置-git-全局信息\&q; href=\&q;#配置-git-全局信息\&q;&g;&l;/a&g;&l;/h3&g;\n&l;p&g;配置 Git 全局信息，这样才能提交数据&l;/p&g;\n&l;figure class=\&q;highlight cmd\&q;&g;&l;table&g;&l;tr&g;&l;td class=\&q;gutter\&q;&g;&l;pre&g;&l;span class=\&q;line\&q;&g;1&l;/span&g;&l;br&g;&l;span class=\&q;line\&q;&g;2&l;/span&g;&l;br&g;&l;/pre&g;&l;/td&g;&l;td class=\&q;code\&q;&g;&l;pre&g;&l;span class=\&q;line\&q;&g;git config --global user.name \&q;你的Gitee用户名\&q;&l;/span&g;&l;br&g;&l;span class=\&q;line\&q;&g;git config --global user.email \&q;你Gitee使用的邮箱\&q;&l;/span&g;&l;br&g;&l;/pre&g;&l;/td&g;&l;/tr&g;&l;/table&g;&l;/figure&g;\n&l;p&g;&l;img src=\&q;http://image.coolapk.com/feed/2018/1229/22/685100_1546094834_9321@1110x401.jpg.m.jpg\&q; alt=\&q;查看注册信息\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;p&g;&l;img src=\&q;http://image.coolapk.com/feed/2018/1229/22/685100_1546094837_0589@434x90.jpg.m.jpg\&q; alt=\&q;配置Git全局\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;h3 id=\&q;修改配置文件\&q;&g;修改配置文件&l;a title=\&q;#修改配置文件\&q; href=\&q;#修改配置文件\&q;&g;&l;/a&g;&l;/h3&g;\n&l;p&g;进去码云查看我们创建博客的仓库，记录之前我们开启 Gitee Pages 的地址，修改配置文件中的信息&l;/p&g;\n&l;p&g;在数据根目录，找到这个文件 _config.yml 配置文件&l;/p&g;\n&l;p&g;&l;img src=\&q;http://image.coolapk.com/feed/2018/1229/22/685100_1546094839_3136@1366x738.jpg.m.jpg\&q; alt=\&q;配置文件\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;h3 id=\&q;修改存放数据路径\&q;&g;修改存放数据路径&l;a title=\&q;#修改存放数据路径\&q; href=\&q;#修改存放数据路径\&q;&g;&l;/a&g;&l;/h3&g;\n&l;p&g;&l;img src=\&q;http://image.coolapk.com/feed/2018/1229/22/685100_1546094810_7866@656x371.jpg.m.jpg\&q; alt=\&q;记录这个网址\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;p&g;设置 _config.yml 的信息 (url 和root) 信息如下&l;/p&g;\n&l;p&g;&l;img src=\&q;http://image.coolapk.com/feed/2018/1229/22/685100_1546094841_7938@1298x109.jpg.m.jpg\&q; alt=\&q;url 和root 修改\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;h3 id=\&q;设置-git-路径\&q;&g;设置 Git 路径&l;a title=\&q;#设置-git-路径\&q; href=\&q;#设置-git-路径\&q;&g;&l;/a&g;&l;/h3&g;\n&l;p&g;进入仓库记录以下 git 地址&l;/p&g;\n&l;p&g;&l;img src=\&q;http://image.coolapk.com/feed/2018/1229/22/685100_1546094844_0665@1366x738.jpg.m.jpg\&q; alt=\&q;记录git地址\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;p&g;设置 _config.yml 的信息 (deploy) 信息如下&l;/p&g;\n&l;p&g;&l;img src=\&q;http://image.coolapk.com/feed/2018/1229/22/685100_1546094846_3476@1298x620.jpg.m.jpg\&q; alt=\&q;设置deploy信息\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;p&g;完成以上信息，就算是本地端配置好了，打字发图好累啊&l;/p&g;\n&l;h3 id=\&q;测试本地文件能否于-gitee-端传输数据\&q;&g;测试本地文件能否于 Gitee 端传输数据&l;a title=\&q;#测试本地文件能否于-gitee-端传输数据\&q; href=\&q;#测试本地文件能否于-gitee-端传输数据\&q;&g;&l;/a&g;&l;/h3&g;\n&l;p&g;先安装 hexo-deployer-git 插件，在数据目录执行:&l;/p&g;\n&l;figure class=\&q;highlight cmd\&q;&g;&l;table&g;&l;tr&g;&l;td class=\&q;gutter\&q;&g;&l;pre&g;&l;span class=\&q;line\&q;&g;1&l;/span&g;&l;br&g;&l;/pre&g;&l;/td&g;&l;td class=\&q;code\&q;&g;&l;pre&g;&l;span class=\&q;line\&q;&g;npm install hexo-deployer-git --save&l;/span&g;&l;br&g;&l;/pre&g;&l;/td&g;&l;/tr&g;&l;/table&g;&l;/figure&g;\n&l;p&g;&l;img src=\&q;http://image.coolapk.com/feed/2018/1229/22/685100_1546094848_6845@612x384.gif\&q; alt=\&q;安装git插件\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;p&g;生成静态文件，并上传至 Gitee 端，部署到服务器&l;br&g;\n在数据目录 git bash 执行下命令：&l;/p&g;\n&l;figure class=\&q;highlight cmd\&q;&g;&l;table&g;&l;tr&g;&l;td class=\&q;gutter\&q;&g;&l;pre&g;&l;span class=\&q;line\&q;&g;1&l;/span&g;&l;br&g;&l;/pre&g;&l;/td&g;&l;td class=\&q;code\&q;&g;&l;pre&g;&l;span class=\&q;line\&q;&g;hexo g &a;amp;&a;amp; hexo d&l;/span&g;&l;br&g;&l;/pre&g;&l;/td&g;&l;/tr&g;&l;/table&g;&l;/figure&g;\n&l;p&g;Hexo 将其改为了：&l;/p&g;\n&l;figure class=\&q;highlight cmd\&q;&g;&l;table&g;&l;tr&g;&l;td class=\&q;gutter\&q;&g;&l;pre&g;&l;span class=\&q;line\&q;&g;1&l;/span&g;&l;br&g;&l;/pre&g;&l;/td&g;&l;td class=\&q;code\&q;&g;&l;pre&g;&l;span class=\&q;line\&q;&g;hexo g -d&l;/span&g;&l;br&g;&l;/pre&g;&l;/td&g;&l;/tr&g;&l;/table&g;&l;/figure&g;\n&l;p&g;&l;img src=\&q;http://image.coolapk.com/feed/2018/1229/22/685100_1546094853_252@842x605.gif\&q; alt=\&q;部署至服务器\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;p&g;查看仓库，我们看到文件有更新，说明我们对接成功了&l;/p&g;\n&l;p&g;&l;img src=\&q;http://image.coolapk.com/feed/2018/1229/22/685100_1546094855_7785@1084x446.jpg.m.jpg\&q; alt=\&q;文件更新\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;p&g;这样就完成了部署&l;/p&g;\n&l;p&g;我们就可以直接访问这个网址进入自己的博客了&l;/p&g;\n&l;p&g;&l;img src=\&q;http://image.coolapk.com/feed/2018/1229/22/685100_1546094857_9599@667x84.jpg.m.jpg\&q; alt=\&q;博客地址\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;p&g;&l;img src=\&q;http://image.coolapk.com/feed/2018/1229/22/685100_1546094860_1542@1366x768.jpg.m.jpg\&q; alt=\&q;博客初始界面\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;p&g;可以看到我们的初始界面还是有点简陋的&l;/p&g;\n&l;h3 id=\&q;发布博客\&q;&g;发布博客&l;a title=\&q;#发布博客\&q; href=\&q;#发布博客\&q;&g;&l;/a&g;&l;/h3&g;\n&l;p&g;博客怎么写呢？&l;br&g;\n本地博客保存在:&l;br&g;\n数据目录 \\source_posts\\ md文件&l;/p&g;\n&l;p&g;&l;img src=\&q;http://image.coolapk.com/feed/2018/1229/22/685100_1546094862_3219@732x591.jpg.m.jpg\&q; alt=\&q;博客内容\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;p&g;我们只要写好的博客用 Markdown 编辑器，导出 md 文件放入此文件夹，再次执行命令：&l;/p&g;\n&l;figure class=\&q;highlight cmd\&q;&g;&l;table&g;&l;tr&g;&l;td class=\&q;gutter\&q;&g;&l;pre&g;&l;span class=\&q;line\&q;&g;1&l;/span&g;&l;br&g;&l;/pre&g;&l;/td&g;&l;td class=\&q;code\&q;&g;&l;pre&g;&l;span class=\&q;line\&q;&g;hexo g -d&l;/span&g;&l;br&g;&l;/pre&g;&l;/td&g;&l;/tr&g;&l;/table&g;&l;/figure&g;\n&l;p&g;即可提交至服务器端&l;/p&g;\n&l;p&g;推荐Markdown编辑器: 小书匠编辑器&l;/p&g;\n&l;p&g;&l;img src=\&q;http://image.coolapk.com/feed/2018/1229/22/685100_1546094864_7559@1366x768.jpg.m.jpg\&q; alt=\&q;编辑内容\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;h2 id=\&q;美化主题\&q;&g;美化主题&l;a title=\&q;#美化主题\&q; href=\&q;#美化主题\&q;&g;&l;/a&g;&l;/h2&g;\n&l;p&g;刚搭建的博客还是有点简陋的，我们可以应用主题&l;br&g;\n官网上有很多开源的主题: &l;a href=\&q;https://hexo.io/themes\&q; target=\&q;_blank\&q;&g;查看链接&a;gt;&a;gt;&l;/a&g;&l;/p&g;\n&l;h3 id=\&q;next-主题\&q;&g;Next 主题&l;a title=\&q;#next-主题\&q; href=\&q;#next-主题\&q;&g;&l;/a&g;&l;/h3&g;\n&l;p&g;使用教程: &l;a href=\&q;http://theme-next.iissnan.com/getting-started.html\&q; target=\&q;_blank\&q;&g;查看链接&a;gt;&a;gt;&l;/a&g;&l;/p&g;\n&l;h3 id=\&q;新手温馨提示\&q;&g;新手温馨提示&l;a title=\&q;#新手温馨提示\&q; href=\&q;#新手温馨提示\&q;&g;&l;/a&g;&l;/h3&g;\n&l;ul&g;\n&l;li&g;安装 Hexo 用到的是 Node-npm 执行&l;/li&g;\n&l;li&g;配置并部署至服务器是在站点目录文件下用 Git 执行&l;br&g;\n注意看上图的所用到的命令窗口！&l;/li&g;\n&l;/ul&g;\n&l;h3 id=\&q;疑难解答\&q;&g;疑难解答&l;a title=\&q;#疑难解答\&q; href=\&q;#疑难解答\&q;&g;&l;/a&g;&l;/h3&g;\n&l;p&g;遇到不会的问题，可以多看官网的文档 &l;a href=\&q;https://hexo.io/zh-cn/docs\&q; target=\&q;_blank\&q;&g;查看链接&a;gt;&a;gt;&l;/a&g;&l;/p&g;\n&l;p&g;来自酷安 正常老司机&l;br&g;\n2018-12-29 小米MIX 2S&l;/p&g;\n&q;,&q;prev&q;:{&q;title&q;:&q;Xiaomi Redmi 4A (Rolex) 刷机集合&q;,&q;link&q;:&q;xiaomi-redmi-4a-rolex-list&q;},&q;next&q;:{&q;title&q;:&q;我的第一篇 • 个人网站存在的意义&q;,&q;link&q;:&q;first-article&q;},&q;plink&q;:&q;https://blog.cworld.top/gitee-hexo-blog/&q;,&q;toc&q;:[{&q;id&q;:&q;前言&q;,&q;title&q;:&q;前言&q;,&q;index&q;:&q;1&q;,&q;children&q;:[{&q;id&q;:&q;搭建效果&q;,&q;title&q;:&q;搭建效果&q;,&q;index&q;:&q;1.1&q;},{&q;id&q;:&q;为何使用-gitee-搭建个人博客&q;,&q;title&q;:&q;为何使用 Gitee 搭建个人博客&q;,&q;index&q;:&q;1.2&q;},{&q;id&q;:&q;什么是-hexo&q;,&q;title&q;:&q;什么是 Hexo&q;,&q;index&q;:&q;1.3&q;}]},{&q;id&q;:&q;搭建准备工作&q;,&q;title&q;:&q;搭建准备工作&q;,&q;index&q;:&q;2&q;},{&q;id&q;:&q;开启搭建&q;,&q;title&q;:&q;开启搭建&q;,&q;index&q;:&q;3&q;,&q;children&q;:[{&q;id&q;:&q;注册登入-gitee-新建一个仓库&q;,&q;title&q;:&q;注册登入 Gitee 新建一个仓库&q;,&q;index&q;:&q;3.1&q;},{&q;id&q;:&q;开启-gitee-pages-服务以后就可以用这个地址作为你的博客地址&q;,&q;title&q;:&q;开启 Gitee Pages 服务以后就可以用这个地址作为你的博客地址&q;,&q;index&q;:&q;3.2&q;}]},{&q;id&q;:&q;note.js(npm)-执行本地安装-hexo-框架&q;,&q;title&q;:&q;Note.js(npm) 执行本地安装 Hexo 框架&q;,&q;index&q;:&q;4&q;,&q;children&q;:[{&q;id&q;:&q;初始化-hexo&q;,&q;title&q;:&q;初始化 Hexo&q;,&q;index&q;:&q;4.1&q;},{&q;id&q;:&q;本地部署预览&q;,&q;title&q;:&q;本地部署预览&q;,&q;index&q;:&q;4.2&q;}]},{&q;id&q;:&q;git-配置同步-gitee-服务端&q;,&q;title&q;:&q;Git 配置同步 Gitee 服务端&q;,&q;index&q;:&q;5&q;,&q;children&q;:[{&q;id&q;:&q;配置-git-全局信息&q;,&q;title&q;:&q;配置 Git 全局信息&q;,&q;index&q;:&q;5.1&q;},{&q;id&q;:&q;修改配置文件&q;,&q;title&q;:&q;修改配置文件&q;,&q;index&q;:&q;5.2&q;},{&q;id&q;:&q;修改存放数据路径&q;,&q;title&q;:&q;修改存放数据路径&q;,&q;index&q;:&q;5.3&q;},{&q;id&q;:&q;设置-git-路径&q;,&q;title&q;:&q;设置 Git 路径&q;,&q;index&q;:&q;5.4&q;},{&q;id&q;:&q;测试本地文件能否于-gitee-端传输数据&q;,&q;title&q;:&q;测试本地文件能否于 Gitee 端传输数据&q;,&q;index&q;:&q;5.5&q;},{&q;id&q;:&q;发布博客&q;,&q;title&q;:&q;发布博客&q;,&q;index&q;:&q;5.6&q;}]},{&q;id&q;:&q;美化主题&q;,&q;title&q;:&q;美化主题&q;,&q;index&q;:&q;6&q;,&q;children&q;:[{&q;id&q;:&q;next-主题&q;,&q;title&q;:&q;Next 主题&q;,&q;index&q;:&q;6.1&q;},{&q;id&q;:&q;新手温馨提示&q;,&q;title&q;:&q;新手温馨提示&q;,&q;index&q;:&q;6.2&q;},{&q;id&q;:&q;疑难解答&q;,&q;title&q;:&q;疑难解答&q;,&q;index&q;:&q;6.3&q;}]}],&q;reward&q;:true,&q;copyright&q;:{&q;author&q;:&q;CWorld&q;,&q;link&q;:&q;&l;a href=\&q;https://blog.cworld.top/gitee-hexo-blog/\&q; title=\&q;使用 Gitee 和 Hexo 框架搭建个人博客教程\&q;&g;https://blog.cworld.top/gitee-hexo-blog/&l;/a&g;&q;,&q;license&q;:&q;Attribution-NonCommercial-NoDerivatives 4.0 International&l;br&g;(&l;a href=\&q;https://creativecommons.org/licenses/by-nc-sa/4.0/\&q; rel=\&q;external nofollow noopener\&q; target=\&q;_blank\&q;&g;CC BY-NC-ND 4.0&l;/a&g;)&q;,&q;published&q;:&q;2019年6月22日&q;,&q;updated&q;:&q;2021年5月23日&q;}}}</script></head>
+<body lang="zh-Hans">
+<is-a class="φbm φv" ng-version="9.1.11"><is-l class="φeb φy"><div class="φel"><section class="φem"><header class="φec φba"><!----><is-c class="φed"><img draggable="false" class="φbw φj" src="https://gravatar.loli.net/avatar/85b870f6b1a177981d3e9566e3ad7264?s=400" alt="" title="" width="160" height="160"></is-c><!----><a href="" class="φef φbf φl">CWorld</a><p class="φee">Stay hungry, Stay foolish. 求知若愚，虚怀若谷。</p></header><div class="φeq φba"><a routerlink="/archives" class="φer φl" href="/archives"><span class="φbc">16</span><span>归档</span></a><a class="φer φl" href="/categories/%E6%95%99%E7%A8%8B"><span class="φbc">5</span><span>分类</span></a><!----><a routerlink="/tags" class="φer φl" href="/tags"><span class="φbc">17</span><span>标签</span></a><!----></div><!----><nav class="φen"><a class="φeo φc φw φbd φl φr" href="/">🏠 Home</a><!----><!----><!----><a class="φeo φc φw φbd φl φr" href="/search">🔍 Search</a><!----><!----><!----><a class="φeo φc φw φbd φl φr" href="/playlist">🎵 Music</a><!----><!----><!----><a class="φeo φc φw φbd φl φr" href="/link">🔗 Link</a><!----><!----><!----><a class="φeo φc φw φbd φl φr" href="/about">👨‍💼 About</a><!----><!----><!----><!----></nav><!----><div issnippet="" class="φbl"><is-palette2></is-palette2>
+</div><!----><!----><!----></section><footer class="φeg φeh"><div class="φej"><a target="_blank" rel="external nofollow noopener" class="φek φbk φl icon-email" href="mailto:903517499@qq.com">email</a><a target="_blank" rel="external nofollow noopener" class="φek φbk φl icon-feed" href="/atom.xml">feed</a><a target="_blank" rel="external nofollow noopener" class="φek φbk φl icon-github" href="https://github.com/cworld1">github</a><a target="_blank" rel="external nofollow noopener" class="φek φbk φl icon-telegram" href="https://t.me/cworld0">telegram</a><a target="_blank" rel="external nofollow noopener" class="φek φbk φl icon-qq" href="https://wpa.qq.com/msgrd?v=3&amp;uin=903517499&amp;site=qq&amp;menu=yes">qq</a><a target="_blank" rel="external nofollow noopener" class="φek φbk φl icon-coolapk" href="https://www.coolapk.com/u/1384771">coolapk</a><!----></div><!----><p class="φbi φg">© 2020 ❤️ <a href="">CWorld</a></p><!----><p class="φbi φg"><span class="φei">由 <a href="https://hexo.io" target="_blank" rel="external nofollow noopener">Hexo</a> 强力驱动</span><!----><span class="φei">主题 - <a href="https://github.com/ikeq/hexo-theme-inside" target="_blank" rel="external nofollow noopener">Inside</a></span><!----></p><!----><p class="φbi φg"><div><a href="http://www.beian.miit.gov.cn/" rel="external nofollow">渝ICP备20001649号</a></div><span id="busuanzi_container_site_pv" style="display:inline;">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span></p><!----></footer></div></is-l><div class="φbo"><div class="φbn"><div class="φbs φq"><main class="φbr φb"><router-outlet></router-outlet><is-s class="φfx φba"><header class="φgh φgp" style="background-image:url(http://image.coolapk.com/feed/2018/1229/22/685100_1546094801_479@1600x719.jpg);background-color:#4781a6;"><div class="φgo"><!----><p class="φgj φo"><span class="φgk φgn">2019年6月22日</span><!----><a class="φgk φgm φl" href="/categories/%E6%95%99%E7%A8%8B">教程</a><!----></p><hr class="φgq"><!----><h1 class="φgr">使用 Gitee 和 Hexo 框架搭建个人博客教程</h1><!----></div></header><article itemscope="" itemtype="http://schema.org/Article" class="φga" data-title="使用 Gitee 和 Hexo 框架搭建个人博客教程"><div itemprop="articleBody" issnippet="" iszoomable="" class="φbi φy φg"><h2 id="前言">前言<a title="#前言" href="#前言"></a></h2>
+<h3 id="搭建效果">搭建效果<a title="#搭建效果" href="#搭建效果"></a></h3>
+<p>看一下我花了一点时间的搭建效果</p>
+<p>我的博客:<a href="http://zenggit.gitee.io/hexo" target="_blank">查看链接&gt;&gt;</a></p>
+<h3 id="为何使用-gitee-搭建个人博客">为何使用 Gitee 搭建个人博客<a title="#为何使用-gitee-搭建个人博客" href="#为何使用-gitee-搭建个人博客"></a></h3>
+<p>免费，不用自己花钱买空间域名，代码托管平台，不用太担心后台挂了，目前国内访问GitHub速度慢，还可能被墙，所以 Gitee 来构建个人博客。 Gitee 类似国内版的 GitHub ，访问速度有保证。</p>
+<h3 id="什么是-hexo">什么是 Hexo<a title="#什么是-hexo" href="#什么是-hexo"></a></h3>
+<p>官网:查看链接&gt;&gt;<br>
+Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown （或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+<h2 id="搭建准备工作">搭建准备工作<a title="#搭建准备工作" href="#搭建准备工作"></a></h2>
+<ul>
+<li>安装 Node.js (本地编译生成静态网页) <a href="https://m.runoob.com/nodejs/nodejs-install-setup.html" target="_blank">查看链接&gt;&gt;</a></li>
+<li>安装 Git (用来将本地数据提交到Gitee服务端) <a href="https://m.runoob.com/git/git-install-setup.html" target="_blank">查看链接&gt;&gt;</a></li>
+<li>注册一个 <a href="Gitee:https://gitee.com/">查看链接&gt;&gt;</a></li>
+</ul>
+<h2 id="开启搭建">开启搭建<a title="#开启搭建" href="#开启搭建"></a></h2>
+<h3 id="注册登入-gitee-新建一个仓库">注册登入 Gitee 新建一个仓库<a title="#注册登入-gitee-新建一个仓库" href="#注册登入-gitee-新建一个仓库"></a></h3>
+<p><img src="http://image.coolapk.com/feed/2018/1229/22/685100_1546094803_7241@1366x768.jpg.m.jpg" alt="新建仓库" class="φcx"></p>
+<h3 id="开启-gitee-pages-服务以后就可以用这个地址作为你的博客地址">开启 Gitee Pages 服务以后就可以用这个地址作为你的博客地址<a title="#开启-gitee-pages-服务以后就可以用这个地址作为你的博客地址" href="#开启-gitee-pages-服务以后就可以用这个地址作为你的博客地址"></a></h3>
+<p><img src="http://image.coolapk.com/feed/2018/1229/22/685100_1546094806_5471@1092x612.jpg.m.jpg" alt="启用pages服务" class="φcx"></p>
+<p><img src="http://image.coolapk.com/feed/2018/1229/22/685100_1546094808_6552@635x345.jpg.m.jpg" alt="启用" class="φcx"></p>
+<p><img src="http://image.coolapk.com/feed/2018/1229/22/685100_1546094810_7866@656x371.jpg.m.jpg" alt="你的博客地址" class="φcx"></p>
+<h2 id="note.js(npm)-执行本地安装-hexo-框架">Note.js(npm) 执行本地安装 Hexo 框架<a title="#note.js(npm)-执行本地安装-hexo-框架" href="#note.js(npm)-执行本地安装-hexo-框架"></a></h2>
+<p>打开 Note.js 命令窗口</p>
+<p><img src="http://image.coolapk.com/feed/2018/1229/22/685100_1546094812_9106@249x223.jpg.m.jpg" alt="打开命令窗口" class="φcx"></p>
+<p>输入一键安装命令：</p>
+<figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></tbody></table></figure>
+<p><img src="http://image.coolapk.com/feed/2018/1229/22/685100_1546094815_0487@654x512.jpg.m.jpg" alt="一键安装" class="φcx"></p>
+<p>大概等待2～3分钟后就安装好了，确定是否安装可使用命令:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo v 查看版本信息</span><br></pre></td></tr></tbody></table></figure>
+<p><img src="http://image.coolapk.com/feed/2018/1229/22/685100_1546094817_2239@649x512.gif" alt="查看hexo版本信息" class="φcx"></p>
+<h3 id="初始化-hexo">初始化 Hexo<a title="#初始化-hexo" href="#初始化-hexo"></a></h3>
+<p>选择本地 hexo 数据目录：</p>
+<figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init "E:\文档\My Hexo"</span><br></pre></td></tr></tbody></table></figure>
+<p>(我是自己定义的位置，可自己修改)</p>
+<p><img src="http://image.coolapk.com/feed/2018/1229/22/685100_1546094820_4058@643x475.gif" alt="选择数据目录位置" class="φcx"></p>
+<p>开始初始化 hexo ，依次执行下命令:</p>
+<figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">进入数据目录:<span class="built_in">cd</span> "E:\文档\My Hexo"</span><br><span class="line">初始化:npm install</span><br></pre></td></tr></tbody></table></figure>
+<p><img src="http://image.coolapk.com/feed/2018/1229/22/685100_1546094823_1651@643x475.gif" alt="初始化hexo" class="φcx"></p>
+<p>初始化成功后，在数据目录下会有以下文件夹，记住你的数据目录路径，以后要用得到的！</p>
+<p><img src="http://image.coolapk.com/feed/2018/1229/22/685100_1546094825_6677@732x591.jpg.m.jpg" alt="数据目录" class="φcx"></p>
+<h3 id="本地部署预览">本地部署预览<a title="#本地部署预览" href="#本地部署预览"></a></h3>
+<p>先查看搭建 hexo 本地博客是否成功，在自己上一步安装数据目录下 Git Bash 使用命令:</p>
+<figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s 来启动本地服务，再次 Ctrl+C 停止本地服务</span><br></pre></td></tr></tbody></table></figure>
+<p><img src="http://image.coolapk.com/feed/2018/1229/22/685100_1546094828_2499@746x596.gif" alt="启动本地服务" class="φcx"></p>
+<p>浏览器进入 localhost:4000 预览本地博客<br>
+<a href="localhost:4000">4000链接</a></p>
+<p><img src="http://image.coolapk.com/feed/2018/1229/22/685100_1546094832_2654@1336x676.gif" alt="浏览本地博客" class="φcx"></p>
+<p>完成以上算是成功一半了，接下来配置Git同步服务端</p>
+<h2 id="git-配置同步-gitee-服务端">Git 配置同步 Gitee 服务端<a title="#git-配置同步-gitee-服务端" href="#git-配置同步-gitee-服务端"></a></h2>
+<h3 id="配置-git-全局信息">配置 Git 全局信息<a title="#配置-git-全局信息" href="#配置-git-全局信息"></a></h3>
+<p>配置 Git 全局信息，这样才能提交数据</p>
+<figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name "你的Gitee用户名"</span><br><span class="line">git config --global user.email "你Gitee使用的邮箱"</span><br></pre></td></tr></tbody></table></figure>
+<p><img src="http://image.coolapk.com/feed/2018/1229/22/685100_1546094834_9321@1110x401.jpg.m.jpg" alt="查看注册信息" class="φcx"></p>
+<p><img src="http://image.coolapk.com/feed/2018/1229/22/685100_1546094837_0589@434x90.jpg.m.jpg" alt="配置Git全局" class="φcx"></p>
+<h3 id="修改配置文件">修改配置文件<a title="#修改配置文件" href="#修改配置文件"></a></h3>
+<p>进去码云查看我们创建博客的仓库，记录之前我们开启 Gitee Pages 的地址，修改配置文件中的信息</p>
+<p>在数据根目录，找到这个文件 _config.yml 配置文件</p>
+<p><img src="http://image.coolapk.com/feed/2018/1229/22/685100_1546094839_3136@1366x738.jpg.m.jpg" alt="配置文件" class="φcx"></p>
+<h3 id="修改存放数据路径">修改存放数据路径<a title="#修改存放数据路径" href="#修改存放数据路径"></a></h3>
+<p><img src="http://image.coolapk.com/feed/2018/1229/22/685100_1546094810_7866@656x371.jpg.m.jpg" alt="记录这个网址" class="φcx"></p>
+<p>设置 _config.yml 的信息 (url 和root) 信息如下</p>
+<p><img src="http://image.coolapk.com/feed/2018/1229/22/685100_1546094841_7938@1298x109.jpg.m.jpg" alt="url 和root 修改" class="φcx"></p>
+<h3 id="设置-git-路径">设置 Git 路径<a title="#设置-git-路径" href="#设置-git-路径"></a></h3>
+<p>进入仓库记录以下 git 地址</p>
+<p><img src="http://image.coolapk.com/feed/2018/1229/22/685100_1546094844_0665@1366x738.jpg.m.jpg" alt="记录git地址" class="φcx"></p>
+<p>设置 _config.yml 的信息 (deploy) 信息如下</p>
+<p><img src="http://image.coolapk.com/feed/2018/1229/22/685100_1546094846_3476@1298x620.jpg.m.jpg" alt="设置deploy信息" class="φcx"></p>
+<p>完成以上信息，就算是本地端配置好了，打字发图好累啊</p>
+<h3 id="测试本地文件能否于-gitee-端传输数据">测试本地文件能否于 Gitee 端传输数据<a title="#测试本地文件能否于-gitee-端传输数据" href="#测试本地文件能否于-gitee-端传输数据"></a></h3>
+<p>先安装 hexo-deployer-git 插件，在数据目录执行:</p>
+<figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></tbody></table></figure>
+<p><img src="http://image.coolapk.com/feed/2018/1229/22/685100_1546094848_6845@612x384.gif" alt="安装git插件" class="φcx"></p>
+<p>生成静态文件，并上传至 Gitee 端，部署到服务器<br>
+在数据目录 git bash 执行下命令：</p>
+<figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g &amp;&amp; hexo d</span><br></pre></td></tr></tbody></table></figure>
+<p>Hexo 将其改为了：</p>
+<figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></tbody></table></figure>
+<p><img src="http://image.coolapk.com/feed/2018/1229/22/685100_1546094853_252@842x605.gif" alt="部署至服务器" class="φcx"></p>
+<p>查看仓库，我们看到文件有更新，说明我们对接成功了</p>
+<p><img src="http://image.coolapk.com/feed/2018/1229/22/685100_1546094855_7785@1084x446.jpg.m.jpg" alt="文件更新" class="φcx"></p>
+<p>这样就完成了部署</p>
+<p>我们就可以直接访问这个网址进入自己的博客了</p>
+<p><img src="http://image.coolapk.com/feed/2018/1229/22/685100_1546094857_9599@667x84.jpg.m.jpg" alt="博客地址" class="φcx"></p>
+<p><img src="http://image.coolapk.com/feed/2018/1229/22/685100_1546094860_1542@1366x768.jpg.m.jpg" alt="博客初始界面" class="φcx"></p>
+<p>可以看到我们的初始界面还是有点简陋的</p>
+<h3 id="发布博客">发布博客<a title="#发布博客" href="#发布博客"></a></h3>
+<p>博客怎么写呢？<br>
+本地博客保存在:<br>
+数据目录 \source_posts\ md文件</p>
+<p><img src="http://image.coolapk.com/feed/2018/1229/22/685100_1546094862_3219@732x591.jpg.m.jpg" alt="博客内容" class="φcx"></p>
+<p>我们只要写好的博客用 Markdown 编辑器，导出 md 文件放入此文件夹，再次执行命令：</p>
+<figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></tbody></table></figure>
+<p>即可提交至服务器端</p>
+<p>推荐Markdown编辑器: 小书匠编辑器</p>
+<p><img src="http://image.coolapk.com/feed/2018/1229/22/685100_1546094864_7559@1366x768.jpg.m.jpg" alt="编辑内容" class="φcx"></p>
+<h2 id="美化主题">美化主题<a title="#美化主题" href="#美化主题"></a></h2>
+<p>刚搭建的博客还是有点简陋的，我们可以应用主题<br>
+官网上有很多开源的主题: <a href="https://hexo.io/themes" target="_blank">查看链接&gt;&gt;</a></p>
+<h3 id="next-主题">Next 主题<a title="#next-主题" href="#next-主题"></a></h3>
+<p>使用教程: <a href="http://theme-next.iissnan.com/getting-started.html" target="_blank">查看链接&gt;&gt;</a></p>
+<h3 id="新手温馨提示">新手温馨提示<a title="#新手温馨提示" href="#新手温馨提示"></a></h3>
+<ul>
+<li>安装 Hexo 用到的是 Node-npm 执行</li>
+<li>配置并部署至服务器是在站点目录文件下用 Git 执行<br>
+注意看上图的所用到的命令窗口！</li>
+</ul>
+<h3 id="疑难解答">疑难解答<a title="#疑难解答" href="#疑难解答"></a></h3>
+<p>遇到不会的问题，可以多看官网的文档 <a href="https://hexo.io/zh-cn/docs" target="_blank">查看链接&gt;&gt;</a></p>
+<p>来自酷安 正常老司机<br>
+2018-12-29 小米MIX 2S</p>
+</div><is-f class="φcc φk φn"><!----><ul class="φcg"><li class="φce"><strong class="φcf">本文作者<span>:</span></strong><p class="φcd">CWorld</p></li><li class="φce"><strong class="φcf">本文链接<span>:</span></strong><p class="φcd"><a href="https://blog.cworld.top/gitee-hexo-blog/" title="使用 Gitee 和 Hexo 框架搭建个人博客教程">https://blog.cworld.top/gitee-hexo-blog/</a></p></li><li class="φce"><strong class="φcf">版权声明<span>:</span></strong><p class="φcd">Attribution-NonCommercial-NoDerivatives 4.0 International<br>(<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noopener" target="_blank">CC BY-NC-ND 4.0</a>)</p></li><li class="φce"><strong class="φcf">发表日期<span>:</span></strong><p class="φcd">2019年6月22日</p></li><li class="φce"><strong class="φcf">更新日期<span>:</span></strong><p class="φcd">2021年5月23日</p></li><!----></ul><!----></is-f><!----><is-k class="φdt"><p class="φdy">不妨用打赏💰再伤我一次</p><div class="φdv φy"><div class="φdx"><!----></div><div class="φea"><a class="φdz φbk icon-wechat" style="color:;"></a><a class="φdz" style="color:;">QQ</a><a class="φdz" style="color:;">酷安</a><!----></div></div></is-k><!----><div class="φy"><div issnippet="" class="φbl"><p id="hitokoto" style="text-align: center;">:D 获取中...</p>
+
+</div><div issnippet="" class="φbl">
+
+</div><!----></div><!----></article><footer class="φgb φy"><div class="φgg"><is-m class="φet"><a class="φeu φn φp" href="/tags/Gitee">Gitee</a></is-m><is-m class="φet"><a class="φeu φn φp" href="/tags/Hexo">Hexo</a></is-m><!----></div><!----><div class="φgc"><a class="φgd φgf φl" href="/xiaomi-redmi-4a-rolex-list">Xiaomi Redmi 4A (Rolex) 刷机集合</a><!----><a class="φgd φge φl" href="/first-article">我的第一篇 • 个人网站存在的意义</a><!----></div><!----></footer><is-e class="φbz φy"><div issnippet="" class="φbl"><div class="vcomment valine" id="vcomment"></div>
+
+  
+</div><!----><!----><!----><!----></is-e><!----><!----><!----></is-s><!----></main><!----></div></div></div><is-g class="φch"><div class="φcq"><span class="φbk icon-up"></span><span class="φbk icon-down"></span><!----><span class="φbk icon-toc"></span><!----><span class="φbk icon-search"></span><!----></div><div class="φcj φck"><svg class="φcp"><defs><filter id="dp"><feGaussianBlur in="SourceGraphic" stdDeviation="2"></feGaussianBlur></filter></defs><circle filter="url(#dp)" fill="rgba(0,0,0,.3)" cx="50%" cy="52%" r="44%"></circle><circle cx="50%" cy="50%" r="44%" class="φcl φe"></circle><circle cx="50%" cy="50%" r="48%" class="φco φf" stroke-dasharray="0% 314.15926%"></circle><!----><g class="φcm"><circle r=".2rem" cx="0" cy="-.8rem"></circle><circle r=".2rem"></circle><circle r=".2rem" cx="0" cy=".8rem"></circle></g><!----></svg></div></is-g><is-n class="φev φba"><div class="φex φey φs"><a class="φfa φl"><span class="φfb φbc">1 </span><!----><span class="φfc">前言</span></a><div class="φex"><a class="φfa φl"><span class="φfb φbc">1.1 </span><!----><span class="φfc">搭建效果</span></a><!----></div><div class="φex"><a class="φfa φl"><span class="φfb φbc">1.2 </span><!----><span class="φfc">为何使用 Gitee 搭建个人博客</span></a><!----></div><div class="φex"><a class="φfa φl"><span class="φfb φbc">1.3 </span><!----><span class="φfc">什么是 Hexo</span></a><!----></div><!----><!----><!----></div><div class="φex φey φs"><a class="φfa φl"><span class="φfb φbc">2 </span><!----><span class="φfc">搭建准备工作</span></a><!----></div><div class="φex φey φs"><a class="φfa φl"><span class="φfb φbc">3 </span><!----><span class="φfc">开启搭建</span></a><div class="φex"><a class="φfa φl"><span class="φfb φbc">3.1 </span><!----><span class="φfc">注册登入 Gitee 新建一个仓库</span></a><!----></div><div class="φex"><a class="φfa φl"><span class="φfb φbc">3.2 </span><!----><span class="φfc">开启 Gitee Pages 服务以后就可以用这个地址作为你的博客地址</span></a><!----></div><!----><!----><!----></div><div class="φex φey φs"><a class="φfa φl"><span class="φfb φbc">4 </span><!----><span class="φfc">Note.js(npm) 执行本地安装 Hexo 框架</span></a><div class="φex"><a class="φfa φl"><span class="φfb φbc">4.1 </span><!----><span class="φfc">初始化 Hexo</span></a><!----></div><div class="φex"><a class="φfa φl"><span class="φfb φbc">4.2 </span><!----><span class="φfc">本地部署预览</span></a><!----></div><!----><!----><!----></div><div class="φex φey φs"><a class="φfa φl"><span class="φfb φbc">5 </span><!----><span class="φfc">Git 配置同步 Gitee 服务端</span></a><div class="φex"><a class="φfa φl"><span class="φfb φbc">5.1 </span><!----><span class="φfc">配置 Git 全局信息</span></a><!----></div><div class="φex"><a class="φfa φl"><span class="φfb φbc">5.2 </span><!----><span class="φfc">修改配置文件</span></a><!----></div><div class="φex"><a class="φfa φl"><span class="φfb φbc">5.3 </span><!----><span class="φfc">修改存放数据路径</span></a><!----></div><div class="φex"><a class="φfa φl"><span class="φfb φbc">5.4 </span><!----><span class="φfc">设置 Git 路径</span></a><!----></div><div class="φex"><a class="φfa φl"><span class="φfb φbc">5.5 </span><!----><span class="φfc">测试本地文件能否于 Gitee 端传输数据</span></a><!----></div><div class="φex"><a class="φfa φl"><span class="φfb φbc">5.6 </span><!----><span class="φfc">发布博客</span></a><!----></div><!----><!----><!----></div><div class="φex φey φs"><a class="φfa φl"><span class="φfb φbc">6 </span><!----><span class="φfc">美化主题</span></a><div class="φex"><a class="φfa φl"><span class="φfb φbc">6.1 </span><!----><span class="φfc">Next 主题</span></a><!----></div><div class="φex"><a class="φfa φl"><span class="φfb φbc">6.2 </span><!----><span class="φfc">新手温馨提示</span></a><!----></div><div class="φex"><a class="φfa φl"><span class="φfb φbc">6.3 </span><!----><span class="φfc">疑难解答</span></a><!----></div><!----><!----><!----></div><!----></is-n><!----><!----></is-a>
+<script src="//lib.baomitu.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/cworld1/source@master/files/valine.js"></script>
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.jsdelivr.net/gh/cworld1/source@master/files/themes.min.js"></script>
+
+<script src="//cdn.jsdelivr.net/gh/ikeq/hexo-theme-inside@2.7.0-beta.2/source/runtime.0d15793f6e46723148c6.js"></script>
+<script src="//cdn.jsdelivr.net/gh/ikeq/hexo-theme-inside@2.7.0-beta.2/source/polyfills.6661dd3f63d336032841.js"></script>
+<script src="//cdn.jsdelivr.net/gh/ikeq/hexo-theme-inside@2.7.0-beta.2/source/main.7652f74988a605a4b23c.js"></script>
+
+
+</body></html>

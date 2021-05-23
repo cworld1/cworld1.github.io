@@ -1,0 +1,214 @@
+<!DOCTYPE html><html lang="zh-Hans"><head>
+<meta charset="utf-8">
+<title>iChrome CSS 美化 - CWorld's Blog</title>
+<base href="/">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+<link rel="canonical" href="https://blog.cworld.top/ichrome-css/">
+<link rel="icon" type="image/x-icon" href="/logo.png">
+
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<meta name="description" content="一个 Chrome 插件 iChrome，功能齐全，但是有广告，所以以下代码就是来美化插件。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="iChrome CSS 美化">
+<meta property="og:url" content="https://blog.cworld.top/ichrome-css/">
+<meta property="og:site_name" content="CWorld's Blog">
+<meta property="og:description" content="一个 Chrome 插件 iChrome，功能齐全，但是有广告，所以以下代码就是来美化插件。">
+<meta property="og:image" content="https://gravatar.loli.net/avatar/85b870f6b1a177981d3e9566e3ad7264?s=400">
+<meta property="article:published_time" content="2019-07-24T05:58:40.393Z">
+<meta property="article:modified_time" content="2021-05-23T13:54:25.394Z">
+<meta property="article:author" content="CWorld">
+<meta property="article:tag" content="cworld">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gravatar.loli.net/avatar/85b870f6b1a177981d3e9566e3ad7264?s=400">
+
+<script type="application/ld+json">[{"@context":"http://schema.org","@type":"WebSite","publisher":{"@type":"Person","name":"CWorld","description":"Stay hungry, Stay foolish. 求知若愚，虚怀若谷。","image":"https://gravatar.loli.net/avatar/85b870f6b1a177981d3e9566e3ad7264?s=400"},"url":"https://blog.cworld.top","image":"https://gravatar.loli.net/avatar/85b870f6b1a177981d3e9566e3ad7264?s=400","description":"Stay hungry, Stay foolish","author":{"@type":"Person","name":"CWorld","description":"Stay hungry, Stay foolish. 求知若愚，虚怀若谷。","image":"https://gravatar.loli.net/avatar/85b870f6b1a177981d3e9566e3ad7264?s=400"},"inLanguage":{"@type":"Language","alternateName":"zh-Hans"}},{"@context":"http://schema.org","@type":"Article","articleSection":"","url":"https://blog.cworld.top/ichrome-css/","headline":"iChrome CSS 美化","image":"https://gravatar.loli.net/avatar/85b870f6b1a177981d3e9566e3ad7264?s=400","datePublished":"2019-07-24T05:58:40.393Z","dateModified":"2021-05-23T13:54:25.394Z","keywords":"","description":"一个 Chrome 插件 iChrome，功能齐全，但是有广告，所以以下代码就是来美化插件。","publisher":{"@type":"Organization","name":"CWorld's Blog","logo":{"@type":"ImageObject","url":"https://gravatar.loli.net/avatar/85b870f6b1a177981d3e9566e3ad7264?s=400"}},"author":{"@type":"Person","name":"CWorld","description":"Stay hungry, Stay foolish. 求知若愚，虚怀若谷。","image":"https://gravatar.loli.net/avatar/85b870f6b1a177981d3e9566e3ad7264?s=400"},"inLanguage":{"@type":"Language","alternateName":"zh-Hans"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.cworld.top/ichrome-css/"}}]</script>
+
+
+<link rel="alternate" type="application/atom+xml" title="CWorld's Blog" href="/atom.xml">
+
+<link href="//cdn.jsdelivr.net/gh/fiteen/fiteen.github.io@v0.1.0/font.css" rel="stylesheet">
+<style>.φbf,
+img.φbw.φj {
+    transition: .3s;
+    -webkit-transition: .3s;
+    -ms-transition: .3s;
+    -moz-transition: .3s
+}
+
+img.φbw.φj:active {
+    transform: scale(.9)
+}
+
+@font-face {
+    font-family: iconfont;
+    src: url(iconfont.eot?t=1581948047227);
+    src: url(iconfont.eot?t=1581948047227#iefix) format('embedded-opentype'), url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAARIAAsAAAAACLQAAAP7AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDMgqERIN+ATYCJAMUCwwABCAFhG0HWBuaB8geg207eYRRJN1p5HM2Hv5/v2/7XHlfpc0k0ThZEGukyZglQiOSoLMIiUonE4oms079R3lVZbIQstLMQjyOFsz2QJnL5uDZszhMzk/4JZTq/8Whaqb4fEu2yxxTE8qFwqEJFKC9MTR7XqCWaiWsiHcYu7iMywS61qXCztc2C8FJoc0KxCOlvBecYjqlpDi0hSZnYxHPwV47PeU9APDM/f74B5nhRFIzbeHVOzX9UP4DexONG/4boMNGAL8/C5htZBwAhXica3sE92MHcF0pYucEyD9rS9IP7LXza/Ob6P8BEK1I0dX/4VGEJBMNrbAPTlC88AMzyRR+OpMJfprJJH5F62SIrtO76OEVgP9AtdHnoCyLTr/TKWN7wcStVD7PKgTPeMe2WT16m03EcRKWlf6hweARL7j2+SaDcZ550OLtZj+I/msj2L28mOM+34LZPzGLPeYZw+xc6+juDSux1VZzm4vZxkrnsWZ2kLNw820mm8FqtHahj2g/ztWdthWcfZi04ozfJbaWtQo32JLO2vJuc4LrEsnqk8GtK9fs2RXQt79o59k4VnzFWm4cIjzBxp9j+ce4/8Ke90JnoWGfwWLjwd1T66H7GlaH1Xd310MxRjnwvLrunvrHfbwNpbkCJ0Hu+lJyWlxWo74UUt6JWDFLeMeI8P/pbIzLNs3b9gEezBOJRQCrw+rr7e2hYhguzxmZ0hz5ILJZbIgfeLVivizZbyv281D+Ip1tN2zF0KeFxs9r+1uef+/02xX15f7n+D+9krz8GidK6Fo9NqzxWarU+7xbcxn3ILFi+ODjpUdZRtvRZ9wDZ34GprRLYioTyqMrlD2zqCHVLvg53m/jlbJmPaiNo92UT3kswApuwMUA5He8KwDkt7wpf8Pv+DjqzJVuz+KvTq4FfNJfXOz6VuygXbwtUZv/7vk1a4os1PS1iJUmT7RXRxGdJLV08cZdU6/6USxqRwjtGJ+BpGUNsrYNZMEeQNVzCI22Y+jaV7e9Z4aGi9LBnpkAwthhSIbeQDb2EFmwL6Fa+gSNceDQdRq+B/ZshdKlika9DOon+sYTSpLSyQwj4+IVj0Dy0ZpeOip0cWJEDyiDRAY/PZmsQzpE97FkYIw8k2FkhIymtEQtuA5pNBShpykVIhm+gmH0hQKBLO9OfJLSgotzaEgvBtKP0Gc8ghKJoiOzmzNcUl8/AiI3mkYvuqSqxCqG0AYo+ydk4EuvgayT6WpVncvwAWPIZWIwZHiaDI2iRaiFFkSjxygEff44FYTE4FO0iOgVEqB6sroy/vgK7TXugS7tsBopcpSo0RhdJ0lqtI5Js7IZjVKH3Mj95MRPICn9eByNR44kRWl69WoAAA==') format('woff2'), url(iconfont.woff?t=1581948047227) format('woff'), url(iconfont.ttf?t=1581948047227) format('truetype'), url(iconfont.svg?t=1581948047227#iconfont) format('svg')
+}
+
+.fa,
+.icon-coolapk:before,
+.iconfont {
+    font-family: iconfont !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+.icon-account:before {
+    content: "\e609" !important
+}
+
+.fa-clipboard:before {
+    content: "\e6d2" !important
+}
+
+.icon-eye:before {
+    content: "\e722" !important
+}
+
+.icon-coolapk:before {
+    content: "\e501" !important
+}
+
+@font-face {
+    font-family: 'IM Fell DW Pica SC';
+    src: url(//lib.baomitu.com/fonts/im-fell-dw-pica-sc/im-fell-dw-pica-sc-regular.eot);
+    src: local('IM Fell DW Pica SC'), local('IMFell DW Pica SC-Normal'), url(//lib.baomitu.com/fonts/im-fell-dw-pica-sc/im-fell-dw-pica-sc-regular.eot?#iefix) format('embedded-opentype'), url(//lib.baomitu.com/fonts/im-fell-dw-pica-sc/im-fell-dw-pica-sc-regular.woff2) format('woff2'), url(//lib.baomitu.com/fonts/im-fell-dw-pica-sc/im-fell-dw-pica-sc-regular.woff) format('woff'), url(//lib.baomitu.com/fonts/im-fell-dw-pica-sc/im-fell-dw-pica-sc-regular.ttf) format('truetype'), url('//lib.baomitu.com/fonts/im-fell-dw-pica-sc/im-fell-dw-pica-sc-regular.svg#IMFell DW Pica SC') format('svg')
+}
+
+@font-face {
+    font-family: Lobster;
+    src: url(//lib.baomitu.com/fonts/lobster/lobster-regular.eot);
+    src: local('Lobster'), local('Lobster-Normal'), url(//lib.baomitu.com/fonts/lobster/lobster-regular.eot?#iefix) format('embedded-opentype'), url(//lib.baomitu.com/fonts/lobster/lobster-regular.woff2) format('woff2'), url(//lib.baomitu.com/fonts/lobster/lobster-regular.woff) format('woff'), url(//lib.baomitu.com/fonts/lobster/lobster-regular.ttf) format('truetype'), url(//lib.baomitu.com/fonts/lobster/lobster-regular.svg#Lobster) format('svg')
+}
+
+.φbd.φm {
+    font-weight: 700
+}
+
+* {
+    outline: 0
+}
+
+.φcj {
+    border-radius: 50%
+}
+
+.φfw img {
+    border-radius: 8px
+}
+
+@media (max-width:675px) {
+    .φfw img {
+        border-radius: 4px
+    }
+}
+
+.valine * {
+    font-family: 'Josefin Sans', 'PingFang SC' !important
+}
+
+.valine .vlist .vcard .vcomment-body .vhead .vname,
+.valine a {
+    color: #659eb9 !important
+}
+
+.valine .vlist .vcard .vcomment-body {
+    padding: 1em .5em 1em !important
+}
+
+.valine .vlist .vcard .vcomment-body .vat {
+    opacity: 0;
+    margin-top: -.5em;
+    padding: .5em 1em .2em 1em !important;
+    border-radius: 4px
+}
+
+.valine .vlist .vcard .vcomment-body:hover .vhead a.vat {
+    background: 0 0 !important;
+    opacity: 1
+}
+
+.valine .vlist .vcard .vcomment-body .vhead a.vat:hover {
+    background-color: #659eb921 !important
+}
+
+.valine .vinputs-area .auth-section .post-action button {
+    border: none !important;
+    background: #659eb9 !important
+}
+
+.highlight {
+    position: relative
+}
+
+.btn-copy {
+    border-radius: 3px;
+    border-width: 0;
+    font-size: 13px;
+    line-height: 12px;
+    padding: 4px 6px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    background: #659eb90f;
+    color: #659eb9de;
+    opacity: 0;
+    outline: 0;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-appearance: none;
+    transition: .3s
+}
+
+.btn-copy span {
+    margin-left: 5px
+}
+
+.highlight:hover .btn-copy {
+    opacity: 1
+}</style>
+<link href="//cdn.jsdelivr.net/gh/ikeq/hexo-theme-inside@2.7.0-beta.2/source/styles.c3f8d35f4c49a6d852da.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/theme.be7b2c110561281a17c7.css" is="theme">
+
+
+<script src="/config.09da1a28f6c1e4f8e06e.js"></script>
+
+
+<script async="" src="//www.googletagmanager.com/gtag/js?id=UA-158629060-1"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','UA-158629060-1');</script>
+<meta name="referrer" content="no-referrer">
+
+<meta name="generator" content="Hexo 4.2.1"><meta name="theme-color" content="#f0f2f7"><script type="application/json" is="state">{&q;api/aWNocm9tZS1jc3M.json&q;:{&q;title&q;:&q;iChrome CSS 美化&q;,&q;date&q;:&q;2019-07-24T05:58:40.393Z&q;,&q;date_formatted&q;:{&q;ll&q;:&q;2019年7月24日&q;,&q;L&q;:&q;2019/07/24&q;,&q;MM-DD&q;:&q;07-24&q;},&q;link&q;:&q;ichrome-css&q;,&q;comments&q;:true,&q;updated&q;:&q;2021-05-23T13:54:25.394Z&q;,&q;content&q;:&q;&l;p&g;一个 Chrome 插件 iChrome，功能齐全，但是有广告，所以以下代码就是来美化插件。&l;/p&g;\n&l;a id=\&q;more\&q;&g;&l;/a&g;\n&l;p&g;&l;img src=\&q;https://tvax4.sinaimg.cn/large/0060ksKkly1gc1pxdp7drj30hq0b2n85.jpg\&q; alt=\&q;iChrome\&q; class=\&q;φcx\&q;&g;&l;/p&g;\n&l;h2 id=\&q;使用方法\&q;&g;使用方法&l;a title=\&q;#使用方法\&q; href=\&q;#使用方法\&q;&g;&l;/a&g;&l;/h2&g;\n&l;p&g;在插件 iChrome 的设置中找到自定义 CSS 片段框，填入下面的内容，已经过浓缩处理。&l;/p&g;\n&l;figure class=\&q;highlight css\&q;&g;&l;table&g;&l;tr&g;&l;td class=\&q;gutter\&q;&g;&l;pre&g;&l;span class=\&q;line\&q;&g;1&l;/span&g;&l;br&g;&l;span class=\&q;line\&q;&g;2&l;/span&g;&l;br&g;&l;span class=\&q;line\&q;&g;3&l;/span&g;&l;br&g;&l;span class=\&q;line\&q;&g;4&l;/span&g;&l;br&g;&l;span class=\&q;line\&q;&g;5&l;/span&g;&l;br&g;&l;span class=\&q;line\&q;&g;6&l;/span&g;&l;br&g;&l;span class=\&q;line\&q;&g;7&l;/span&g;&l;br&g;&l;span class=\&q;line\&q;&g;8&l;/span&g;&l;br&g;&l;span class=\&q;line\&q;&g;9&l;/span&g;&l;br&g;&l;span class=\&q;line\&q;&g;10&l;/span&g;&l;br&g;&l;span class=\&q;line\&q;&g;11&l;/span&g;&l;br&g;&l;span class=\&q;line\&q;&g;12&l;/span&g;&l;br&g;&l;span class=\&q;line\&q;&g;13&l;/span&g;&l;br&g;&l;span class=\&q;line\&q;&g;14&l;/span&g;&l;br&g;&l;span class=\&q;line\&q;&g;15&l;/span&g;&l;br&g;&l;/pre&g;&l;/td&g;&l;td class=\&q;code\&q;&g;&l;pre&g;&l;span class=\&q;line\&q;&g;&l;span class=\&q;selector-class\&q;&g;.tab-container&l;/span&g; &l;span class=\&q;selector-class\&q;&g;.tab&l;/span&g;&a;gt;&l;span class=\&q;selector-class\&q;&g;.ad-unit&l;/span&g;&l;span class=\&q;selector-class\&q;&g;.bottom&l;/span&g;&a;#123;&l;span class=\&q;attribute\&q;&g;display&l;/span&g;:none&l;span class=\&q;meta\&q;&g;!important&l;/span&g;&a;#125;&l;/span&g;&l;br&g;&l;span class=\&q;line\&q;&g;&l;span class=\&q;selector-class\&q;&g;.store-detail&l;/span&g; &l;span class=\&q;selector-class\&q;&g;.preview&l;/span&g; &l;span class=\&q;selector-class\&q;&g;.widget&l;/span&g;, &l;span class=\&q;selector-class\&q;&g;.widgets-container&l;/span&g; &l;span class=\&q;selector-class\&q;&g;.widget&l;/span&g;&a;#123;&l;span class=\&q;attribute\&q;&g;background&l;/span&g;:&l;span class=\&q;number\&q;&g;#fffc&l;/span&g;;&l;span class=\&q;attribute\&q;&g;backdrop-filter&l;/span&g;:&l;span class=\&q;built_in\&q;&g;blur&l;/span&g;(&l;span class=\&q;number\&q;&g;20px&l;/span&g;)&a;#125;&l;/span&g;&l;br&g;&l;span class=\&q;line\&q;&g;&l;span class=\&q;selector-class\&q;&g;.store-detail&l;/span&g; &l;span class=\&q;selector-class\&q;&g;.preview&l;/span&g; &l;span class=\&q;selector-class\&q;&g;.widget&l;/span&g; &l;span class=\&q;selector-class\&q;&g;.wtooltip&l;/span&g;, &l;span class=\&q;selector-class\&q;&g;.widgets-container&l;/span&g; &l;span class=\&q;selector-class\&q;&g;.widget&l;/span&g; &l;span class=\&q;selector-class\&q;&g;.wtooltip&l;/span&g;&a;#123;&l;span class=\&q;attribute\&q;&g;display&l;/span&g;:none&l;span class=\&q;meta\&q;&g;!important&l;/span&g;&a;#125;&l;/span&g;&l;br&g;&l;span class=\&q;line\&q;&g;&l;span class=\&q;selector-tag\&q;&g;header&l;/span&g;&l;span class=\&q;selector-class\&q;&g;.toolbar&l;/span&g;&l;span class=\&q;selector-class\&q;&g;.floating&l;/span&g; &l;span class=\&q;selector-class\&q;&g;.search&l;/span&g; &l;span class=\&q;selector-tag\&q;&g;input&l;/span&g; &a;#123;&l;span class=\&q;attribute\&q;&g;background&l;/span&g;:&l;span class=\&q;number\&q;&g;#fffc&l;/span&g;;&l;span class=\&q;attribute\&q;&g;backdrop-filter&l;/span&g;:&l;span class=\&q;built_in\&q;&g;blur&l;/span&g;(&l;span class=\&q;number\&q;&g;20px&l;/span&g;);&l;span class=\&q;attribute\&q;&g;box-shadow&l;/span&g;:&l;span class=\&q;number\&q;&g;0&l;/span&g; &l;span class=\&q;number\&q;&g;2px&l;/span&g; &l;span class=\&q;number\&q;&g;10px&l;/span&g; &l;span class=\&q;number\&q;&g;0&l;/span&g; &l;span class=\&q;number\&q;&g;#0000005e&l;/span&g;&a;#125;&l;/span&g;&l;br&g;&l;span class=\&q;line\&q;&g;&l;span class=\&q;selector-class\&q;&g;.store-detail&l;/span&g; &l;span class=\&q;selector-class\&q;&g;.preview&l;/span&g; &l;span class=\&q;selector-class\&q;&g;.widget&l;/span&g; &l;span class=\&q;selector-class\&q;&g;.wdelete&l;/span&g;, &l;span class=\&q;selector-class\&q;&g;.widgets-container&l;/span&g; &l;span class=\&q;selector-class\&q;&g;.widget&l;/span&g; &l;span class=\&q;selector-class\&q;&g;.wdelete&l;/span&g;&a;#123;&l;span class=\&q;attribute\&q;&g;color&l;/span&g;:black&a;#125;&l;/span&g;&l;br&g;&l;span class=\&q;line\&q;&g;&l;span class=\&q;selector-class\&q;&g;.feedback-link&l;/span&g; &l;span class=\&q;selector-class\&q;&g;.icon&l;/span&g;&a;#123;&l;span class=\&q;attribute\&q;&g;display&l;/span&g;:none&l;span class=\&q;meta\&q;&g;!important&l;/span&g;&a;#125;&l;/span&g;&l;br&g;&l;span class=\&q;line\&q;&g;&l;span class=\&q;selector-class\&q;&g;.bg-info&l;/span&g;&a;#123;&l;span class=\&q;attribute\&q;&g;right&l;/span&g;:&l;span class=\&q;number\&q;&g;10px&l;/span&g;;&l;span class=\&q;attribute\&q;&g;color&l;/span&g;:&l;span class=\&q;number\&q;&g;#fffc&l;/span&g;&a;#125;&l;/span&g;&l;br&g;&l;span class=\&q;line\&q;&g;&l;span class=\&q;selector-class\&q;&g;.add-widget-link&l;/span&g;&a;#123;&l;span class=\&q;attribute\&q;&g;color&l;/span&g;:&l;span class=\&q;number\&q;&g;#fffc&l;/span&g;;&l;span class=\&q;attribute\&q;&g;position&l;/span&g;:absolute&a;#125;&l;/span&g;&l;br&g;&l;span class=\&q;line\&q;&g;&l;span class=\&q;selector-class\&q;&g;.menu-toggle&l;/span&g; &l;span class=\&q;selector-class\&q;&g;.menu-button&l;/span&g;&l;span class=\&q;selector-pseudo\&q;&g;:hover&l;/span&g;&a;#123;&l;span class=\&q;attribute\&q;&g;background-color&l;/span&g;:&l;span class=\&q;number\&q;&g;#fff&l;/span&g;&a;#125;&l;/span&g;&l;br&g;&l;span class=\&q;line\&q;&g;&l;span class=\&q;selector-class\&q;&g;.menu-toggle&l;/span&g; &l;span class=\&q;selector-class\&q;&g;.menu-button&l;/span&g;&l;span class=\&q;selector-pseudo\&q;&g;:before&l;/span&g;&a;#123;&l;span class=\&q;attribute\&q;&g;color&l;/span&g;:black&a;#125;&l;/span&g;&l;br&g;&l;span class=\&q;line\&q;&g;&l;span class=\&q;selector-class\&q;&g;.menu-toggle&l;/span&g; &l;span class=\&q;selector-class\&q;&g;.menu-button&l;/span&g;&a;#123;&l;span class=\&q;attribute\&q;&g;background-color&l;/span&g;:&l;span class=\&q;number\&q;&g;#fffc&l;/span&g;&a;#125;&l;/span&g;&l;br&g;&l;span class=\&q;line\&q;&g;&l;span class=\&q;selector-class\&q;&g;.add-widget-link&l;/span&g; &l;span class=\&q;selector-class\&q;&g;.icon&l;/span&g;&a;#123;&l;span class=\&q;attribute\&q;&g;text-shadow&l;/span&g;: &l;span class=\&q;number\&q;&g;0&l;/span&g; &l;span class=\&q;number\&q;&g;0&l;/span&g; &l;span class=\&q;number\&q;&g;0&l;/span&g; &l;span class=\&q;number\&q;&g;#fff0&l;/span&g;&a;#125;&l;/span&g;&l;br&g;&l;span class=\&q;line\&q;&g;&l;span class=\&q;selector-tag\&q;&g;button&l;/span&g;&l;span class=\&q;selector-class\&q;&g;.material&l;/span&g;&l;span class=\&q;selector-class\&q;&g;.fab&l;/span&g;&a;#123;&l;span class=\&q;attribute\&q;&g;background-color&l;/span&g;:&l;span class=\&q;number\&q;&g;#fffc&l;/span&g;&a;#125;&l;/span&g;&l;br&g;&l;span class=\&q;line\&q;&g;&l;span class=\&q;selector-class\&q;&g;.menu-container&l;/span&g;&a;#123;&l;span class=\&q;attribute\&q;&g;background&l;/span&g;:&l;span class=\&q;number\&q;&g;#fffc&l;/span&g;;&l;span class=\&q;attribute\&q;&g;backdrop-filter&l;/span&g;:&l;span class=\&q;built_in\&q;&g;blur&l;/span&g;(&l;span class=\&q;number\&q;&g;20px&l;/span&g;);&l;span class=\&q;attribute\&q;&g;box-shadow&l;/span&g;:&l;span class=\&q;number\&q;&g;0&l;/span&g; &l;span class=\&q;number\&q;&g;0&l;/span&g; &l;span class=\&q;number\&q;&g;0&l;/span&g; &l;span class=\&q;number\&q;&g;0&l;/span&g; &l;span class=\&q;number\&q;&g;#fff0&l;/span&g;&a;#125;&l;/span&g;&l;br&g;&l;span class=\&q;line\&q;&g;&l;span class=\&q;selector-class\&q;&g;.app&l;/span&g;&l;span class=\&q;selector-class\&q;&g;.settings&l;/span&g; &l;span class=\&q;selector-class\&q;&g;.page&l;/span&g; &l;span class=\&q;selector-tag\&q;&g;header&l;/span&g;&a;#123;&l;span class=\&q;attribute\&q;&g;background&l;/span&g;:&l;span class=\&q;number\&q;&g;#4080fe&l;/span&g;&a;#125;&l;/span&g;&l;br&g;&l;/pre&g;&l;/td&g;&l;/tr&g;&l;/table&g;&l;/figure&g;\n&q;,&q;prev&q;:{&q;title&q;:&q;利用腾讯云无服务器云函数搭建 OneDrive 网盘&q;,&q;link&q;:&q;onedrive-scf&q;},&q;next&q;:{&q;title&q;:&q;Pure 百度 - 质形色，始方圆&q;,&q;link&q;:&q;pure-baidu&q;},&q;plink&q;:&q;https://blog.cworld.top/ichrome-css/&q;,&q;toc&q;:[{&q;id&q;:&q;使用方法&q;,&q;title&q;:&q;使用方法&q;,&q;index&q;:&q;1&q;}],&q;reward&q;:true,&q;copyright&q;:{&q;author&q;:&q;CWorld&q;,&q;link&q;:&q;&l;a href=\&q;https://blog.cworld.top/ichrome-css/\&q; title=\&q;iChrome CSS 美化\&q;&g;https://blog.cworld.top/ichrome-css/&l;/a&g;&q;,&q;license&q;:&q;Attribution-NonCommercial-NoDerivatives 4.0 International&l;br&g;(&l;a href=\&q;https://creativecommons.org/licenses/by-nc-sa/4.0/\&q; rel=\&q;external nofollow noopener\&q; target=\&q;_blank\&q;&g;CC BY-NC-ND 4.0&l;/a&g;)&q;,&q;published&q;:&q;2019年7月24日&q;,&q;updated&q;:&q;2021年5月23日&q;}}}</script></head>
+<body lang="zh-Hans">
+<is-a class="φbm φv" ng-version="9.1.11"><is-l class="φeb φy"><div class="φel"><section class="φem"><header class="φec φba"><!----><is-c class="φed"><img draggable="false" class="φbw φj" src="https://gravatar.loli.net/avatar/85b870f6b1a177981d3e9566e3ad7264?s=400" alt="" title="" width="160" height="160"></is-c><!----><a href="" class="φef φbf φl">CWorld</a><p class="φee">Stay hungry, Stay foolish. 求知若愚，虚怀若谷。</p></header><div class="φeq φba"><a routerlink="/archives" class="φer φl" href="/archives"><span class="φbc">16</span><span>归档</span></a><a class="φer φl" href="/categories/%E6%95%99%E7%A8%8B"><span class="φbc">5</span><span>分类</span></a><!----><a routerlink="/tags" class="φer φl" href="/tags"><span class="φbc">17</span><span>标签</span></a><!----></div><!----><nav class="φen"><a class="φeo φc φw φbd φl φr" href="/">🏠 Home</a><!----><!----><!----><a class="φeo φc φw φbd φl φr" href="/search">🔍 Search</a><!----><!----><!----><a class="φeo φc φw φbd φl φr" href="/playlist">🎵 Music</a><!----><!----><!----><a class="φeo φc φw φbd φl φr" href="/link">🔗 Link</a><!----><!----><!----><a class="φeo φc φw φbd φl φr" href="/about">👨‍💼 About</a><!----><!----><!----><!----></nav><!----><div issnippet="" class="φbl"><is-palette2></is-palette2>
+</div><!----><!----><!----></section><footer class="φeg φeh"><div class="φej"><a target="_blank" rel="external nofollow noopener" class="φek φbk φl icon-email" href="mailto:903517499@qq.com">email</a><a target="_blank" rel="external nofollow noopener" class="φek φbk φl icon-feed" href="/atom.xml">feed</a><a target="_blank" rel="external nofollow noopener" class="φek φbk φl icon-github" href="https://github.com/cworld1">github</a><a target="_blank" rel="external nofollow noopener" class="φek φbk φl icon-telegram" href="https://t.me/cworld0">telegram</a><a target="_blank" rel="external nofollow noopener" class="φek φbk φl icon-qq" href="https://wpa.qq.com/msgrd?v=3&amp;uin=903517499&amp;site=qq&amp;menu=yes">qq</a><a target="_blank" rel="external nofollow noopener" class="φek φbk φl icon-coolapk" href="https://www.coolapk.com/u/1384771">coolapk</a><!----></div><!----><p class="φbi φg">© 2020 ❤️ <a href="">CWorld</a></p><!----><p class="φbi φg"><span class="φei">由 <a href="https://hexo.io" target="_blank" rel="external nofollow noopener">Hexo</a> 强力驱动</span><!----><span class="φei">主题 - <a href="https://github.com/ikeq/hexo-theme-inside" target="_blank" rel="external nofollow noopener">Inside</a></span><!----></p><!----><p class="φbi φg"><div><a href="http://www.beian.miit.gov.cn/" rel="external nofollow">渝ICP备20001649号</a></div><span id="busuanzi_container_site_pv" style="display:inline;">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span></p><!----></footer></div></is-l><div class="φbo"><div class="φbn"><div class="φbs φq"><main class="φbr φb"><router-outlet></router-outlet><is-s class="φfx φba"><header class="φgh φgi" style="background-image:;background-color:;"><div class="φgo"><h1 class="φgr">iChrome CSS 美化</h1><!----><p class="φgj φo"><span class="φgk φgn">2019年7月24日</span><!----><!----></p><!----><!----></div></header><article itemscope="" itemtype="http://schema.org/Article" class="φga" data-title="iChrome CSS 美化"><div itemprop="articleBody" issnippet="" iszoomable="" class="φbi φy φg"><p>一个 Chrome 插件 iChrome，功能齐全，但是有广告，所以以下代码就是来美化插件。</p>
+<a id="more"></a>
+<p><img src="https://tvax4.sinaimg.cn/large/0060ksKkly1gc1pxdp7drj30hq0b2n85.jpg" alt="iChrome" class="φcx"></p>
+<h2 id="使用方法">使用方法<a title="#使用方法" href="#使用方法"></a></h2>
+<p>在插件 iChrome 的设置中找到自定义 CSS 片段框，填入下面的内容，已经过浓缩处理。</p>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.tab-container</span> <span class="selector-class">.tab</span>&gt;<span class="selector-class">.ad-unit</span><span class="selector-class">.bottom</span>{<span class="attribute">display</span>:none<span class="meta">!important</span>}</span><br><span class="line"><span class="selector-class">.store-detail</span> <span class="selector-class">.preview</span> <span class="selector-class">.widget</span>, <span class="selector-class">.widgets-container</span> <span class="selector-class">.widget</span>{<span class="attribute">background</span>:<span class="number">#fffc</span>;<span class="attribute">backdrop-filter</span>:<span class="built_in">blur</span>(<span class="number">20px</span>)}</span><br><span class="line"><span class="selector-class">.store-detail</span> <span class="selector-class">.preview</span> <span class="selector-class">.widget</span> <span class="selector-class">.wtooltip</span>, <span class="selector-class">.widgets-container</span> <span class="selector-class">.widget</span> <span class="selector-class">.wtooltip</span>{<span class="attribute">display</span>:none<span class="meta">!important</span>}</span><br><span class="line"><span class="selector-tag">header</span><span class="selector-class">.toolbar</span><span class="selector-class">.floating</span> <span class="selector-class">.search</span> <span class="selector-tag">input</span> {<span class="attribute">background</span>:<span class="number">#fffc</span>;<span class="attribute">backdrop-filter</span>:<span class="built_in">blur</span>(<span class="number">20px</span>);<span class="attribute">box-shadow</span>:<span class="number">0</span> <span class="number">2px</span> <span class="number">10px</span> <span class="number">0</span> <span class="number">#0000005e</span>}</span><br><span class="line"><span class="selector-class">.store-detail</span> <span class="selector-class">.preview</span> <span class="selector-class">.widget</span> <span class="selector-class">.wdelete</span>, <span class="selector-class">.widgets-container</span> <span class="selector-class">.widget</span> <span class="selector-class">.wdelete</span>{<span class="attribute">color</span>:black}</span><br><span class="line"><span class="selector-class">.feedback-link</span> <span class="selector-class">.icon</span>{<span class="attribute">display</span>:none<span class="meta">!important</span>}</span><br><span class="line"><span class="selector-class">.bg-info</span>{<span class="attribute">right</span>:<span class="number">10px</span>;<span class="attribute">color</span>:<span class="number">#fffc</span>}</span><br><span class="line"><span class="selector-class">.add-widget-link</span>{<span class="attribute">color</span>:<span class="number">#fffc</span>;<span class="attribute">position</span>:absolute}</span><br><span class="line"><span class="selector-class">.menu-toggle</span> <span class="selector-class">.menu-button</span><span class="selector-pseudo">:hover</span>{<span class="attribute">background-color</span>:<span class="number">#fff</span>}</span><br><span class="line"><span class="selector-class">.menu-toggle</span> <span class="selector-class">.menu-button</span><span class="selector-pseudo">:before</span>{<span class="attribute">color</span>:black}</span><br><span class="line"><span class="selector-class">.menu-toggle</span> <span class="selector-class">.menu-button</span>{<span class="attribute">background-color</span>:<span class="number">#fffc</span>}</span><br><span class="line"><span class="selector-class">.add-widget-link</span> <span class="selector-class">.icon</span>{<span class="attribute">text-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">#fff0</span>}</span><br><span class="line"><span class="selector-tag">button</span><span class="selector-class">.material</span><span class="selector-class">.fab</span>{<span class="attribute">background-color</span>:<span class="number">#fffc</span>}</span><br><span class="line"><span class="selector-class">.menu-container</span>{<span class="attribute">background</span>:<span class="number">#fffc</span>;<span class="attribute">backdrop-filter</span>:<span class="built_in">blur</span>(<span class="number">20px</span>);<span class="attribute">box-shadow</span>:<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">#fff0</span>}</span><br><span class="line"><span class="selector-class">.app</span><span class="selector-class">.settings</span> <span class="selector-class">.page</span> <span class="selector-tag">header</span>{<span class="attribute">background</span>:<span class="number">#4080fe</span>}</span><br></pre></td></tr></tbody></table></figure>
+</div><is-f class="φcc φk φn"><!----><ul class="φcg"><li class="φce"><strong class="φcf">本文作者<span>:</span></strong><p class="φcd">CWorld</p></li><li class="φce"><strong class="φcf">本文链接<span>:</span></strong><p class="φcd"><a href="https://blog.cworld.top/ichrome-css/" title="iChrome CSS 美化">https://blog.cworld.top/ichrome-css/</a></p></li><li class="φce"><strong class="φcf">版权声明<span>:</span></strong><p class="φcd">Attribution-NonCommercial-NoDerivatives 4.0 International<br>(<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noopener" target="_blank">CC BY-NC-ND 4.0</a>)</p></li><li class="φce"><strong class="φcf">发表日期<span>:</span></strong><p class="φcd">2019年7月24日</p></li><li class="φce"><strong class="φcf">更新日期<span>:</span></strong><p class="φcd">2021年5月23日</p></li><!----></ul><!----></is-f><!----><is-k class="φdt"><p class="φdy">不妨用打赏💰再伤我一次</p><div class="φdv φy"><div class="φdx"><!----></div><div class="φea"><a class="φdz φbk icon-wechat" style="color:;"></a><a class="φdz" style="color:;">QQ</a><a class="φdz" style="color:;">酷安</a><!----></div></div></is-k><!----><div class="φy"><div issnippet="" class="φbl"><p id="hitokoto" style="text-align: center;">:D 获取中...</p>
+
+</div><div issnippet="" class="φbl">
+
+</div><!----></div><!----></article><footer class="φgb φy"><!----><div class="φgc"><a class="φgd φgf φl" href="/onedrive-scf">利用腾讯云无服务器云函数搭建 OneDrive 网盘</a><!----><a class="φgd φge φl" href="/pure-baidu">Pure 百度 - 质形色，始方圆</a><!----></div><!----></footer><is-e class="φbz φy"><div issnippet="" class="φbl"><div class="vcomment valine" id="vcomment"></div>
+
+  
+</div><!----><!----><!----><!----></is-e><!----><!----><!----></is-s><!----></main><!----></div></div></div><is-g class="φch"><div class="φcq"><span class="φbk icon-up"></span><span class="φbk icon-down"></span><!----><span class="φbk icon-toc"></span><!----><span class="φbk icon-search"></span><!----></div><div class="φcj φck"><svg class="φcp"><defs><filter id="dp"><feGaussianBlur in="SourceGraphic" stdDeviation="2"></feGaussianBlur></filter></defs><circle filter="url(#dp)" fill="rgba(0,0,0,.3)" cx="50%" cy="52%" r="44%"></circle><circle cx="50%" cy="50%" r="44%" class="φcl φe"></circle><circle cx="50%" cy="50%" r="48%" class="φco φf" stroke-dasharray="0% 314.15926%"></circle><!----><g class="φcm"><circle r=".2rem" cx="0" cy="-.8rem"></circle><circle r=".2rem"></circle><circle r=".2rem" cx="0" cy=".8rem"></circle></g><!----></svg></div></is-g><is-n class="φev φba"><div class="φex φey φs"><a class="φfa φl"><span class="φfb φbc">1 </span><!----><span class="φfc">使用方法</span></a><!----></div><!----></is-n><!----><!----></is-a>
+<script src="//lib.baomitu.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/cworld1/source@master/files/valine.js"></script>
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.jsdelivr.net/gh/cworld1/source@master/files/themes.min.js"></script>
+
+<script src="//cdn.jsdelivr.net/gh/ikeq/hexo-theme-inside@2.7.0-beta.2/source/runtime.0d15793f6e46723148c6.js"></script>
+<script src="//cdn.jsdelivr.net/gh/ikeq/hexo-theme-inside@2.7.0-beta.2/source/polyfills.6661dd3f63d336032841.js"></script>
+<script src="//cdn.jsdelivr.net/gh/ikeq/hexo-theme-inside@2.7.0-beta.2/source/main.7652f74988a605a4b23c.js"></script>
+
+
+</body></html>
